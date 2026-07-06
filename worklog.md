@@ -602,3 +602,15 @@ Work Log:
 
 Stage Summary:
 - Skills description now wraps on mobile and stays one line on desktop. Ready for next section.
+
+---
+Task ID: 39
+Agent: main (Z.ai Code)
+Task: Mobile - make the hamburger menu icon blue (like the name color) for better visibility.
+
+Work Log:
+- In src/components/navbar.tsx, updated the hamburger menu button className to "md:hidden rounded-full text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-cyan-300".
+- Verified with Agent Browser on 390x844 mobile: light mode color is lab(44,29,-86) = blue (same as the name), dark mode is white. Lint clean. No runtime errors.
+
+Stage Summary:
+- Hamburger menu icon now blue in light mode (matching the name), white in dark mode. Ready for next section.

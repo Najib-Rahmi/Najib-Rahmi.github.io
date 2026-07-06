@@ -98,7 +98,7 @@ export function Navbar() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden rounded-full"
+            className="md:hidden rounded-full text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-cyan-300"
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
           >
