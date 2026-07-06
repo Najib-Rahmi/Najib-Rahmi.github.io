@@ -134,7 +134,7 @@ export function Contact() {
             <form
               onSubmit={handleSubmit}
               noValidate
-              className="rounded-2xl border border-cyan-500/15 bg-card p-6 sm:p-8 space-y-5"
+              className="rounded-2xl border border-cyan-500/15 bg-card p-8 sm:p-10 space-y-7 min-h-[520px] flex flex-col justify-center"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
@@ -200,7 +200,7 @@ export function Contact() {
                 <Textarea
                   id="message"
                   name="message"
-                  rows={6}
+                  rows={9}
                   placeholder="Tell me about your project, your team, or just say hi..."
                   aria-invalid={!!errors.message}
                   aria-describedby={

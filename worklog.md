@@ -77,3 +77,19 @@ Stage Summary:
 - Contact section left column now shows only the "Find me online" label + social icons including a location (MapPin) icon, no card boxes.
 - Form on the right unchanged and working.
 - Ready for the next section modification.
+
+---
+Task ID: 4
+Agent: main (Z.ai Code)
+Task: In the Contact section, replace freeCodeCamp with WhatsApp (number +216 24 583 312) and add height to the contact box.
+
+Work Log:
+- In src/lib/portfolio-data.ts, added MessageCircle to lucide-react imports and replaced the freeCodeCamp social link with WhatsApp: { label: "WhatsApp", href: "https://wa.me/21624583312", icon: MessageCircle }. (Kept GraduationCap import since it is still used in the experiences array.)
+- In src/components/sections/contact.tsx, increased the form box height: changed padding from p-6 sm:p-8 to p-8 sm:p-10, spacing from space-y-5 to space-y-7, added min-h-[520px] with flex flex-col justify-center, and increased the message textarea from rows={6} to rows={9}.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: social links now show GitHub, LinkedIn, WhatsApp, Email, Tunis Tunisia (location). WhatsApp link correctly points to https://wa.me/21624583312. Form box is 520px tall (taller than before), textarea is 9 rows. Contact form still submits successfully (success toast appears). No runtime errors.
+
+Stage Summary:
+- freeCodeCamp replaced with WhatsApp using the real number +216 24 583 312 (wa.me link).
+- Contact form box is now taller (520px min height) with more padding and a larger message area for a better look.
+- Ready for the next section modification.

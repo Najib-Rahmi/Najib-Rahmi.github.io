@@ -8,6 +8,7 @@ import {
   Github,
   Linkedin,
   Mail,
+  MessageCircle,
   GraduationCap,
   MapPin,
   Briefcase,
@@ -63,9 +64,9 @@ export const socialLinks: SocialLink[] = [
     icon: Linkedin,
   },
   {
-    label: "freeCodeCamp",
-    href: "https://www.freecodecamp.org/nejib-rehmi",
-    icon: GraduationCap,
+    label: "WhatsApp",
+    href: "https://wa.me/21624583312",
+    icon: MessageCircle,
   },
   {
     label: "Email",
