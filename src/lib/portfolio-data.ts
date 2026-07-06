@@ -9,12 +9,7 @@ import {
   Linkedin,
   Mail,
   MessageCircle,
-  GraduationCap,
-  MapPin,
   Briefcase,
-  ExternalLink,
-  Rocket,
-  Sparkles,
   HeartPulse,
 } from "lucide-react";
 
@@ -286,5 +281,3 @@ export const experiences: Experience[] = [
     ],
   },
 ];
-
-export { Sparkles };

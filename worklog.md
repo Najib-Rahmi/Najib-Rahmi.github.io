@@ -781,3 +781,221 @@ Work Log:
 
 Stage Summary:
 - Tagline now cyan in light mode, more visible against the photo. Ready for next section.
+
+---
+Task ID: 51
+Agent: Explore
+Task: Read-only audit of the Next.js 16 portfolio at /home/z/my-project covering SEO, unused code, and improvement ideas. No code changes were made.
+
+Work Log:
+
+## 1. SEO Audit
+
+### 1.1 Metadata (src/app/layout.tsx lines 17-39)
+Present: `title`, `description`, `keywords`, `authors`, partial `openGraph` (title, description, type only).
+Missing:
+- `metadataBase` (critical - required for relative OG/Twitter URLs to resolve)
+- `openGraph.url`, `openGraph.images`, `openGraph.siteName`, `openGraph.locale`
+- `twitter` block entirely missing (no card, no images)
+- `alternates.canonical` (no canonical URL)
+- `metadata.robots` (only the static public/robots.txt exists)
+- `category`, `applicationName`, `creator`, `publisher`
+- Description length ~174 chars (over the recommended 155-160)
+- **Name inconsistency**: metadata title/description use "Rahmi Najib" but `profile.name = "Najib Rahmi"` and `profile.firstName = "Najib"`. The name order is swapped between metadata and content - pick one and use it everywhere.
+
+### 1.2 Sitemap
+- NO `public/sitemap.xml`
+- NO `src/app/sitemap.ts`
+- NO `sitemap` reference anywhere in the codebase (verified via glob + grep).
+- Recommendation: add `src/app/sitemap.ts` exporting at least the homepage route.
+
+### 1.3 Robots (public/robots.txt, 160 bytes)
+- Static file allowing Googlebot, Bingbot, Twitterbot, facebookexternalhit, and `*`.
+- Missing the `Sitemap: <absolute-url>` directive - search engines won't discover a sitemap from robots.txt.
+- No `Host:` directive.
+- Recommendation: replace with `src/app/robots.ts` (Next 16 native) and add a `Sitemap:` line, or at minimum append the Sitemap directive to the static file.
+
+### 1.4 next.config.ts (12 lines)
+- `output: "standalone"` ✓
+- `typescript.ignoreBuildErrors: true` - hides type errors (code-quality risk, not SEO)
+- `reactStrictMode: false` - code quality, not SEO
+- No `images` config (no `remotePatterns` / `formats`), so `next/image` cannot load remote images and AVIF/WebP optimization isn't explicitly enabled.
+- No `headers()` for security headers (CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy).
+- No `poweredByHeader: false` (Next.js still sends X-Powered-By).
+- No experimental / compress / productionBrowserSourceMaps config.
+
+### 1.5 JSON-LD / Structured data
+- NONE found anywhere. Grep for `application/ld+json`, `schema.org`, `Person`, `WebSite` returned zero hits in `src/`.
+- Recommendation: add a `Person` schema (name, jobTitle, url, email, sameAs=[github, linkedin, whatsapp]) and a `WebSite` schema in `layout.tsx` rendered as `<script type="application/ld+json">`.
+
+### 1.6 HTML lang attribute
+- ✓ `lang="en"` set correctly in `src/app/layout.tsx` line 47.
+
+### 1.7 Meta description / keywords
+- Description present but ~174 chars (slightly long for Google snippets, which truncate at ~160).
+- Keywords array present - Google ignores them, but they are not harmful.
+
+### 1.8 Image alt texts
+- `src/components/sections/about.tsx` line 34: `alt={`${profile.name} avatar`}` ✓
+- `src/components/navbar.tsx` line 62: `alt={`${profile.name} logo`}` ✓
+- Hero background divs (`hero.tsx` lines 18-27): `aria-hidden` ✓ (decorative)
+- No missing alt texts found on rendered images.
+
+### 1.9 Heading hierarchy
+Single `h1` in `hero.tsx` line 58 (`profile.name`) ✓.
+Each section uses `SectionHeading` which renders an `h2` (line 42 of `section-heading.tsx`).
+Sub-items use `h3`:
+- `about.tsx:41` (profile.name - redundant with the h1, minor)
+- `skills.tsx:39` (each of 5 category titles)
+- `projects.tsx:44` (each of 6 project titles)
+- `experience.tsx:55` (each of 4 roles)
+- `contact.tsx:108` ("Find me online")
+Hierarchy is valid: h1 → h2 → h3, no skipped levels. Good.
+Minor: putting `profile.name` in an h3 in About duplicates the h1 semantics; consider demoting to a `<p>` or `<div>`.
+
+### 1.10 Image performance (SEO-impacting)
+- **NO `next/image` usage anywhere** - all images are plain `<img>` tags.
+- Hero backgrounds use CSS `background-image: url(...)` (`hero.tsx` lines 20, 25) on `public/hero-bg.png` (1.4 MB / 1,447,135 bytes) and `public/hero-bg-mobile.png` (1.4 MB / 1,389,610 bytes). Both are served as-is with no optimization, no responsive sizes, no lazy loading, no AVIF/WebP.
+- About avatar `img` (`about.tsx:32-38`) has width/height but no `loading="lazy"`, no `priority`.
+- Navbar avatar `img` (`navbar.tsx:60-64`) has no width/height attributes, no lazy loading.
+- This is a major LCP / Core Web Vitals issue (1.4 MB PNG downloaded on first paint for the hero).
+
+## 2. Unused Code Audit
+
+### 2.1 Unused lucide-react icons imported in src/lib/portfolio-data.ts
+Imported but NEVER referenced anywhere in the codebase:
+- `GraduationCap` (line 12) - never used as data, never re-exported
+- `MapPin` (line 13) - never used; `hero.tsx:5` and `contact.tsx:9` import their own `MapPin` directly from `lucide-react`
+- `ExternalLink` (line 15) - never used; `projects.tsx:4` imports its own directly
+- `Rocket` (line 16) - never used
+- `Sparkles` (line 17) - imported and re-exported on line 290, but the export `export { Sparkles };` is dead: no file imports `Sparkles` from `@/lib/portfolio-data`.
+
+Icons in portfolio-data.ts that ARE used (verified via grep):
+`Code2`, `Layers`, `Database`, `BrainCircuit`, `Wrench` (skillCategories icons), `Github`, `Linkedin`, `Mail`, `MessageCircle` (socialLinks icons), `Briefcase`, `HeartPulse` (experiences icons).
+
+### 2.2 Unused `profile` fields in src/lib/portfolio-data.ts
+- `profile.techLine` (line 27) - NEVER used. Task 43 removed the hero element that displayed it.
+- `profile.resumeUrl` (line 35) - NEVER used. `hero.tsx` line 112 hardcodes `/cv.pdf` instead.
+- `profile.email` (line 32) - NEVER used directly. The `mailto:` link lives only inside `socialLinks` as a string literal.
+- `profile.githubUrl` (line 34) - NEVER used. The GitHub URL lives only inside `socialLinks` as a string literal.
+- `profile.firstName` (line 24) - used only in `footer.tsx` line 17.
+
+### 2.3 Unused exports
+- `export { Sparkles };` at `portfolio-data.ts:290` is dead code (see 2.1).
+- The boilerplate `src/app/api/route.ts` exports `GET` returning `{ message: "Hello, world!" }` - never called by the UI.
+
+### 2.4 Unused shadcn UI components (40 of 45 files)
+Application code imports ONLY: `button`, `input`, `textarea`, `toaster` (+ `toast` used by `toaster`). The following 40 files are scaffolded shadcn boilerplate never imported by the portfolio app:
+`accordion`, `alert`, `alert-dialog`, `aspect-ratio`, `avatar`, `badge`, `breadcrumb`, `calendar`, `card`, `carousel`, `chart`, `checkbox`, `collapsible`, `command`, `context-menu`, `dialog` (only used by `command`), `drawer`, `dropdown-menu`, `form`, `hover-card`, `input-otp`, `label` (only used by `form`), `menubar`, `navigation-menu`, `pagination`, `popover`, `progress`, `radio-group`, `resizable`, `scroll-area` (only used by `examples/websocket/frontend.tsx`), `select`, `separator` (only used by `sidebar`), `sheet` (only used by `sidebar`), `sidebar`, `skeleton` (only used by `sidebar`), `slider`, `sonner`, `switch`, `table`, `tabs`, `toggle` (only used by `toggle-group`), `toggle-group`, `tooltip` (only used by `sidebar`).
+
+### 2.5 Unused fonts
+- `Geist_Mono` is loaded in `layout.tsx` (lines 12-15) and exposed as `--font-geist-mono` in `globals.css` line 10, but `font-mono` is only referenced in `src/components/ui/chart.tsx` line 236 - which is itself an unused UI component. So the mono font is downloaded on every page for nothing (~30-50 KB on first paint).
+
+### 2.6 Unused `examples/` folder
+- `examples/websocket/frontend.tsx` and `examples/websocket/server.ts` are not imported anywhere in `src/`, not routed. They import `socket.io-client` and `socket.io` which are NOT in `package.json` dependencies, so they would fail to build if accidentally imported. Dead code from the scaffold.
+
+### 2.7 Unused upload / download folders
+- `upload/mybackgroundPhoto.png` (1,447,135 bytes) and `upload/myphonebackground.png` (1,389,610 bytes) are the original uploaded photos. They were already copied to `public/hero-bg.png` and `public/hero-bg-mobile.png` respectively (identical sizes confirm this). The originals in `upload/` are dead.
+- `download/README.md` contains only "Here are all the generated files." - scaffold artifact.
+
+### 2.8 Unused npm dependencies (in package.json, not imported by src/)
+~25 scaffold dependencies are not used by the portfolio app:
+`@dnd-kit/core`, `@dnd-kit/sortable`, `@dnd-kit/utilities`, `@hookform/resolvers`, `@mdxeditor/editor`, most `@radix-ui/*` packages (only ~5 of ~30 are actually needed for button/input/textarea/toast), `@reactuses/core`, `@tanstack/react-query`, `@tanstack/react-table`, `cmdk`, `date-fns`, `embla-carousel-react`, `input-otp`, `next-auth`, `next-intl`, `react-day-picker`, `react-hook-form`, `react-markdown`, `react-resizable-panels`, `react-syntax-highlighter`, `recharts`, `sonner`, `uuid`, `vaul`, `z-ai-web-dev-sdk`, `zod`, `zustand`. `sharp` is fine (used by next/image optimization at build time).
+
+### 2.9 Tech-icon paths (src/components/tech-icon.tsx)
+All 21 icon paths in `ICON_PATHS` (`html5`, `css3`, `tailwindcss`, `javascript`, `typescript`, `react`, `nextdotjs`, `nodedotjs`, `express`, `mysql`, `postgresql`, `mongodb`, `anthropic`, `databricks`, `openai`, `git`, `github`, `docker`, `visualstudiocode`, `glm`, `kilocode`) are referenced by `skillCategories` in `portfolio-data.ts`. No dead icon paths. ✓
+
+### 2.10 Unused API route
+- `src/app/api/route.ts` (4 lines, returns `{ message: "Hello, world!" }`) is scaffold boilerplate not used by the portfolio UI.
+
+## 3. Improvement Ideas
+
+### 3.1 SEO (highest priority)
+1. Add `metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000")` to `layout.tsx` metadata.
+2. Complete the `openGraph` block: `url`, `images` (1200×630), `siteName`, `locale: "en_US"`.
+3. Add a `twitter: { card: "summary_large_image", title, description, images }` block.
+4. Add `alternates: { canonical: "/" }`.
+5. Add `robots: { index: true, follow: true, googleBot: { ... } }`.
+6. Create `src/app/sitemap.ts` exporting a route array containing at least the homepage.
+7. Either replace `public/robots.txt` with `src/app/robots.ts` or add a `Sitemap: <absolute-url>` directive to the static file.
+8. Add JSON-LD `Person` schema (name, jobTitle, url, email, sameAs=[github, linkedin, whatsapp]) and `WebSite` schema in `layout.tsx` as `<script type="application/ld+json">`.
+9. Shorten meta description to ≤160 chars.
+10. Fix the name-order inconsistency between metadata ("Rahmi Najib") and `profile.name` ("Najib Rahmi").
+11. Generate a static OG image - either an `opengraph-image.png` in `src/app/` or a dynamic route using `next/og` (ImageResponse) that composes name + role + tagline.
+12. Add a `manifest.ts` (or `public/manifest.json`) and theme-color meta for PWA / mobile installability.
+
+### 3.2 Performance
+1. **Convert hero background to `next/image` with `priority` and responsive `sizes`**. Currently a 1.4 MB PNG is downloaded on every first paint via CSS `background-image`. This alone is the biggest LCP win.
+2. Convert `avatar.png` (`<img>` in `about.tsx` and `navbar.tsx`) to `next/image` with explicit width/height.
+3. Convert the hero PNGs to AVIF/WebP (Next image handles format negotiation automatically once `next/image` is used).
+4. Remove the `Geist_Mono` font load (`layout.tsx` lines 12-15) - nothing in the actual UI uses `font-mono` (only the unused `chart.tsx` does).
+5. Delete the 40 unused shadcn UI components - they don't ship to the client if not imported, but they bloat `node_modules`, slow down lint/typecheck, and risk accidental imports.
+6. Consider `LazyMotion` from framer-motion for below-the-fold sections (About/Skills/Projects/Experience/Contact) to shrink the initial JS bundle.
+7. Add `loading="lazy"` to the about avatar (above-the-fold navbar avatar can stay eager).
+8. Add `Cache-Control` headers for static assets in `next.config.ts` `headers()`.
+9. Set `poweredByHeader: false` in `next.config.ts`.
+
+### 3.3 Accessibility
+1. `navbar.tsx` mobile menu button (line 98-106) has `aria-label="Toggle menu"` ✓ but is missing `aria-expanded={open}` and `aria-controls="mobile-menu"`. The mobile menu container (line 113) is missing `id="mobile-menu"`, `role="dialog"`, `aria-modal="true"`, and an `aria-label`.
+2. `theme-toggle.tsx` has `aria-label="Toggle theme"` ✓ but does not expose current state - add `aria-pressed={isDark}` or change the label to `"Toggle theme, currently ${isDark ? 'dark' : 'light'}"`.
+3. No skip-to-content link. Add `<a href="#home" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:rounded focus:bg-background focus:px-4 focus:py-2">Skip to content</a>` at the top of `<body>`.
+4. Form inputs have associated `<label htmlFor>` ✓ and `aria-invalid`/`aria-describedby` ✓ - good.
+5. Social links have `aria-label` ✓.
+6. Hero "Scroll" indicator has `aria-label="Scroll to about section"` ✓.
+7. `TechIcon` svg has `aria-hidden="true"` ✓ (adjacent text label conveys meaning).
+8. Color contrast: `muted-foreground` is `oklch(0.5 0.02 230)` on `oklch(0.99 0.004 220)` background (light) and `oklch(0.7 0.02 220)` on `oklch(0.16 0.02 240)` (dark) - both should pass AA but verify small text.
+9. Focus styles rely on default `focus-visible:ring` - verify the mobile menu and social icon links are keyboard operable.
+10. The location pill in `hero.tsx` (line 48) is a `<motion.span>` with no semantic role - fine for decoration but if it conveys location info, consider `<address>` or a `<p>`.
+11. Reduce motion: framer-motion animations do not respect `prefers-reduced-motion`. Wrap animations in a `useReducedMotion()` check.
+
+### 3.4 Code maintainability
+1. Remove unused icons from `portfolio-data.ts` imports: `GraduationCap`, `MapPin`, `ExternalLink`, `Rocket`, `Sparkles`. Also delete the dead `export { Sparkles };` on line 290.
+2. Either remove the unused `profile` fields (`techLine`, `resumeUrl`, `githubUrl`, `email`) or wire them up (e.g., use `profile.resumeUrl` in `hero.tsx` instead of the hardcoded `/cv.pdf`).
+3. Delete the 40 unused shadcn UI component files (or move them to `components/ui-unused/` if you want to keep them around for future use).
+4. Delete `examples/websocket/` - not used and references missing `socket.io` dependencies.
+5. Delete `src/app/api/route.ts` or repurpose it.
+6. Delete `upload/` (originals already in `public/`) and `download/README.md`.
+7. In `next.config.ts`, set `typescript.ignoreBuildErrors: false` and `reactStrictMode: true`.
+8. Centralize the site URL in a single constant or env var so `metadataBase`, `alternates.canonical`, `openGraph.url`, the `Sitemap:` directive, and JSON-LD `url` all reference one source of truth.
+9. Consider splitting `portfolio-data.ts` into `data/profile.ts`, `data/skills.ts`, `data/projects.ts`, `data/experiences.ts`, `data/social.ts` if it grows further.
+10. Add a `.env.example` documenting `NEXT_PUBLIC_SITE_URL`.
+11. Add a `precommit`/`lint-staged` setup to catch unused imports automatically (e.g., `eslint-plugin-unused-imports`).
+12. The hero "mobile vs desktop" background is implemented as two separate `<div>` elements with `md:hidden` / `hidden md:block` - this works but renders two DOM nodes. Consider a single `<picture>` element with `<source media>` or one `next/image` with `sizes` for cleaner code.
+
+Stage Summary:
+- **SEO is the biggest gap**: no sitemap, no JSON-LD, no OG image, no Twitter card, no canonical, no metadataBase, no robots.ts. The current metadata is minimal (title + description + partial OG). The 1.4 MB unoptimized hero PNG is also hurting LCP / Core Web Vitals.
+- **Unused code is significant**: 5 unused lucide icons in portfolio-data.ts, 1 dead re-export, 4 unused profile fields, 1 unused font (Geist_Mono), 40 unused shadcn UI files, 1 unused examples folder, 1 unused API route, ~25 unused npm dependencies, 2 unused scaffolding folders (upload/, download/).
+- **What is already good**: html lang="en" is set, single h1, valid heading hierarchy, alt texts on all rendered images, aria-hidden on decorative elements, labels and aria-invalid on form inputs, aria-labels on icon-only buttons/links.
+- **No code was changed** - this is a read-only audit. Ready for an Implement agent to act on the findings, prioritizing: (1) SEO metadata completion + sitemap + JSON-LD, (2) next/image adoption for hero + avatar, (3) cleanup of unused icons/profile fields/UI components/examples folder, (4) accessibility ARIA fixes for the mobile menu and theme toggle, (5) next.config.ts hardening.
+
+---
+Task ID: 52
+Agent: main (Z.ai Code)
+Task: Implement best SEO, clean up unused code, and harden config based on the audit.
+
+Work Log:
+SEO implementation:
+- Rewrote src/app/layout.tsx metadata: added metadataBase, title template, creator, publisher, alternates.canonical, robots config (index/follow + googleBot image-preview/snippet), complete openGraph (locale, url, siteName, images with avatar dimensions), full twitter card (summary_large_image, images, creator), icons (avatar as favicon), category. Fixed name from "Rahmi Najib" to "Najib Rahmi" and trimmed description under 160 chars.
+- Added JSON-LD structured data (Person + WebSite + ProfilePage schema) injected via <script type="application/ld+json"> in <head>. Includes jobTitle, address (Tunis/TN), sameAs (GitHub/LinkedIn/freeCodeCamp), knowsAbout (React/Next.js/AI/etc.).
+- Created src/app/sitemap.ts (MetadataRoute.Sitemap) returning the root URL with monthly changeFrequency and priority 1.
+- Created src/app/robots.ts (MetadataRoute.Robots) allowing all user agents, pointing to sitemap.xml and setting host. Removed the conflicting static public/robots.txt.
+- Hardened next.config.ts: reactStrictMode true, poweredByHeader false, typescript.ignoreBuildErrors false, and security headers (X-Content-Type-Options nosniff, X-Frame-Options SAMEORIGIN, Referrer-Policy, Permissions-Policy).
+
+Code cleanup:
+- Removed unused lucide imports from src/lib/portfolio-data.ts: GraduationCap, MapPin, ExternalLink, Rocket, Sparkles (MapPin is imported directly in hero/contact where used).
+- Removed the dead `export { Sparkles };` re-export at the end of portfolio-data.ts.
+
+Accessibility:
+- Added a skip-to-content link in navbar (sr-only, visible on focus) for keyboard users.
+- Added aria-expanded and aria-controls to the mobile menu button.
+- Added id="mobile-menu", role="dialog", aria-modal, and aria-label to the mobile menu container.
+
+Verification:
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: document.title = "Najib Rahmi | Full Stack Web Developer", JSON-LD script present, skip link present, no runtime errors.
+- Verified routes: /robots.txt returns proper robots with Sitemap directive and Host. /sitemap.xml returns valid XML urlset with lastmod.
+
+Stage Summary:
+- Full SEO implemented: complete metadata, JSON-LD Person/WebSite schema, sitemap.xml, robots.txt, canonical URL, Open Graph + Twitter cards, security headers.
+- Unused code removed (5 lucide icons + dead re-export). Accessibility improved (skip link, ARIA on mobile menu).
+- Ready for next section.

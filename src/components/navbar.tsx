@@ -53,6 +53,12 @@ export function Navbar() {
       <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
         <a
           href="#home"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-md focus:bg-cyan-500 focus:text-white focus:text-sm focus:font-medium"
+        >
+          Skip to content
+        </a>
+        <a
+          href="#home"
           className="group flex items-center gap-2.5 font-bold text-base sm:text-lg"
         >
           <span className="relative shrink-0 transition-transform group-hover:scale-110">
@@ -100,6 +106,8 @@ export function Navbar() {
             size="icon"
             className="md:hidden rounded-full text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-cyan-300"
             aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -111,6 +119,10 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
