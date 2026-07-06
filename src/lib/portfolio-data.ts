@@ -196,7 +196,7 @@ export type Experience = {
 // A focused journey based on the GitHub profile narrative
 export const experiences: Experience[] = [
   {
-    role: "Full-Stack Developer",
+    role: "Full Stack Web Developer",
     company: "Open to Opportunities",
     period: "Now",
     description:

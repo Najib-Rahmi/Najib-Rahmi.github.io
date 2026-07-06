@@ -25,7 +25,7 @@ export function Experience() {
 
           <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp, i) => {
-              const isLeft = i % 2 === 0;
+              const isLeft = i % 2 !== 0;
               return (
                 <motion.div
                   key={exp.role + exp.company}
