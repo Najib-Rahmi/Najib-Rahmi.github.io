@@ -49,7 +49,7 @@ export function About() {
           </div>
 
           {/* Bio */}
-          <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
+          <p className="text-base sm:text-lg leading-relaxed text-muted-foreground whitespace-pre-line">
             {profile.bio}
           </p>
 

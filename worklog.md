@@ -401,3 +401,16 @@ Work Log:
 
 Stage Summary:
 - About stat boxes set exactly as requested. Ready for next section.
+
+---
+Task ID: 25
+Agent: main (Z.ai Code)
+Task: About - format the bio as 3 paragraphs with line breaks exactly as the user wrote.
+
+Work Log:
+- Updated profile.bio in src/lib/portfolio-data.ts to include \n between the three paragraphs (after "solid backends." and after "shipped product.").
+- Added whitespace-pre-line class to the bio <p> in src/components/sections/about.tsx so the newlines render as paragraph breaks.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: bio renders as 3 paragraphs. No runtime errors.
+
+Stage Summary:
+- About bio now displays as 3 distinct paragraphs matching the user's exact text. Ready for next section.
