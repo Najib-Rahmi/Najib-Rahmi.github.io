@@ -217,3 +217,23 @@ Stage Summary:
 - GLM and Kilo Code added to AI/LLM with custom brand icons.
 - Frameworks & Libraries and other short categories stay on one line (horizontal scroll if needed).
 - Ready for next section.
+
+---
+Task ID: 14
+Agent: main (Z.ai Code)
+Task: Skills & Tools - use official Kilo Code icon and Z.ai "Z" logo for GLM (instead of custom), and bring back the glow/light effect on icons.
+
+Work Log:
+- Fetched the official Kilo Code logo by scraping kilocode.ai and extracting the KiloLogo SVG component (100x100 viewBox, fill=currentColor path).
+- Extracted the Z.ai "Z" mark from public/logo.svg (3 subpaths in 30x30 viewBox).
+- Updated src/components/tech-icon.tsx: changed ICON_PATHS to a Record<string, IconEntry> where IconEntry is either a string (default 24x24 viewBox) or {viewBox, path} for custom viewBoxes. Replaced the custom GLM path with the Z.ai "Z" logo (viewBox 0 0 30 30) and the custom Kilo Code path with the official Kilo Code logo (viewBox 0 0 100 100).
+- Added a getIcon() helper to normalize string vs object entries into {viewBox, path}.
+- Brought back the glow effect: changed the SVG to use fill="currentColor" with style={{ color }} so the drop-shadow(0 0 6px currentColor) glow now uses the actual brand color (previously currentColor resolved to the muted text color, making the glow faint).
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: GLM svg viewBox = 0 0 30 30 (Z.ai Z logo), Kilo Code svg viewBox = 0 0 100 100 (official logo). All 21 icons have the glow drop-shadow filter. No runtime errors.
+
+Stage Summary:
+- GLM now uses the official Z.ai "Z" logo mark.
+- Kilo Code now uses its official logo (scraped from kilocode.ai).
+- Glow/light effect restored on all skill icons, using each brand's own color.
+- Ready for next section.
