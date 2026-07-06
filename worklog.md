@@ -674,3 +674,15 @@ Work Log:
 
 Stage Summary:
 - The techLine is no longer shown in the hero on any device. Ready for next section.
+
+---
+Task ID: 44
+Agent: main (Z.ai Code)
+Task: Hero - update the tagline with the user's chosen professional text.
+
+Work Log:
+- Updated profile.tagline in src/lib/portfolio-data.ts to: "Curious by nature, I build modern web apps end to end and keep raising the bar with every line of code. Turning complex problems into clean, scalable software that real people use."
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: new tagline present. No runtime errors.
+
+Stage Summary:
+- Hero tagline updated. Ready for next section.
