@@ -59,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_40px_rgba(34,211,238,0.55)]"
+            className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_40px_rgba(34,211,238,0.55)] whitespace-nowrap"
           >
             {profile.name}
           </motion.h1>

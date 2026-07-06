@@ -724,3 +724,15 @@ Stage Summary:
 - Tablet: 60px padding (top and left), tagline now 4 lines.
 - PC: content at 140px from left.
 - Ready for next section.
+
+---
+Task ID: 47
+Agent: main (Z.ai Code)
+Task: Hero PC - fix the name "Najib Rahmi" wrapping to two lines (Rahmi below Najib).
+
+Work Log:
+- In src/components/sections/hero.tsx, added whitespace-nowrap to the name h1 className so "Najib Rahmi" stays on a single line at all viewport sizes.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser at 1280px: name height is 96px (single line, wraps: false). No runtime errors.
+
+Stage Summary:
+- Name "Najib Rahmi" now stays on one line on PC (and all viewports). Ready for next section.
