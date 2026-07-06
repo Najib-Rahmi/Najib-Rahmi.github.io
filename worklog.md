@@ -293,3 +293,16 @@ Stage Summary:
 - The 5 specified icons (Next.js, Express.js, GitHub, GLM, MySQL) now have a theme-adaptive glow: white in dark mode, black in light mode.
 - All other icons keep their brand-color glow.
 - Ready for next section.
+
+---
+Task ID: 18
+Agent: main (Z.ai Code)
+Task: Skills - delete the glowing effect entirely.
+
+Work Log:
+- In src/components/sections/skills.tsx, removed the `glow` prop from the TechIcon usage.
+- Verified with Agent Browser: computed filter is now "none" for skill icons. Lint clean. No runtime errors.
+
+Stage Summary:
+- Glow effect removed from all skill icons. Icons now render plainly in their brand colors with a hover scale only.
+- Ready for next section.
