@@ -41,12 +41,12 @@ export function Experience() {
                     <exp.icon className="size-4" />
                   </span>
 
-                  {/* Content: right side goes in column 2, left side in column 1 with right-aligned text */}
+                  {/* Content: right side goes in column 2, left side in column 1. Both read left to right. */}
                   <div
                     className={
                       isRight
                         ? "sm:col-start-2 sm:pl-8 sm:text-left"
-                        : "sm:col-start-1 sm:pr-8 sm:text-right"
+                        : "sm:col-start-1 sm:pr-8 sm:text-left"
                     }
                   >
                     <span className="inline-block text-xs font-semibold text-cyan-600 dark:text-cyan-400">
@@ -63,9 +63,7 @@ export function Experience() {
                       {exp.highlights.map((h) => (
                         <li
                           key={h}
-                          className={`flex items-start gap-2 text-sm text-muted-foreground ${
-                            isRight ? "" : "sm:flex-row-reverse sm:text-right"
-                          }`}
+                          className="flex items-start gap-2 text-sm text-muted-foreground"
                         >
                           <Check className="size-4 mt-0.5 shrink-0 text-cyan-500" />
                           <span>{h}</span>

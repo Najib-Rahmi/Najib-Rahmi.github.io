@@ -161,3 +161,19 @@ Stage Summary:
 - Title renamed to "Full Stack Web Developer".
 - Full Stack Web Developer and Continuous Learner now appear on the right side of the timeline bar; the other two on the left.
 - Ready for next section.
+
+---
+Task ID: 11
+Agent: main (Z.ai Code)
+Task: Experience section - make index 1 and 3 read left to right (English, not Arabic style).
+
+Work Log:
+- In src/components/sections/experience.tsx, changed the left-side items (index 1 Project Builder & Contributor, index 3 Based in) from sm:text-right to sm:text-left.
+- Removed the sm:flex-row-reverse on the highlights list for left items so the check icons and text read normally left to right.
+- Both left and right side items now use left-aligned text (English reading direction), while keeping their correct side placement on the timeline.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: all 4 headings have textAlign=left. Sides unchanged: Full Stack Web Developer RIGHT, Project Builder LEFT, Continuous Learner RIGHT, Based in LEFT. No runtime errors.
+
+Stage Summary:
+- Left-side timeline items (index 1 and 3) now read left to right with left-aligned text and normal highlight list direction.
+- Ready for next section.
