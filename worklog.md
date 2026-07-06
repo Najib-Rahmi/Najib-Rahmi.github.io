@@ -375,3 +375,17 @@ Stage Summary:
 - About bio rewritten in first person capturing ambition, self-confidence, curiosity, and the learn/try/excel loop.
 - Role label updated to "Full Stack Web Developer".
 - Ready for next section.
+
+---
+Task ID: 23
+Agent: main (Z.ai Code)
+Task: About - add developer details after "developer" and before "ambitious", and add AI learning (MCP, RAG, skills, LLMs like Claude Code, Kilo Code, GLM) at the end of the bio.
+
+Work Log:
+- Updated profile.bio in src/lib/portfolio-data.ts to add: (1) developer details up front - "who builds modern, responsive web apps with React, Next.js, Node.js, and Express.js, comfortable across the whole stack from clean interfaces to solid backends"; (2) AI learning section at the end - "Right now I am diving deep into AI integration, exploring MCP, RAG, and agent skills, and working hands-on with LLMs like Claude Code, Kilo Code, and GLM to build smarter, more capable workflows."
+- No em dashes used (commas and periods only, per earlier requirement).
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: dev details present, AI section present, no em dash. No runtime errors.
+
+Stage Summary:
+- About bio now includes developer/stack details up front and current AI learning (MCP, RAG, skills, Claude Code, Kilo Code, GLM) at the end.
+- Ready for next section.
