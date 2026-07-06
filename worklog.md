@@ -414,3 +414,15 @@ Work Log:
 
 Stage Summary:
 - About bio now displays as 3 distinct paragraphs matching the user's exact text. Ready for next section.
+
+---
+Task ID: 26
+Agent: main (Z.ai Code)
+Task: Skills - reduce the margin/padding between each row.
+
+Work Log:
+- In src/components/sections/skills.tsx, reduced the category row vertical padding from py-8 to py-4, and the grid gap between label and skills from gap-6 to gap-4.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: row heights are now tighter (53-89px). No runtime errors.
+
+Stage Summary:
+- Skills rows are now more compact with less vertical spacing. Ready for next section.

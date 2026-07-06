@@ -29,7 +29,7 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.45, delay: i * 0.06 }}
-              className="py-8 grid gap-6 md:grid-cols-[200px_1fr] md:items-center first:pt-0 last:pb-0"
+              className="py-4 grid gap-4 md:grid-cols-[200px_1fr] md:items-center first:pt-0 last:pb-0"
             >
               {/* Category label with gradient icon (no box) */}
               <div className="flex items-center gap-3">
