@@ -1052,3 +1052,16 @@ Work Log:
 
 Stage Summary:
 - Mobile menu navigation now scrolls each section to 85px from the top (navbar height + 5px extra). Ready for user to test on phone.
+
+---
+Task ID: 57
+Agent: main (Z.ai Code)
+Task: Mobile - change scroll offset from 85px to 110px.
+
+Work Log:
+- In src/app/globals.css, changed scroll-padding-top from 85px to 110px.
+- In src/components/navbar.tsx, changed the mobile menu scroll offset from 85 to 110 (updated comment too).
+- Verified with Agent Browser on 390x844: clicking Contact -> contact top at 110px. Lint clean. No runtime errors.
+
+Stage Summary:
+- Mobile scroll offset now 110px. Ready for user to test on phone.

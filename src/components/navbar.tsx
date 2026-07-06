@@ -143,12 +143,12 @@ export function Navbar() {
                     const target = document.querySelector(link.href);
                     window.setTimeout(() => {
                       if (target) {
-                        // Offset by the navbar height plus a little extra (85px)
+                        // Offset by the navbar height plus extra (110px)
                         // so the section header sits just below the fixed navbar.
                         const top =
                           target.getBoundingClientRect().top +
                           window.scrollY -
-                          85;
+                          110;
                         window.scrollTo({ top, behavior: "smooth" });
                       }
                       // Keep the hash in the URL for accessibility/history.
