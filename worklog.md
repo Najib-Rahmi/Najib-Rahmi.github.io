@@ -237,3 +237,18 @@ Stage Summary:
 - Kilo Code now uses its official logo (scraped from kilocode.ai).
 - Glow/light effect restored on all skill icons, using each brand's own color.
 - Ready for next section.
+
+---
+Task ID: 15
+Agent: main (Z.ai Code)
+Task: Skills - bring back / strengthen the light glow effect on icons.
+
+Work Log:
+- The glow was present but too subtle (single 6px drop-shadow at 0.9 opacity).
+- In src/components/sections/skills.tsx, enhanced the TechIcon className to use a two-layer drop-shadow glow: [filter:drop-shadow(0_0_4px_currentColor)_drop-shadow(0_0_10px_currentColor)], removed the opacity-90 dimming so it is full opacity, and used transition-all for smooth scaling.
+- Verified with Agent Browser: computed filter is now "drop-shadow(rgb(227,79,38) 0px 0px 4px) drop-shadow(rgb(227,79,38) 0px 0px 10px)" at opacity 1. Each icon glows in its own brand color.
+- Ran `bun run lint` -> passed clean. No runtime errors.
+
+Stage Summary:
+- Skill icons now have a prominent two-layer colored glow (4px + 10px) in each brand's color, full opacity, scaling up on hover.
+- Ready for next section.
