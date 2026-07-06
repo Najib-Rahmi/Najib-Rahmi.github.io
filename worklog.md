@@ -662,3 +662,15 @@ Work Log:
 Stage Summary:
 - On PC and tablet, hero content (name, role, tagline, buttons) now aligns to the left, keeping the subject's face and desk clear.
 - Mobile stays centered. Ready for next section.
+
+---
+Task ID: 43
+Agent: main (Z.ai Code)
+Task: Hero - remove the techLine text "React | Express.js | Node.js | Next.js" from all viewports (phone, tablet, PC).
+
+Work Log:
+- In src/components/sections/hero.tsx, removed the motion.p element that displayed profile.techLine.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: techLine text is REMOVED from the hero. No runtime errors.
+
+Stage Summary:
+- The techLine is no longer shown in the hero on any device. Ready for next section.

@@ -74,15 +74,6 @@ export function Hero() {
               {profile.role}
             </span>
           </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-2 text-sm sm:text-base font-medium text-cyan-600 dark:text-cyan-200/90 tracking-wide"
-          >
-            {profile.techLine}
-          </motion.p>
         </div>
 
         {/* Bottom: tagline + buttons */}
