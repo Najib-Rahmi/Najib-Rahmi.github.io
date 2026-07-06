@@ -736,3 +736,15 @@ Work Log:
 
 Stage Summary:
 - Name "Najib Rahmi" now stays on one line on PC (and all viewports). Ready for next section.
+
+---
+Task ID: 48
+Agent: main (Z.ai Code)
+Task: Hero tablet - change padding from 60px to 75px.
+
+Work Log:
+- In src/components/sections/hero.tsx, changed md:pl-[60px] to md:pl-[75px] and md:pt-[60px] to md:pt-[75px].
+- Ran `bun run lint` -> passed clean. Verified at 768px: name left at 75px, name top at 133px. No runtime errors.
+
+Stage Summary:
+- Tablet padding now 75px. Ready for next section.
