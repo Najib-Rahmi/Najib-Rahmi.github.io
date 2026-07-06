@@ -94,7 +94,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-2 flex flex-col justify-center gap-4"
+            className="lg:col-span-2 flex flex-col justify-center gap-4 items-center lg:items-start text-center lg:text-left"
           >
             <a
               href={locationHref}

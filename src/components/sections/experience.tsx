@@ -34,7 +34,7 @@ export function Experience() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.5 }}
-                  className="relative pl-12 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-8"
+                  className="relative pl-12 pr-1 sm:pl-0 sm:pr-0 sm:grid sm:grid-cols-2 sm:gap-8"
                 >
                   {/* Node */}
                   <span className="absolute left-4 sm:left-1/2 top-1.5 grid place-items-center size-9 -translate-x-1/2 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/30 ring-4 ring-background z-10">

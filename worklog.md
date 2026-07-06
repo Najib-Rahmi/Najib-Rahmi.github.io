@@ -572,3 +572,21 @@ Work Log:
 Stage Summary:
 - Experience section now has 4 entries in reverse chronological order: Now (open to opportunities), Medical Recovery (Feb 2024 - Apr 2026, documented), TAC-TIC Full Stack internship (Feb-Jun 2023), WebUp Frontend internship (Jan-Feb 2022).
 - User can modify the medical recovery wording later. Ready for next section.
+
+---
+Task ID: 37
+Agent: main (Z.ai Code)
+Task: Update mobile/phone version for better layout (positions only, no color/effect changes).
+
+Work Log:
+- Reviewed all sections on a 390x844 mobile viewport and identified position issues.
+- Skills section: changed skills list from flex-nowrap overflow-x-auto (forced single row with horizontal scroll) to flex-wrap md:flex-nowrap md:overflow-x-auto. On mobile, skills now wrap to multiple lines instead of forcing horizontal scroll; desktop keeps the single-row behavior.
+- Experience section: added pr-1 sm:pr-0 to the timeline row so long highlight text has breathing room from the right edge on mobile, preventing text from touching the screen edge.
+- Contact section: changed the left column (location + socials) from left-aligned to items-center text-center on mobile (lg:items-start lg:text-left on desktop). On mobile the location link and social icons now center nicely above the form instead of hugging the left edge awkwardly.
+- No colors or effects were changed, only positions/alignment.
+- Ran `bun run lint` -> passed clean. Verified on 390x844 mobile viewport: hero, about, skills, projects, experience, contact all render with better mobile positioning. No runtime errors.
+
+Stage Summary:
+- Mobile layout improved across skills (wrap instead of scroll), experience (right padding for long text), and contact (centered socials on mobile).
+- Desktop layout unchanged. Colors and effects untouched.
+- Ready for next section.

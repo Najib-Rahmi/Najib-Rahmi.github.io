@@ -45,7 +45,7 @@ export function Skills() {
               <ul
                 className={`flex gap-x-5 gap-y-4 ${
                   cat.skills.length <= 5
-                    ? "flex-nowrap overflow-x-auto"
+                    ? "flex-wrap md:flex-nowrap md:overflow-x-auto"
                     : "flex-wrap"
                 }`}
               >
