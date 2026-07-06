@@ -328,3 +328,21 @@ Stage Summary:
 - GLM uses the official Z.ai Z logo in white/black (not blue).
 - MySQL uses the official dolphin logo in white/black (not blue).
 - Ready for next section.
+
+---
+Task ID: 20
+Agent: main (Z.ai Code)
+Task: About section - remove the 4 trait boxes (Full-Stack Mindset, AI/LLM Curious, Always Shipping, Continuous Learner) completely, and remove the description text below the title.
+
+Work Log:
+- Rewrote src/components/sections/about.tsx: removed the traits array entirely and the traits grid (the 4 boxes). Removed the SectionHeading description prop ("Full-stack developer based in Tunis..."). Removed unused lucide imports (Sparkles, Rocket, GraduationCap, Code2).
+- Recentred the remaining content: avatar, name, role, location, bio, and stats grid are now centered in a single column (max-w-5xl) instead of a 5-col split layout.
+- Kept the stats grid (14 Public Repos, 5+ Tech Domains, AI LLM Integration, 100% Always Learning) and the bio paragraph.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: "Full-Stack Mindset" and the description text are both REMOVED. No runtime errors.
+
+Stage Summary:
+- 4 trait boxes and their content fully removed.
+- Description text under the title removed.
+- About section is now a clean centered layout: avatar, name, role, location, bio, stats.
+- Ready for next section.
