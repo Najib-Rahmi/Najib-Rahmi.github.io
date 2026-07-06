@@ -706,3 +706,21 @@ Stage Summary:
 - PC hero content shifted further left (name at 64px).
 - Tablet: location/name/role higher (pt-10), tagline renders as 2 lines.
 - Mobile unchanged (centered). Ready for next section.
+
+---
+Task ID: 46
+Agent: main (Z.ai Code)
+Task: Hero - tablet padding 60px and 4-line tagline; PC left padding 140px.
+
+Work Log:
+- In src/lib/portfolio-data.ts, updated profile.tagline to have 3 newlines making 4 lines: "Curious by nature, I build modern web apps end to end" / "and keep raising the bar with every line of code." / "Turning complex problems into clean, scalable software" / "that real people use."
+- In src/components/sections/hero.tsx, changed tablet left padding from md:pl-10 to md:pl-[60px], tablet top padding from md:pt-10 to md:pt-[60px], and PC left padding from lg:pl-16 to lg:pl-[140px].
+- Ran `bun run lint` -> passed clean. Verified:
+  - PC 1280px: name left at 140px.
+  - Tablet 768px: name left at 60px, name top at 118px, tagline renders as 4 lines.
+  - No runtime errors.
+
+Stage Summary:
+- Tablet: 60px padding (top and left), tagline now 4 lines.
+- PC: content at 140px from left.
+- Ready for next section.
