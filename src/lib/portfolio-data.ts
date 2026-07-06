@@ -127,7 +127,7 @@ export const skillCategories: SkillCategory[] = [
     icon: BrainCircuit,
     skills: [
       { name: "GLM", icon: "glm", color: "#3B5BFE" },
-      { name: "Kilo Code", icon: "kilocode", color: "#7C3AED" },
+      { name: "Kilo Code", icon: "kilocode", color: "#FACC15" },
       { name: "MCP", icon: "anthropic", color: "#D97757" },
       { name: "RAG", icon: "databricks", color: "#FF3621" },
       { name: "AI Integration", icon: "openai", color: "#412991" },

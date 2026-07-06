@@ -62,7 +62,8 @@ export function Skills() {
                       slug={skill.icon}
                       color={skill.color}
                       size={22}
-                      className="transition-all duration-300 group-hover:scale-125 [filter:drop-shadow(0_0_4px_currentColor)_drop-shadow(0_0_10px_currentColor)]"
+                      glow
+                      className="transition-all duration-300 group-hover:scale-125"
                     />
                     <span className="text-sm sm:text-base font-medium text-foreground/80 transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400 whitespace-nowrap">
                       {skill.name}

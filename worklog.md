@@ -252,3 +252,24 @@ Work Log:
 Stage Summary:
 - Skill icons now have a prominent two-layer colored glow (4px + 10px) in each brand's color, full opacity, scaling up on hover.
 - Ready for next section.
+
+---
+Task ID: 16
+Agent: main (Z.ai Code)
+Task: Skills - fix Kilo Code color to yellow, fix GLM glow to use brand color (not white/black), and remove rectangle glow effect.
+
+Work Log:
+- Root causes found:
+  1. Kilo Code official logo path started with "M0,0v100h100V0H0Z" which fills the entire 100x100 square, creating a solid rectangle icon and a rectangle-shaped glow.
+  2. GLM (and all icons) used currentColor inside a Tailwind arbitrary filter class [filter:drop-shadow(...currentColor)], which was resolving unreliably (to the text color = white in dark / black in light) instead of the brand color.
+- Fix 1: In src/components/tech-icon.tsx, removed the two square background subpaths from the Kilo Code path, keeping only the K-mark subpaths. Now the glow traces the actual marks, not a rectangle.
+- Fix 2: Added a `glow` prop to TechIcon. When true, it applies the drop-shadow via inline style using the ACTUAL hex color (filter: drop-shadow(0 0 4px <color>) drop-shadow(0 0 10px <color>)), not currentColor. This guarantees the glow color matches the brand color in both light and dark mode.
+- In src/lib/portfolio-data.ts, changed Kilo Code color from #7C3AED (purple) to #FACC15 (yellow).
+- In src/components/sections/skills.tsx, passed the `glow` prop to TechIcon and removed the filter from the className.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: GLM color rgb(59,91,254) with blue drop-shadow glow; Kilo Code color rgb(250,204,21) with yellow drop-shadow glow. Kilo Code path no longer starts with the square M0,0v100 (confirmed false). Tested in both dark and light mode. No runtime errors.
+
+Stage Summary:
+- Kilo Code is now yellow (#FACC15) with the square background removed so the glow traces the K marks, not a rectangle.
+- GLM (Z.ai Z) now glows in its brand blue (#3B5BFE) reliably in both light and dark mode (inline style with real hex color, not currentColor).
+- No rectangle glow on any icon. Ready for next section.
