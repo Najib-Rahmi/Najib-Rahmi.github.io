@@ -642,3 +642,23 @@ Work Log:
 Stage Summary:
 - Mobile hero: name/role near top, tagline/buttons near bottom, buttons side by side, View My Work has matching white border.
 - Desktop unchanged (centered). Ready for next section.
+
+---
+Task ID: 42
+Agent: main (Z.ai Code)
+Task: PC/tablet hero - shift name, role, text and buttons to the left to keep the subject's face and desk clear.
+
+Work Log:
+- In src/components/sections/hero.tsx, updated the main content container from items-center to items-center md:items-start and text-center to text-center md:text-left. Same for the top group (location/name/role/techline) and bottom group (tagline/buttons).
+- Updated tagline className from mx-auto to mx-auto md:ml-0 so it left-aligns on md+.
+- Updated buttons container from justify-center to justify-center md:justify-start so buttons align left on md+.
+- Mobile (default) stays centered; tablet (md 768px) and desktop (lg+) shift left.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser:
+  - Desktop 1280px: name left at 216px, text-align left.
+  - Tablet 768px: name left at 24px, text-align left.
+  - Mobile 390px: name still centered (left 38px in 390px viewport = centered).
+  - No runtime errors.
+
+Stage Summary:
+- On PC and tablet, hero content (name, role, tagline, buttons) now aligns to the left, keeping the subject's face and desk clear.
+- Mobile stays centered. Ready for next section.

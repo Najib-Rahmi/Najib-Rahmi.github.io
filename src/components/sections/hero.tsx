@@ -40,11 +40,11 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Content: on mobile the name/role sit near the top and the tagline/buttons near the bottom,
-          keeping the subject's face and desk clear. On desktop everything stays centered. */}
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 w-full flex flex-col items-center text-center text-white dark:text-slate-900 md:justify-center md:min-h-svh md:py-20 pt-24 pb-28 md:pt-20 md:pb-20 justify-between min-h-svh">
+      {/* Content: on mobile the name/role sit near the top and the tagline/buttons near the bottom.
+          On tablet/desktop the content shifts to the left to keep the subject's face and desk clear. */}
+      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 w-full flex flex-col items-center md:items-start text-center md:text-left text-white dark:text-slate-900 md:justify-center md:min-h-svh md:py-20 pt-24 pb-28 md:pt-20 md:pb-20 justify-between min-h-svh">
         {/* Top: location badge + name + role + tech line */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center md:items-start">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,12 +86,12 @@ export function Hero() {
         </div>
 
         {/* Bottom: tagline + buttons */}
-        <div className="flex flex-col items-center w-full">
+        <div className="flex flex-col items-center md:items-start w-full">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-white/80 leading-relaxed"
+            className="mx-auto md:ml-0 max-w-2xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-white/80 leading-relaxed"
           >
             {profile.tagline}
           </motion.p>
@@ -100,7 +100,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 sm:mt-9 flex flex-row items-center justify-center gap-3 w-full sm:w-auto"
+            className="mt-6 sm:mt-9 flex flex-row items-center md:justify-start justify-center gap-3 w-full sm:w-auto md:w-auto"
           >
             <Button
               asChild
