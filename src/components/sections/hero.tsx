@@ -28,13 +28,11 @@ export function Hero() {
         className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.55)_100%)]"
         aria-hidden
       />
-      {/* Light overlay + gradient for light mode readability */}
+      {/* Light mode: a spotlight that turns the light on near me (center),
+          bright in the middle and fading out so the photo shows at the edges.
+          No flat overlay. */}
       <div
-        className="absolute inset-0 dark:hidden bg-gradient-to-b from-white/75 via-white/60 to-white/85 backdrop-blur-[1px]"
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(255,255,255,0.65)_100%)]"
+        className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_60%_55%_at_50%_45%,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.7)_30%,rgba(255,255,255,0.25)_60%,transparent_100%)]"
         aria-hidden
       />
       {/* Cyan/blue tint accents (both themes) */}

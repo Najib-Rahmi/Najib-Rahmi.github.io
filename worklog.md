@@ -467,3 +467,18 @@ Work Log:
 
 Stage Summary:
 - Real email (najib.rahmi.dev@gmail.com) now used in both profile.email and the Email social/mailto link. Ready for next section.
+
+---
+Task ID: 31
+Agent: main (Z.ai Code)
+Task: Hero light mode - remove the flat white overlay and add a spotlight (light near me) effect instead.
+
+Work Log:
+- In src/components/sections/hero.tsx, removed the two light-mode flat overlay layers (bg-gradient-to-b from-white/75... and the radial white/65).
+- Added a single light-mode radial spotlight: bg-[radial-gradient(ellipse_60%_55%_at_50%_45%,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.7)_30%,rgba(255,255,255,0.25)_60%,transparent_100%)]. This creates a bright pool of light in the center (where the name/text is) that fades out, letting the photo show at the edges. No flat overlay.
+- Dark mode overlay unchanged.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser in light mode, no runtime errors.
+
+Stage Summary:
+- Hero light mode now uses a spotlight effect (light on near the center) instead of a flat white overlay. Photo is visible at the edges, center is illuminated for text readability.
+- User may request removal if not liked. Ready for next section.
