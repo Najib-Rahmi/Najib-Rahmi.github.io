@@ -28,7 +28,7 @@ export const profile = {
     "Always learning, always building. I turn ideas into real, working products, from a blank file to a shipped app.",
   bio: "I am a full stack web developer who builds modern, responsive web apps with React, Next.js, Node.js, and Express.js, comfortable across the whole stack from clean interfaces to solid backends.\nI am ambitious and self-confident, driven by an endless curiosity to understand how things work. Whatever catches my interest, I learn it, try it, and push at it until I truly excel at it. That same energy fuels everything I build, from a first line of code to a finished, shipped product.\nRight now I am diving deep into AI integration, exploring MCP, RAG, and agent skills, and working hands-on with LLMs like Claude Code, Kilo Code, and GLM to build smarter, more capable workflows.",
   location: "Tunis, Tunisia",
-  email: "hello@rahmi.dev",
+  email: "najib.rahmi.dev@gmail.com",
   avatar: "/avatar.png",
   githubUrl: "https://github.com/Najib-Rahmi",
   resumeUrl: "#",
@@ -70,7 +70,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: "Email",
-    href: "mailto:hello@rahmi.dev",
+    href: "mailto:najib.rahmi.dev@gmail.com",
     icon: Mail,
   },
 ];

@@ -454,3 +454,16 @@ Stage Summary:
 - Gap between category labels and their first skill increased to 40px (gap-x-10).
 - Frameworks & Libraries confirmed as one row.
 - Ready for next section.
+
+---
+Task ID: 29
+Agent: main (Z.ai Code)
+Task: Replace the placeholder email with the user's real email: najib.rahmi.dev@gmail.com.
+
+Work Log:
+- In src/lib/portfolio-data.ts, updated profile.email from "hello@rahmi.dev" to "najib.rahmi.dev@gmail.com".
+- Also updated the Email social link href from "mailto:hello@rahmi.dev" to "mailto:najib.rahmi.dev@gmail.com" (it was hardcoded separately from profile.email).
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: the Email social link in the contact section now points to mailto:najib.rahmi.dev@gmail.com. No runtime errors.
+
+Stage Summary:
+- Real email (najib.rahmi.dev@gmail.com) now used in both profile.email and the Email social/mailto link. Ready for next section.
