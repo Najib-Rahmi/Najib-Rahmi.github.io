@@ -69,6 +69,15 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-2 text-sm sm:text-base font-medium text-cyan-200/90 tracking-wide"
+        >
+          {profile.techLine}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mx-auto mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-white/80 leading-relaxed"
         >

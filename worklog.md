@@ -32,3 +32,29 @@ Stage Summary:
 - REST contact API working end to end with client + server validation.
 - Fully responsive (mobile, tablet, desktop) with sticky footer.
 - Lint clean, no runtime errors, browser-verified interactivity.
+
+---
+Task ID: 2
+Agent: main (Z.ai Code)
+Task: Scrape user's real data from GitHub profile https://github.com/Najib-Rahmi and update the portfolio with it.
+
+Work Log:
+- Used web-reader skill (z-ai CLI page_reader) to scrape https://github.com/Najib-Rahmi (profile) and https://github.com/Najib-Rahmi?tab=repositories (repos list).
+- Parsed HTML to extract: name "Rahmi Najib", username "Najib-Rahmi", role "Full-Stack developer", location "Tunis", social links (GitHub, LinkedIn https://www.linkedin.com/in/rehminajib, freeCodeCamp https://www.freecodecamp.org/nejib-rehmi), and avatar URL.
+- Scraped raw README at https://raw.githubusercontent.com/Najib-Rahmi/Najib-Rahmi/main/README.md to extract the bio and the tech-stack badge images.
+- Extracted badge alt/src to recover exact tech stack: Languages (HTML5, CSS3, Tailwind CSS, JavaScript, TypeScript), Frameworks & Libraries (React, Next.js, Node.js, Express.js), Database (MySQL, PostgreSQL, MongoDB), AI/LLM (MCP, RAG, AI Integration), Tools & DevOps (Git, GitHub, Docker, VS Code).
+- Scraped individual repo pages (QuizGame, Chronometer, Calculator, To-Do) to get descriptions and languages. To-Do had a real description ("A modern, responsive Todo app built with React, Vite, and Tailwind CSS..."); Java repos had none, so wrote accurate descriptions based on names.
+- Downloaded GitHub avatar to public/avatar.png for use in the About section.
+- Rewrote src/lib/portfolio-data.ts with all real data: profile (name, role, techLine "React | Express.js | Node.js | Next.js", tagline, bio, location Tunis, avatar, githubUrl), socialLinks (real GitHub, LinkedIn, freeCodeCamp, Email), skillCategories (5 real categories from README), projects (6 real repos: To-Do App, QuizGame, Chronometer, Calculator, Personal Website, freeCodeCamp Certifications with real repo URLs), experiences (refocused narrative based on the profile).
+- Updated hero.tsx to display the techLine under the role.
+- Rewrote about.tsx to show the real avatar image, name, role, location, full bio, and refocused stats (14 public repos, 5+ tech domains, AI LLM integration, 100% always learning) and trait cards (Full-Stack Mindset, AI/LLM Curious, Always Shipping, Continuous Learner).
+- Updated contact.tsx contact info to use Email, Location, and GitHub (replaced the placeholder phone), and fixed imports.
+- Updated layout.tsx metadata to "Rahmi Najib | Full-Stack Developer".
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: page renders with real name/role/tech line/location/bio/avatar, real skills categories and tech, real projects with real repo URLs, real social links (9 links pointing to github.com/Najib-Rahmi), contact form still submits successfully (POST /api/contact 200). No runtime errors.
+
+Stage Summary:
+- Portfolio now fully personalized with real GitHub data for Rahmi Najib.
+- Real avatar, bio, tech stack, projects (with live repo URLs), and social links all integrated.
+- Email is a placeholder (hello@rahmi.dev) since no public email was on the GitHub profile; user can update it in src/lib/portfolio-data.ts.
+- Lint clean, browser-verified, no em dashes.

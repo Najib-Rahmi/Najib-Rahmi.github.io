@@ -15,22 +15,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Carter | Full Stack Developer & UI/UX Designer",
+  title: "Rahmi Najib | Full-Stack Developer",
   description:
-    "Personal portfolio of Alex Carter, a full stack developer and UI/UX designer crafting modern, responsive web experiences.",
+    "Personal portfolio of Rahmi Najib, a full-stack developer based in Tunis. Building modern web apps with React, Next.js, Node.js, and Express.js, and integrating AI / LLM capabilities.",
   keywords: [
-    "Alex Carter",
+    "Rahmi Najib",
     "portfolio",
-    "full stack developer",
-    "UI/UX designer",
-    "web developer",
+    "full-stack developer",
+    "React",
     "Next.js",
+    "Node.js",
+    "Express.js",
+    "AI integration",
+    "Tunis",
   ],
-  authors: [{ name: "Alex Carter" }],
+  authors: [{ name: "Rahmi Najib" }],
   openGraph: {
-    title: "Alex Carter | Full Stack Developer & UI/UX Designer",
+    title: "Rahmi Najib | Full-Stack Developer",
     description:
-      "Crafting modern, responsive web experiences with clean code and thoughtful design.",
+      "Always learning, always building. Turning ideas into real, working products.",
     type: "website",
   },
 };

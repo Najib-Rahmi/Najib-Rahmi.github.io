@@ -2,7 +2,14 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Send, Loader2, CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
+import {
+  Send,
+  Loader2,
+  CheckCircle2,
+  Mail,
+  MapPin,
+  Github,
+} from "lucide-react";
 
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
@@ -69,9 +76,24 @@ export function Contact() {
   }
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
-    { icon: Phone, label: "Phone", value: "+1 (415) 555-0123", href: "tel:+14155550123" },
-    { icon: MapPin, label: "Location", value: profile.location, href: undefined },
+    {
+      icon: Mail,
+      label: "Email",
+      value: profile.email,
+      href: `mailto:${profile.email}`,
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: profile.location,
+      href: undefined,
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "github.com/Najib-Rahmi",
+      href: profile.githubUrl,
+    },
   ];
 
   return (

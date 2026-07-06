@@ -1,28 +1,35 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Code2,
-  Palette,
-  Server,
+  Layers,
   Database,
-  Cloud,
-  Smartphone,
+  BrainCircuit,
+  Wrench,
   Github,
   Linkedin,
-  Twitter,
   Mail,
-  ExternalLink,
-  Briefcase,
   GraduationCap,
+  MapPin,
+  Briefcase,
+  ExternalLink,
+  Rocket,
+  Sparkles,
 } from "lucide-react";
 
+// Real data scraped from https://github.com/Najib-Rahmi
 export const profile = {
-  name: "Alex Carter",
-  firstName: "Alex",
-  role: "Full Stack Developer & UI/UX Designer",
+  name: "Rahmi Najib",
+  firstName: "Rahmi",
+  role: "Full-Stack Developer",
+  // Tech line shown in the GitHub typing SVG
+  techLine: "React | Express.js | Node.js | Next.js",
   tagline:
-    "I craft modern, responsive web experiences where clean code meets thoughtful design.",
-  location: "San Francisco, CA",
-  email: "hello@alexcarter.dev",
+    "Always learning, always building. I turn ideas into real, working products, from a blank file to a shipped app.",
+  bio: "Full-stack developer passionate about turning ideas into real, working products. I specialize in modern JavaScript frameworks and love the entire journey from a blank file to a shipped application. Currently deep into integrating AI / LLM into my workflows, always exploring what's next in tech, and actively looking for my next opportunity to build things that matter.",
+  location: "Tunis, Tunisia",
+  email: "hello@rahmi.dev",
+  avatar: "/avatar.png",
+  githubUrl: "https://github.com/Najib-Rahmi",
   resumeUrl: "#",
 };
 
@@ -43,11 +50,28 @@ export type SocialLink = {
   icon: LucideIcon;
 };
 
+// Real social links from the GitHub profile
 export const socialLinks: SocialLink[] = [
-  { label: "GitHub", href: "https://github.com", icon: Github },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { label: "Twitter", href: "https://twitter.com", icon: Twitter },
-  { label: "Email", href: "mailto:hello@alexcarter.dev", icon: Mail },
+  {
+    label: "GitHub",
+    href: "https://github.com/Najib-Rahmi",
+    icon: Github,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/rehminajib",
+    icon: Linkedin,
+  },
+  {
+    label: "freeCodeCamp",
+    href: "https://www.freecodecamp.org/nejib-rehmi",
+    icon: GraduationCap,
+  },
+  {
+    label: "Email",
+    href: "mailto:hello@rahmi.dev",
+    icon: Mail,
+  },
 ];
 
 export type SkillCategory = {
@@ -56,43 +80,32 @@ export type SkillCategory = {
   skills: string[];
 };
 
+// Tech stack taken directly from the GitHub profile README badges
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend",
+    title: "Languages",
     icon: Code2,
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Redux",
-      "Framer Motion",
-    ],
+    skills: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "TypeScript"],
   },
   {
-    title: "Design",
-    icon: Palette,
-    skills: ["Figma", "UI/UX", "Prototyping", "Design Systems", "Wireframing"],
-  },
-  {
-    title: "Backend",
-    icon: Server,
-    skills: ["Node.js", "Express", "REST APIs", "GraphQL", "WebSockets"],
+    title: "Frameworks & Libraries",
+    icon: Layers,
+    skills: ["React", "Next.js", "Node.js", "Express.js"],
   },
   {
     title: "Database",
     icon: Database,
-    skills: ["PostgreSQL", "MongoDB", "Prisma", "Redis", "SQLite"],
+    skills: ["MySQL", "PostgreSQL", "MongoDB"],
   },
   {
-    title: "DevOps & Cloud",
-    icon: Cloud,
-    skills: ["Docker", "AWS", "CI/CD", "Vercel", "GitHub Actions"],
+    title: "AI / LLM",
+    icon: BrainCircuit,
+    skills: ["MCP", "RAG", "AI Integration"],
   },
   {
-    title: "Mobile",
-    icon: Smartphone,
-    skills: ["React Native", "PWA", "Responsive Design"],
+    title: "Tools & DevOps",
+    icon: Wrench,
+    skills: ["Git", "GitHub", "Docker", "VS Code"],
   },
 ];
 
@@ -106,66 +119,67 @@ export type Project = {
   emoji: string;
 };
 
+// Real public repositories from github.com/Najib-Rahmi
 export const projects: Project[] = [
   {
-    title: "Nimbus Analytics Dashboard",
+    title: "To-Do App",
     description:
-      "A real-time analytics platform with customizable widgets, live charts, and role-based access. Built for teams that need data at a glance.",
-    tags: ["Next.js", "TypeScript", "Prisma", "Recharts"],
-    liveUrl: "#",
-    repoUrl: "#",
+      "A modern, responsive Todo app built with React, Vite, and Tailwind CSS. Features drag-and-drop task reordering, a dark gradient theme, and a modular component architecture for seamless task management.",
+    tags: ["React", "Vite", "Tailwind CSS", "JavaScript"],
+    liveUrl: "https://najib-rahmi.github.io",
+    repoUrl: "https://github.com/Najib-Rahmi/To-Do",
     accent: "from-cyan-500/20 to-blue-500/20",
-    emoji: "📊",
+    emoji: "✅",
   },
   {
-    title: "Pulse Fitness App",
+    title: "QuizGame",
     description:
-      "A cross-platform fitness companion with workout tracking, progress charts, and social challenges. Designed mobile-first with a clean, motivating interface.",
-    tags: ["React Native", "Expo", "Node.js"],
+      "An interactive quiz game built in Java that tests knowledge across multiple categories. Clean game logic, score tracking, and a straightforward, fun user experience.",
+    tags: ["Java", "OOP", "Game Logic"],
     liveUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/Najib-Rahmi/QuizGame",
     accent: "from-blue-500/20 to-cyan-500/20",
-    emoji: "🏃",
+    emoji: "❓",
   },
   {
-    title: "Lumen Design System",
+    title: "Chronometer",
     description:
-      "An open-source component library with 60+ accessible components, full theming support, and interactive documentation. Adopted by several startups.",
-    tags: ["React", "Tailwind", "Storybook"],
+      "A precise stopwatch and timer application written in Java. Handles start, pause, and lap timing with a responsive, easy-to-read interface for everyday use.",
+    tags: ["Java", "Timers", "UI"],
     liveUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/Najib-Rahmi/Chronometer",
     accent: "from-cyan-400/20 to-blue-600/20",
-    emoji: "🎨",
+    emoji: "⏱️",
   },
   {
-    title: "Orbit Collaboration Suite",
+    title: "Calculator",
     description:
-      "A real-time collaboration tool with shared whiteboards, live cursors, and presence. Powered by WebSockets for instant, seamless teamwork.",
-    tags: ["Next.js", "Socket.io", "Canvas"],
+      "A classic calculator app built in Java supporting standard arithmetic operations. Focused on clean code structure, input validation, and a simple, intuitive layout.",
+    tags: ["Java", "OOP", "Math"],
     liveUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/Najib-Rahmi/Calculator",
     accent: "from-blue-400/20 to-cyan-600/20",
-    emoji: "🛰️",
+    emoji: "🧮",
   },
   {
-    title: "Verdant E-Commerce",
+    title: "Personal Website",
     description:
-      "A sustainable marketplace with smart search, Stripe checkout, and an admin dashboard. Optimized for speed and conversion across all devices.",
-    tags: ["Next.js", "Stripe", "PostgreSQL"],
-    liveUrl: "#",
-    repoUrl: "#",
+      "My personal portfolio site hosted on GitHub Pages. Showcases my projects, skills, and background, built with a focus on clean design and fast loading.",
+    tags: ["HTML", "CSS", "GitHub Pages"],
+    liveUrl: "https://najib-rahmi.github.io",
+    repoUrl: "https://github.com/Najib-Rahmi/Najib-Rahmi.github.io",
     accent: "from-cyan-500/20 to-blue-400/20",
-    emoji: "🛒",
+    emoji: "🌐",
   },
   {
-    title: "Echo AI Assistant",
+    title: "freeCodeCamp Certifications",
     description:
-      "A conversational assistant with context-aware responses, voice input, and a slick chat interface. Integrates multiple AI models for smart replies.",
-    tags: ["React", "AI", "Web Speech API"],
-    liveUrl: "#",
-    repoUrl: "#",
+      "A collection of my freeCodeCamp coursework and certifications, documenting my progression through responsive web design, JavaScript algorithms, and front-end libraries.",
+    tags: ["Web Design", "JavaScript", "Certifications"],
+    liveUrl: "https://www.freecodecamp.org/nejib-rehmi",
+    repoUrl: "https://github.com/Najib-Rahmi/Freecodecamp-Certifications",
     accent: "from-blue-500/20 to-cyan-400/20",
-    emoji: "🤖",
+    emoji: "🎓",
   },
 ];
 
@@ -178,57 +192,60 @@ export type Experience = {
   highlights: string[];
 };
 
+// A focused journey based on the GitHub profile narrative
 export const experiences: Experience[] = [
   {
-    role: "Senior Full Stack Developer",
-    company: "Skyline Labs",
-    period: "2022 | Present",
+    role: "Full-Stack Developer",
+    company: "Open to Opportunities",
+    period: "Now",
     description:
-      "Leading the development of a SaaS analytics platform used by thousands of teams worldwide.",
+      "Building modern web apps end to end and integrating AI / LLM capabilities into real workflows, while actively seeking the next role to build things that matter.",
     icon: Briefcase,
     highlights: [
-      "Architected a modular frontend that cut load times by 45%",
-      "Mentored 4 junior developers and established code review standards",
-      "Built a real-time collaboration feature used by 60% of active users",
+      "Shipping full-stack apps with React, Next.js, Node.js, and Express.js",
+      "Exploring AI / LLM integration, including MCP and RAG patterns",
+      "Always learning, always building, always shipping",
     ],
   },
   {
-    role: "Frontend Developer",
-    company: "Brightwave Studio",
-    period: "2020 | 2022",
+    role: "Project Builder & Contributor",
+    company: "GitHub | Open Source",
+    period: "Ongoing",
     description:
-      "Designed and shipped marketing sites and web apps for clients across fintech and health tech.",
-    icon: Briefcase,
+      "Maintaining a growing set of public repositories spanning web apps, Java utilities, and personal projects, with a focus on clean, readable code.",
+    icon: Rocket,
     highlights: [
-      "Delivered 20+ client projects with a 98% on-time rate",
-      "Created a reusable component library adopted company-wide",
-      "Improved Lighthouse scores to 95+ across all client sites",
+      "Published 14 public repositories on GitHub",
+      "Built Java apps including a quiz game, chronometer, and calculator",
+      "Created a React + Vite + Tailwind To-Do app with drag-and-drop",
     ],
   },
   {
-    role: "UI/UX Designer & Developer",
-    company: "Freelance",
-    period: "2018 | 2020",
+    role: "Continuous Learner",
+    company: "freeCodeCamp",
+    period: "Ongoing",
     description:
-      "Partnered with startups to turn ideas into polished, user-friendly digital products from the ground up.",
-    icon: Briefcase,
-    highlights: [
-      "Designed and built 15+ products end to end",
-      "Conducted user research that shaped core product decisions",
-      "Grew a client base through referrals and repeat partnerships",
-    ],
-  },
-  {
-    role: "B.S. in Computer Science",
-    company: "State University",
-    period: "2014 | 2018",
-    description:
-      "Graduated with honors, focusing on human-computer interaction and software engineering.",
+      "Progressing through freeCodeCamp certifications, strengthening foundations in responsive design, JavaScript algorithms, and modern front-end development.",
     icon: GraduationCap,
     highlights: [
-      "Led the university hackathon team to two regional wins",
-      "Published a paper on accessible web interfaces",
-      "Built the campus event platform still in use today",
+      "Completed coursework across responsive web design and JavaScript",
+      "Applied learnings directly to personal projects on GitHub",
+      "Committed to staying current with modern frameworks and tools",
+    ],
+  },
+  {
+    role: "Based in",
+    company: "Tunis, Tunisia",
+    period: "Location",
+    description:
+      "Working remotely and open to collaboration with teams anywhere in the world. Let's connect and build something amazing together.",
+    icon: MapPin,
+    highlights: [
+      "Available for remote full-stack and AI-integration work",
+      "Comfortable across the JavaScript and Java ecosystems",
+      "Reachable via GitHub, LinkedIn, and freeCodeCamp",
     ],
   },
 ];
+
+export { Sparkles };

@@ -1,84 +1,88 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Coffee, Rocket, Heart } from "lucide-react";
+import { Sparkles, Rocket, GraduationCap, Code2 } from "lucide-react";
 
 import { SectionHeading } from "@/components/section-heading";
 import { profile } from "@/lib/portfolio-data";
 
 const stats = [
-  { value: "6+", label: "Years Experience" },
-  { value: "50+", label: "Projects Shipped" },
-  { value: "30+", label: "Happy Clients" },
-  { value: "15K+", label: "Lines of Coffee" },
+  { value: "14", label: "Public Repos" },
+  { value: "5+", label: "Tech Domains" },
+  { value: "AI", label: "LLM Integration" },
+  { value: "100%", label: "Always Learning" },
 ];
 
 const traits = [
   {
+    icon: Code2,
+    title: "Full-Stack Mindset",
+    text: "From a blank file to a shipped app, I enjoy the whole journey across the JavaScript and Java ecosystems.",
+  },
+  {
     icon: Sparkles,
-    title: "Detail-Oriented",
-    text: "I sweat the small stuff, from pixel-perfect spacing to accessible color contrast.",
+    title: "AI / LLM Curious",
+    text: "Currently integrating MCP, RAG, and AI capabilities into real workflows to build smarter products.",
   },
   {
     icon: Rocket,
-    title: "Ship Fast",
-    text: "I balance speed and quality, delivering iterative improvements that move the needle.",
+    title: "Always Shipping",
+    text: "I keep my GitHub active with projects, from Java utilities to React web apps with clean component design.",
   },
   {
-    icon: Heart,
-    title: "User-First",
-    text: "Every decision starts with the people who will actually use what I build.",
-  },
-  {
-    icon: Coffee,
-    title: "Always Learning",
-    text: "I stay curious, exploring new tools and patterns to keep my craft sharp.",
+    icon: GraduationCap,
+    title: "Continuous Learner",
+    text: "Progressing through freeCodeCamp certifications and applying every lesson directly to real projects.",
   },
 ];
 
 export function About() {
   return (
-    <section
-      id="about"
-      className="relative py-20 sm:py-28 bg-background"
-    >
+    <section id="about" className="relative py-20 sm:py-28 bg-background">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="About Me"
-          title="Turning ideas into polished products"
-          description="I am a developer and designer who loves the space where engineering meets empathy. Here is a little more about how I work."
+          title="Turning ideas into real, working products"
+          description="Full-stack developer based in Tunis, passionate about modern JavaScript frameworks and the craft of shipping software."
         />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-5 lg:gap-12 items-start">
-          {/* Bio */}
+          {/* Avatar + bio */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-3 space-y-5 text-base sm:text-lg leading-relaxed text-muted-foreground"
+            className="lg:col-span-3 space-y-6"
           >
-            <p>
-              Hi, I am {profile.name}. I build web applications that feel fast,
-              look clean, and work hard for the people who use them. Over the
-              past six years I have worked with startups and studios to ship
-              products from first sketch to production.
-            </p>
-            <p>
-              My toolkit spans the whole stack, from React and Next.js on the
-              frontend to Node.js and databases on the backend. I care deeply
-              about design systems, accessibility, and the small details that
-              make an interface feel effortless.
-            </p>
-            <p>
-              When I am not coding, you will find me sketching UI ideas,
-              exploring design trends, or contributing to open source. I believe
-              great software is a team sport, and I love collaborating with
-              designers, product managers, and fellow engineers.
+            <div className="flex items-center gap-5">
+              <div className="relative shrink-0">
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 blur-md opacity-60" />
+                <img
+                  src={profile.avatar}
+                  alt={`${profile.name} avatar`}
+                  width={96}
+                  height={96}
+                  className="relative size-20 sm:size-24 rounded-full object-cover ring-4 ring-background"
+                />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold">{profile.name}</h3>
+                <p className="text-sm font-medium text-cyan-600 dark:text-cyan-400">
+                  {profile.role}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  {profile.location}
+                </p>
+              </div>
+            </div>
+
+            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
+              {profile.bio}
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
               {stats.map((s, i) => (
                 <motion.div
                   key={s.label}
