@@ -48,35 +48,33 @@ export function Experience() {
                       isLeft ? "sm:pr-8 sm:text-right" : "sm:col-start-2 sm:pl-8"
                     }`}
                   >
-                    <div className="rounded-2xl border border-cyan-500/15 bg-card p-5 sm:p-6 transition-all hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/10">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
-                        {exp.period}
-                      </span>
-                      <h3 className="mt-3 text-lg font-semibold">{exp.role}</h3>
-                      <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
-                        {exp.company}
-                      </p>
-                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                        {exp.description}
-                      </p>
-                      <ul
-                        className={`mt-3 space-y-1.5 ${
-                          isLeft ? "sm:ml-auto sm:max-w-none" : ""
-                        }`}
-                      >
-                        {exp.highlights.map((h) => (
-                          <li
-                            key={h}
-                            className={`flex items-start gap-2 text-sm text-muted-foreground ${
-                              isLeft ? "sm:flex-row-reverse sm:text-right" : ""
-                            }`}
-                          >
-                            <Check className="size-4 mt-0.5 shrink-0 text-cyan-500" />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <span className="inline-block text-xs font-semibold text-cyan-600 dark:text-cyan-400">
+                      {exp.period}
+                    </span>
+                    <h3 className="mt-2 text-lg font-semibold">{exp.role}</h3>
+                    <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                      {exp.company}
+                    </p>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                      {exp.description}
+                    </p>
+                    <ul
+                      className={`mt-3 space-y-1.5 ${
+                        isLeft ? "sm:ml-auto sm:max-w-none" : ""
+                      }`}
+                    >
+                      {exp.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className={`flex items-start gap-2 text-sm text-muted-foreground ${
+                            isLeft ? "sm:flex-row-reverse sm:text-right" : ""
+                          }`}
+                        >
+                          <Check className="size-4 mt-0.5 shrink-0 text-cyan-500" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </motion.div>
               );

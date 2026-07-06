@@ -125,3 +125,21 @@ Stage Summary:
 - Send Message button now full width (same as textarea).
 - Location shown as plain text with icon before "Find me online", no boxes anywhere in the left column.
 - Ready for next section.
+
+---
+Task ID: 8
+Agent: main (Z.ai Code)
+Task: Experience section - remove the boxes (card wrappers) but do not modify the data.
+
+Work Log:
+- In src/components/sections/experience.tsx, removed the inner card wrapper div that had `rounded-2xl border border-cyan-500/15 bg-card p-5 sm:p-6` and hover effects.
+- Kept all data intact: period, role, company, description, and highlights list.
+- Changed the period pill from a rounded-full bg-cyan-500/10 badge to plain colored text (no box), keeping the cyan accent.
+- The timeline structure (vertical line, alternating left/right layout, gradient node markers) is preserved.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: all 4 experience entries still present (Full-Stack Developer, Project Builder & Contributor, Continuous Learner, Based in). Zero elements with rounded-2xl or bg-card remain in the experience section. No runtime errors.
+
+Stage Summary:
+- Experience section boxes removed, content now flows freely on the timeline without card wrappers.
+- Data unchanged.
+- Ready for next section.
