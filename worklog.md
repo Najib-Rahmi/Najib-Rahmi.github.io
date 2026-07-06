@@ -627,3 +627,18 @@ Work Log:
 
 Stage Summary:
 - Hero now uses the portrait phone background on mobile and the landscape photo on desktop. Ready for next section.
+
+---
+Task ID: 41
+Agent: main (Z.ai Code)
+Task: Mobile hero - name/role near top, text near bottom, buttons side by side, View My Work same white border as Download CV.
+
+Work Log:
+- Restructured the hero content in src/components/sections/hero.tsx into a flex column with justify-between on mobile: top group (location badge + name + role + tech line) sits near the top (pt-24 below the navbar), bottom group (tagline + buttons) sits near the bottom (pb-28 above the scroll indicator). On desktop (md+), it uses md:justify-center md:min-h-svh to keep everything centered as before.
+- Changed the buttons container from flex-col to flex-row on mobile so the two buttons sit side by side. Each button uses flex-1 sm:flex-none so they share the row width equally on mobile.
+- Updated both buttons to use border-2 border-white/80 dark:border-white/30 so View My Work has the same visible white border as Download CV. Both buttons now share identical styling.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser on 390x844: name top at 150px (near top), both buttons at top 692px (same row), View My Work border 2px white matching Download CV. Desktop (1280x800) still centered. No runtime errors.
+
+Stage Summary:
+- Mobile hero: name/role near top, tagline/buttons near bottom, buttons side by side, View My Work has matching white border.
+- Desktop unchanged (centered). Ready for next section.

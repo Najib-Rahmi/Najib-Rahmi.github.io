@@ -40,84 +40,91 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center text-white dark:text-slate-900">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/10 dark:bg-white/10 backdrop-blur-md border border-white/20 dark:border-white/20 border-slate-900/10 bg-slate-900/5 text-cyan-600 dark:text-cyan-200"
-        >
-          <MapPin className="size-3.5" />
-          {profile.location}
-        </motion.span>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_40px_rgba(34,211,238,0.55)]"
-        >
-          {profile.name}
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold"
-        >
-          <span className="bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-300 dark:to-blue-400 bg-clip-text text-transparent">
-            {profile.role}
-          </span>
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-2 text-sm sm:text-base font-medium text-cyan-600 dark:text-cyan-200/90 tracking-wide"
-        >
-          {profile.techLine}
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mx-auto mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-white/80 leading-relaxed"
-        >
-          {profile.tagline}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3"
-        >
-          <Button
-            asChild
-            size="lg"
-            className="w-full sm:w-auto rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-cyan-500/40 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50"
+      {/* Content: on mobile the name/role sit near the top and the tagline/buttons near the bottom,
+          keeping the subject's face and desk clear. On desktop everything stays centered. */}
+      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 w-full flex flex-col items-center text-center text-white dark:text-slate-900 md:justify-center md:min-h-svh md:py-20 pt-24 pb-28 md:pt-20 md:pb-20 justify-between min-h-svh">
+        {/* Top: location badge + name + role + tech line */}
+        <div className="flex flex-col items-center">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/10 dark:bg-white/10 backdrop-blur-md border border-white/20 dark:border-white/20 border-slate-900/10 bg-slate-900/5 text-cyan-600 dark:text-cyan-200"
           >
-            <a href="#projects">
-              View My Work
-              <Eye className="size-4" />
-            </a>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-cyan-500/40 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50"
+            <MapPin className="size-3.5" />
+            {profile.location}
+          </motion.span>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_40px_rgba(34,211,238,0.55)]"
           >
-            <a href="/cv.pdf" download>
-              Download CV
-              <ArrowDownToLine className="size-4" />
-            </a>
-          </Button>
-        </motion.div>
+            {profile.name}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold"
+          >
+            <span className="bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-300 dark:to-blue-400 bg-clip-text text-transparent">
+              {profile.role}
+            </span>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-2 text-sm sm:text-base font-medium text-cyan-600 dark:text-cyan-200/90 tracking-wide"
+          >
+            {profile.techLine}
+          </motion.p>
+        </div>
+
+        {/* Bottom: tagline + buttons */}
+        <div className="flex flex-col items-center w-full">
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-white/80 leading-relaxed"
+          >
+            {profile.tagline}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-6 sm:mt-9 flex flex-row items-center justify-center gap-3 w-full sm:w-auto"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50"
+            >
+              <a href="#projects">
+                View My Work
+                <Eye className="size-4" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50"
+            >
+              <a href="/cv.pdf" download>
+                Download CV
+                <ArrowDownToLine className="size-4" />
+              </a>
+            </Button>
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll-down indicator */}
