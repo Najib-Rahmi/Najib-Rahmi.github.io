@@ -426,3 +426,15 @@ Work Log:
 
 Stage Summary:
 - Skills rows are now more compact with less vertical spacing. Ready for next section.
+
+---
+Task ID: 27
+Agent: main (Z.ai Code)
+Task: Skills - set row padding to py-6 and gap-5 between label and skills.
+
+Work Log:
+- In src/components/sections/skills.tsx, set the category row className to "py-6 grid gap-5 ...".
+- Ran `bun run lint` -> passed clean. No runtime errors.
+
+Stage Summary:
+- Skills rows now use py-6 vertical padding and gap-5 gap. Ready for next section.
