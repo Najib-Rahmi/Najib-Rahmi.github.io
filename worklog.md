@@ -177,3 +177,22 @@ Work Log:
 Stage Summary:
 - Left-side timeline items (index 1 and 3) now read left to right with left-aligned text and normal highlight list direction.
 - Ready for next section.
+
+---
+Task ID: 12
+Agent: main (Z.ai Code)
+Task: Skills & Tools section - remove boxes and add official brand icons for each technology.
+
+Work Log:
+- In src/lib/portfolio-data.ts, added a Skill type { name, icon, color } and converted each skill array from strings to objects with official Simple Icons slugs and brand hex colors (HTML5 #E34F26, CSS3 #1572B6, Tailwind #06B6D4, JavaScript #F7DF1E, TypeScript #3178C6, React #61DAFB, Next.js, Node.js #339933, Express, MySQL #4479A1, PostgreSQL #4169E1, MongoDB #4EA94B, anthropic/MCP #D97757, databricks/RAG #FF3621, openai/AI Integration #412991, Git #F05032, GitHub, Docker #2496ED, VS Code #007ACC).
+- Downloaded official SVGs from jsdelivr (simple-icons) and extracted the path data for all 19 icons.
+- Created src/components/tech-icon.tsx with an inline SVG TechIcon component that renders the official brand path with the brand color via fill, so colors apply correctly (img tags cannot inherit CSS color).
+- Rewrote src/components/sections/skills.tsx: removed the card boxes (rounded-2xl border bg-card), replaced with a clean divided list layout. Each category is a row with a gradient icon + label on the left and inline skill items (official icon + name) on the right, separated by divide-y dividers instead of boxes.
+- Removed unused public/icons directory.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: 0 boxes in skills section, 24 SVG icons rendered (19 brand icons + 5 category icons), all skill names visible. No runtime errors.
+
+Stage Summary:
+- Skills section redesigned without boxes: clean divided list with category labels on the left and inline official brand icons + names on the right.
+- Each technology shows its official brand icon in its brand color (e.g., React cyan, Node.js green, Docker blue, etc.).
+- Ready for next section.
