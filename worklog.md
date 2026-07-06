@@ -196,3 +196,24 @@ Stage Summary:
 - Skills section redesigned without boxes: clean divided list with category labels on the left and inline official brand icons + names on the right.
 - Each technology shows its official brand icon in its brand color (e.g., React cyan, Node.js green, Docker blue, etc.).
 - Ready for next section.
+
+---
+Task ID: 13
+Agent: main (Z.ai Code)
+Task: Skills & Tools section - make description one line, move Tailwind CSS to Frameworks & Libraries, add GLM and Kilo Code to AI/LLM, make Frameworks & Libraries one line.
+
+Work Log:
+- In src/lib/portfolio-data.ts: moved "Tailwind CSS" from Languages to Frameworks & Libraries (now first item there). Added "GLM" (#3B5BFE) and "Kilo Code" (#7C3AED) to AI/LLM category (first two items). Languages now has 4 items, AI/LLM now has 5.
+- GLM and Kilo Code have no official Simple Icons, so created custom SVG paths in src/components/tech-icon.tsx: GLM as a stylized "G" mark, Kilo Code as code brackets with a spark.
+- Added a `nowrap` prop to src/components/section-heading.tsx so only the Skills description uses whitespace-nowrap (one line) without affecting other sections.
+- Set `nowrap` on the Skills SectionHeading.
+- Updated skills list rendering: categories with 5 or fewer items use flex-nowrap with horizontal scroll (so Frameworks & Libraries and AI/LLM stay on one line); categories with more items still wrap. Added whitespace-nowrap to skill names and shrink-0 to list items.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: description is one line (whitespace-nowrap), Tailwind CSS under Frameworks & Libraries, GLM and Kilo Code under AI/LLM, all icons render. No runtime errors.
+
+Stage Summary:
+- Skills description now on one line.
+- Tailwind CSS moved to Frameworks & Libraries.
+- GLM and Kilo Code added to AI/LLM with custom brand icons.
+- Frameworks & Libraries and other short categories stay on one line (horizontal scroll if needed).
+- Ready for next section.

@@ -9,6 +9,7 @@ type SectionHeadingProps = {
   description?: string;
   className?: string;
   align?: "left" | "center";
+  nowrap?: boolean;
 };
 
 export function SectionHeading({
@@ -17,6 +18,7 @@ export function SectionHeading({
   description,
   className,
   align = "center",
+  nowrap = false,
 }: SectionHeadingProps) {
   return (
     <div
@@ -52,7 +54,11 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed"
+          className={
+            nowrap
+              ? "text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-nowrap"
+              : "max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed"
+          }
         >
           {description}
         </motion.p>

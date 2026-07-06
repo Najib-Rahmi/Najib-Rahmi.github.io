@@ -98,7 +98,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "HTML5", icon: "html5", color: "#E34F26" },
       { name: "CSS3", icon: "css3", color: "#1572B6" },
-      { name: "Tailwind CSS", icon: "tailwindcss", color: "#06B6D4" },
       { name: "JavaScript", icon: "javascript", color: "#F7DF1E" },
       { name: "TypeScript", icon: "typescript", color: "#3178C6" },
     ],
@@ -107,6 +106,7 @@ export const skillCategories: SkillCategory[] = [
     title: "Frameworks & Libraries",
     icon: Layers,
     skills: [
+      { name: "Tailwind CSS", icon: "tailwindcss", color: "#06B6D4" },
       { name: "React", icon: "react", color: "#61DAFB" },
       { name: "Next.js", icon: "nextdotjs", color: "#FFFFFF" },
       { name: "Node.js", icon: "nodedotjs", color: "#339933" },
@@ -126,6 +126,8 @@ export const skillCategories: SkillCategory[] = [
     title: "AI / LLM",
     icon: BrainCircuit,
     skills: [
+      { name: "GLM", icon: "glm", color: "#3B5BFE" },
+      { name: "Kilo Code", icon: "kilocode", color: "#7C3AED" },
       { name: "MCP", icon: "anthropic", color: "#D97757" },
       { name: "RAG", icon: "databricks", color: "#FF3621" },
       { name: "AI Integration", icon: "openai", color: "#412991" },

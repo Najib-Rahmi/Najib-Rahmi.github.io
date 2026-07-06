@@ -18,6 +18,7 @@ export function Skills() {
           eyebrow="Skills & Tools"
           title="What I work with"
           description="A versatile toolkit honed across the stack, from pixel-perfect interfaces to scalable backends."
+          nowrap
         />
 
         <div className="mt-14 flex flex-col divide-y divide-cyan-500/10">
@@ -41,7 +42,13 @@ export function Skills() {
               </div>
 
               {/* Skills as inline items with official brand icons (no boxes) */}
-              <ul className="flex flex-wrap gap-x-6 gap-y-4">
+              <ul
+                className={`flex gap-x-5 gap-y-4 ${
+                  cat.skills.length <= 5
+                    ? "flex-nowrap overflow-x-auto"
+                    : "flex-wrap"
+                }`}
+              >
                 {cat.skills.map((skill, j) => (
                   <motion.li
                     key={skill.name}
@@ -49,7 +56,7 @@ export function Skills() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: i * 0.06 + j * 0.04 }}
-                    className="group inline-flex items-center gap-2.5"
+                    className="group inline-flex items-center gap-2.5 shrink-0"
                   >
                     <TechIcon
                       slug={skill.icon}
@@ -57,7 +64,7 @@ export function Skills() {
                       size={22}
                       className="transition-transform group-hover:scale-125 [filter:drop-shadow(0_0_6px_currentColor)] opacity-90 group-hover:opacity-100"
                     />
-                    <span className="text-sm sm:text-base font-medium text-foreground/80 transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
+                    <span className="text-sm sm:text-base font-medium text-foreground/80 transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400 whitespace-nowrap">
                       {skill.name}
                     </span>
                   </motion.li>
