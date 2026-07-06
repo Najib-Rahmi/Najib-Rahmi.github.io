@@ -50,7 +50,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight"
+          className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_40px_rgba(34,211,238,0.55)]"
         >
           {profile.name}
         </motion.h1>
@@ -93,7 +93,7 @@ export function Hero() {
           <Button
             asChild
             size="lg"
-            className="w-full sm:w-auto rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 hover:brightness-110 border-0"
+            className="w-full sm:w-auto rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/40 hover:shadow-xl hover:shadow-cyan-500/50 hover:brightness-110 border-0"
           >
             <a href="#projects">
               View My Work
@@ -104,7 +104,7 @@ export function Hero() {
             asChild
             size="lg"
             variant="outline"
-            className="w-full sm:w-auto rounded-full bg-slate-900/5 dark:bg-white/5 backdrop-blur-md border-slate-900/20 dark:border-white/30 text-slate-900 dark:text-white hover:bg-slate-900/10 dark:hover:bg-white/15 hover:text-slate-900 dark:hover:text-white"
+            className="w-full sm:w-auto rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-cyan-500/40 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50"
           >
             <a href="/cv.pdf" download>
               Download CV

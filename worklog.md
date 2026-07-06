@@ -515,3 +515,25 @@ Stage Summary:
 - Hero "View My Work" button uses an Eye icon.
 - Hero "Get In Touch" replaced with "Download CV" (downloads /cv.pdf, currently blank placeholder).
 - Name updated to "Najib Rahmi" everywhere. Ready for next section.
+
+---
+Task ID: 34
+Agent: main (Z.ai Code)
+Task: Hero/Navbar - light mode navbar hover cyan, name blue in light mode with cyan glow both themes, fix button colors.
+
+Work Log:
+- In src/components/navbar.tsx, changed desktop and mobile nav link hover from hover:text-white to hover:text-cyan-600 dark:hover:text-white (cyan in light mode, white in dark mode).
+- In src/components/sections/hero.tsx, updated the name h1 className to text-blue-600 dark:text-white [text-shadow:0_0_40px_rgba(34,211,238,0.55)]. Name is now blue in light mode, white in dark mode, with a cyan glow behind it in both themes.
+- Fixed "View My Work" button: increased shadow to shadow-cyan-500/40 for better visibility in both themes. Gradient cyan-to-blue with white text works in both themes.
+- Fixed "Download CV" button for light mode: changed from bg-slate-900/5 border-slate-900/20 text-slate-900 (too subtle) to bg-white/70 border-cyan-500/40 text-blue-700 hover:bg-cyan-50 hover:text-blue-800 hover:border-cyan-500. Now clearly visible in light mode with a white background, cyan border, and blue text. Dark mode unchanged.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser:
+  - Dark mode name: rgb(255,255,255) white with cyan glow rgba(34,211,238,0.55) 0 0 40px.
+  - Light mode name: blue (lab 44,29,-86) with same cyan glow.
+  - Navbar hover class: hover:text-cyan-600 dark:hover:text-white.
+  - No runtime errors.
+
+Stage Summary:
+- Light mode navbar hover is cyan.
+- Name is blue in light mode, white in dark mode, with a cyan glow in both themes.
+- Download CV button fixed for light mode (white bg, cyan border, blue text). View My Work button strengthened for both themes.
+- Ready for next section.

@@ -78,7 +78,7 @@ export function Navbar() {
                 "relative px-3 py-2 text-sm font-medium rounded-md transition-colors",
                 active === link.href
                   ? "text-cyan-600 dark:text-cyan-400"
-                  : "text-muted-foreground hover:text-white"
+                  : "text-muted-foreground hover:text-cyan-600 dark:hover:text-white"
               )}
             >
               {link.label}
@@ -127,7 +127,7 @@ export function Navbar() {
                     "px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                     active === link.href
                       ? "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400"
-                      : "text-muted-foreground hover:bg-accent hover:text-white"
+                      : "text-muted-foreground hover:bg-accent hover:text-cyan-600 dark:hover:text-white"
                   )}
                 >
                   {link.label}
