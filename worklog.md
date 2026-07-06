@@ -1039,3 +1039,16 @@ Work Log:
 
 Stage Summary:
 - Security headers commented out. Mobile preview should now load without ERR_BLOCKED_BY_RESPONSE. Ready to uncomment on user request.
+
+---
+Task ID: 56
+Agent: main (Z.ai Code)
+Task: Mobile - add 5px extra to the scroll position so each section lands in the right spot.
+
+Work Log:
+- In src/app/globals.css, changed scroll-padding-top from 5rem (80px) to 85px (5px extra) for the native hash navigation on desktop.
+- In src/components/navbar.tsx, updated the mobile menu click handler to use window.scrollTo with a manual 85px offset (navbar height + 5px) instead of scrollIntoView, because scrollIntoView does not reliably respect scroll-padding-top on mobile. The offset = target.getBoundingClientRect().top + window.scrollY - 85.
+- Verified with Agent Browser on 390x844: clicking Contact -> contact top at 85px; clicking About -> about top at 85px. Both land just below the navbar with the extra 5px. Lint clean. No runtime errors.
+
+Stage Summary:
+- Mobile menu navigation now scrolls each section to 85px from the top (navbar height + 5px extra). Ready for user to test on phone.
