@@ -306,3 +306,25 @@ Work Log:
 Stage Summary:
 - Glow effect removed from all skill icons. Icons now render plainly in their brand colors with a hover scale only.
 - Ready for next section.
+
+---
+Task ID: 19
+Agent: main (Z.ai Code)
+Task: Skills - in light mode switch the white/black icon colors for Express.js, Next.js, GitHub, GLM, MySQL. GLM logo must be official Z.ai (white/black not blue). MySQL logo official not blue.
+
+Work Log:
+- The 5 icons (Next.js, Express.js, GitHub, GLM, MySQL) have white brand colors, making them invisible on white backgrounds in light mode.
+- In src/components/tech-icon.tsx, extended the ADAPTIVE_GLOW handling: for these 5 slugs, the icon FILL color now uses var(--foreground) (white in dark mode, black in light mode), not just the glow. Renamed the logic to fillColor used for both fill and glow.
+- GLM already uses the official Z.ai "Z" logo path; now its color is adaptive white/black instead of #3B5BFE blue.
+- MySQL already uses the official dolphin logo path; now its color is adaptive white/black instead of #4479A1 blue.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser:
+  - Dark mode: Next.js, Express.js, MySQL, GLM, GitHub = lab(98.26 0 0) = white. React/Docker keep brand colors.
+  - Light mode: same 5 icons = lab(2.75 0 0) = black. React/Docker keep brand colors.
+  - No runtime errors.
+
+Stage Summary:
+- The 5 specified icons now switch fill color with the theme: white in dark mode, black in light mode.
+- GLM uses the official Z.ai Z logo in white/black (not blue).
+- MySQL uses the official dolphin logo in white/black (not blue).
+- Ready for next section.

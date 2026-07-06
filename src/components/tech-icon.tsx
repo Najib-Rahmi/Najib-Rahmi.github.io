@@ -88,8 +88,10 @@ export function TechIcon({
 }: TechIconProps) {
   const icon = getIcon(slug);
   if (!icon) return null;
-  // Adaptive glow uses the theme foreground (white in dark, black in light) via var(--foreground).
-  const glowColor = ADAPTIVE_GLOW.has(slug) ? "var(--foreground)" : color;
+  // Adaptive icons (Next.js, Express.js, GitHub, GLM, MySQL) use the theme
+  // foreground as their fill color: white in dark mode, black in light mode.
+  const adaptive = ADAPTIVE_GLOW.has(slug);
+  const fillColor = adaptive ? "var(--foreground)" : color;
   return (
     <svg
       role="img"
@@ -98,10 +100,10 @@ export function TechIcon({
       height={size}
       fill="currentColor"
       style={{
-        color,
+        color: fillColor,
         ...(glow
           ? {
-              filter: `drop-shadow(0 0 4px ${glowColor}) drop-shadow(0 0 10px ${glowColor})`,
+              filter: `drop-shadow(0 0 4px ${fillColor}) drop-shadow(0 0 10px ${fillColor})`,
             }
           : {}),
       }}
