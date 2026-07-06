@@ -999,3 +999,15 @@ Stage Summary:
 - Full SEO implemented: complete metadata, JSON-LD Person/WebSite schema, sitemap.xml, robots.txt, canonical URL, Open Graph + Twitter cards, security headers.
 - Unused code removed (5 lucide icons + dead re-export). Accessibility improved (skip link, ARIA on mobile menu).
 - Ready for next section.
+
+---
+Task ID: 53
+Agent: main (Z.ai Code)
+Task: Hero PC - add an empty line between role and tagline.
+
+Work Log:
+- In src/components/sections/hero.tsx, added md:mt-6 to the tagline paragraph className so on tablet/desktop there is an extra gap (24px) between the role and the tagline.
+- Verified with Agent Browser at 1280px: gap between role bottom and tagline top is 25px (was ~0). Lint clean. No runtime errors.
+
+Stage Summary:
+- On PC, there is now an empty line gap between the role and the tagline. Mobile unaffected. Ready for next section.
