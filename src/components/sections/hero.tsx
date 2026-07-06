@@ -13,9 +13,15 @@ export function Hero() {
       id="home"
       className="relative min-h-svh w-full flex items-center justify-center overflow-hidden"
     >
-      {/* Background photo, scales to cover without distortion */}
+      {/* Background photo, scales to cover without distortion.
+          Mobile uses a portrait-optimized image; desktop uses the landscape one. */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 md:hidden"
+        style={{ backgroundImage: "url(/hero-bg-mobile.png)" }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 hidden md:block"
         style={{ backgroundImage: "url(/hero-bg.png)" }}
         aria-hidden
       />

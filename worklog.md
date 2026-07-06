@@ -614,3 +614,16 @@ Work Log:
 
 Stage Summary:
 - Hamburger menu icon now blue in light mode (matching the name), white in dark mode. Ready for next section.
+
+---
+Task ID: 40
+Agent: main (Z.ai Code)
+Task: Mobile hero - use the uploaded phone background (myphonebackground.png, 853x1844 portrait) on mobile, keep the original on desktop.
+
+Work Log:
+- Copied /home/z/my-project/upload/myphonebackground.png to /home/z/my-project/public/hero-bg-mobile.png.
+- In src/components/sections/hero.tsx, split the single background div into two: one for mobile (hero-bg-mobile.png, md:hidden) and one for desktop (hero-bg.png, hidden md:block).
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: on 390x844 mobile, the mobile portrait background is used; on 1280x800 desktop, the landscape background is used. No runtime errors.
+
+Stage Summary:
+- Hero now uses the portrait phone background on mobile and the landscape photo on desktop. Ready for next section.
