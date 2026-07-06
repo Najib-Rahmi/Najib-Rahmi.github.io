@@ -482,3 +482,17 @@ Work Log:
 Stage Summary:
 - Hero light mode now uses a spotlight effect (light on near the center) instead of a flat white overlay. Photo is visible at the edges, center is illuminated for text readability.
 - User may request removal if not liked. Ready for next section.
+
+---
+Task ID: 32
+Agent: main (Z.ai Code)
+Task: Hero - remove the white spotlight overlay in light mode.
+
+Work Log:
+- In src/components/sections/hero.tsx, removed the light-mode radial spotlight div entirely.
+- Light mode now shows the photo with only the cyan/blue tint accent on top (no white overlay).
+- Dark mode overlay unchanged.
+- Ran `bun run lint` -> passed clean. No runtime errors.
+
+Stage Summary:
+- White overlay removed from hero light mode. Photo shows through with cyan/blue tint only. Ready for next section.
