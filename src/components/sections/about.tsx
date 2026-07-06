@@ -6,9 +6,9 @@ import { SectionHeading } from "@/components/section-heading";
 import { profile } from "@/lib/portfolio-data";
 
 const stats = [
-  { value: "14", label: "Public Repos" },
+  { value: "17", label: "Public Repos" },
   { value: "5+", label: "Tech Domains" },
-  { value: "AI", label: "LLM Integration" },
+  { value: "30+", label: "Projects Built" },
   { value: "100%", label: "Always Learning" },
 ];
 

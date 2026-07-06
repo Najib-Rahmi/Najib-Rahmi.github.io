@@ -389,3 +389,15 @@ Work Log:
 Stage Summary:
 - About bio now includes developer/stack details up front and current AI learning (MCP, RAG, skills, Claude Code, Kilo Code, GLM) at the end.
 - Ready for next section.
+
+---
+Task ID: 24
+Agent: main (Z.ai Code)
+Task: About - set the 4 stat boxes to: 17 Public Repos, keep 5+ Tech Domains, 30+ Projects Built, keep 100% Always Learning.
+
+Work Log:
+- Updated the stats array in src/components/sections/about.tsx: changed first box to "17 Public Repos", third box to "30+ Projects Built", kept second box "5+ Tech Domains" and fourth box "100% Always Learning" unchanged.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: boxes show 17 Public Repos | 5+ Tech Domains | 30+ Projects Built | 100% Always Learning. No runtime errors.
+
+Stage Summary:
+- About stat boxes set exactly as requested. Ready for next section.
