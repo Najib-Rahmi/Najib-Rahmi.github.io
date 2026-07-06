@@ -556,3 +556,19 @@ Stage Summary:
 - Navbar logo name now matches hero name (blue in light, white in dark, cyan glow).
 - "View My Work" and "Download CV" buttons now have the same style (white bg, cyan border, blue text in light; subtle in dark).
 - Ready for next section.
+
+---
+Task ID: 36
+Agent: main (Z.ai Code)
+Task: Experience - replace 3 entries: Project Builder with Medical Recovery (documented leave Feb 2024 - Apr 2026), Continuous Learner with TAC-TIC Full Stack internship, Based in with WebUp Frontend internship.
+
+Work Log:
+- Added HeartPulse icon import to src/lib/portfolio-data.ts.
+- Replaced experience index 1 (Project Builder & Contributor) with "Medical Recovery" at "Documented Medical Leave", period "Feb 2024 - Apr 2026", icon HeartPulse. Description explains the 2-year health-related absence with official documentation. Highlights mention the exact dates (3 February 2024 to 10 April 2026), full recovery, and staying current with AI/LLM during recovery.
+- Replaced experience index 2 (Continuous Learner) with "Full Stack Web Developer" at "TAC-TIC | Internship", period "Feb 2023 - Jun 2023 | 5 mos", location "Ariana, Tunisia | Remote", icon Briefcase. All 6 highlight bullets from the user included (SPA for PFE lifecycle, multi-stage pipeline, role-based dashboards, Axios interceptors, Context API state, React Hook Form + Tailwind + Laravel service architecture). Used "to" instead of arrows for the pipeline states.
+- Replaced experience index 3 (Based in) with "Frontend Developer" at "WebUp | Internship", period "Jan 2022 - Feb 2022 | 2 mos", location "Rue d'alger CyberParc, KEF | On-site", icon Briefcase. All 4 highlight bullets from the user included (responsive UI with HTML5/CSS3/Bootstrap, vanilla JS interactions, reusable HTML/CSS components, frontend-backend integration).
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: all 4 entries render (Full Stack Web Developer Now, Medical Recovery, TAC-TIC internship, WebUp internship). No em dashes. No runtime errors.
+
+Stage Summary:
+- Experience section now has 4 entries in reverse chronological order: Now (open to opportunities), Medical Recovery (Feb 2024 - Apr 2026, documented), TAC-TIC Full Stack internship (Feb-Jun 2023), WebUp Frontend internship (Jan-Feb 2022).
+- User can modify the medical recovery wording later. Ready for next section.

@@ -15,6 +15,7 @@ import {
   ExternalLink,
   Rocket,
   Sparkles,
+  HeartPulse,
 } from "lucide-react";
 
 // Real data scraped from https://github.com/Najib-Rahmi
@@ -244,42 +245,44 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    role: "Project Builder & Contributor",
-    company: "GitHub | Open Source",
-    period: "Ongoing",
+    role: "Medical Recovery",
+    company: "Documented Medical Leave",
+    period: "Feb 2024 - Apr 2026",
     description:
-      "Maintaining a growing set of public repositories spanning web apps, Java utilities, and personal projects, with a focus on clean, readable code.",
-    icon: Rocket,
+      "I was away from the field for about two years due to a health condition. This period is officially documented, and I have the medical paperwork to prove it. I am now fully recovered and back to building, stronger and more motivated than ever.",
+    icon: HeartPulse,
     highlights: [
-      "Published 14 public repositories on GitHub",
-      "Built Java apps including a quiz game, chronometer, and calculator",
-      "Created a React + Vite + Tailwind To-Do app with drag-and-drop",
+      "Officially documented medical leave from 3 February 2024 to 10 April 2026",
+      "Fully recovered and actively returning to full stack development",
+      "Used the recovery time to stay current with AI and LLM advancements",
     ],
   },
   {
-    role: "Continuous Learner",
-    company: "freeCodeCamp",
-    period: "Ongoing",
-    description:
-      "Progressing through freeCodeCamp certifications, strengthening foundations in responsive design, JavaScript algorithms, and modern front-end development.",
-    icon: GraduationCap,
+    role: "Full Stack Web Developer",
+    company: "TAC-TIC | Internship",
+    period: "Feb 2023 - Jun 2023 | 5 mos",
+    description: "Ariana, Tunisia | Remote",
+    icon: Briefcase,
     highlights: [
-      "Completed coursework across responsive web design and JavaScript",
-      "Applied learnings directly to personal projects on GitHub",
-      "Committed to staying current with modern frameworks and tools",
+      "Built a production-ready SPA to digitize the full PFE submission and validation lifecycle, serving three role-scoped user types: Student, Supervisor, and Administrator",
+      "Multi-stage submission pipeline (Draft to Submitted to Under Review to Approved/Rejected) with service-layer state transition logic in Laravel",
+      "Role-based dashboards with aggregate reporting and real-time status tracking",
+      "Centralized Axios instance with request/response interceptors for token injection and global 401 handling",
+      "Managed global state via Context API for authenticated session, role resolution, and protected routing through React Router guards",
+      "Utilized form validation with React Hook Form, utility-first UI with Tailwind CSS, and a RESTful backend following thin-controller, service-class architecture",
     ],
   },
   {
-    role: "Based in",
-    company: "Tunis, Tunisia",
-    period: "Location",
-    description:
-      "Working remotely and open to collaboration with teams anywhere in the world. Let's connect and build something amazing together.",
-    icon: MapPin,
+    role: "Frontend Developer",
+    company: "WebUp | Internship",
+    period: "Jan 2022 - Feb 2022 | 2 mos",
+    description: "Rue d'alger CyberParc, KEF | On-site",
+    icon: Briefcase,
     highlights: [
-      "Available for remote full-stack and AI-integration work",
-      "Comfortable across the JavaScript and Java ecosystems",
-      "Reachable via GitHub, LinkedIn, and freeCodeCamp",
+      "Built a fully responsive UI with HTML5, CSS3, and Bootstrap, ensuring consistency across devices",
+      "Implemented dynamic UI interactions and form validation using vanilla JavaScript",
+      "Structured employee data views (lists, profiles, forms) with clean, reusable HTML/CSS components",
+      "Collaborated on integrating the frontend with backend data to display and manage employee records",
     ],
   },
 ];
