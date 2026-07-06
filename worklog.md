@@ -143,3 +143,21 @@ Stage Summary:
 - Experience section boxes removed, content now flows freely on the timeline without card wrappers.
 - Data unchanged.
 - Ready for next section.
+
+---
+Task ID: 10
+Agent: main (Z.ai Code)
+Task: Experience section - put Full Stack Web Developer and Continuous Learner on the right side of the timeline bar/icon, and rename the title to "Full Stack Web Developer".
+
+Work Log:
+- In src/lib/portfolio-data.ts, renamed the first experience role from "Full-Stack Developer" to "Full Stack Web Developer".
+- In src/components/sections/experience.tsx, rewrote the timeline item layout to remove the broken direction:rtl hack that was reversing grid columns and putting everything on the left.
+- Replaced with a clean approach: isRight = i % 2 === 0. Right items use sm:col-start-2 sm:pl-8 sm:text-left; left items use sm:col-start-1 sm:pr-8 sm:text-right. Highlights flex direction flips accordingly.
+- Result: index 0 (Full Stack Web Developer) and index 2 (Continuous Learner) on the RIGHT; index 1 (Project Builder) and index 3 (Based in) on the LEFT.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser at desktop width: "Full Stack Web Developer: RIGHT | Project Builder & Contributor: LEFT | Continuous Learner: RIGHT | Based in: LEFT". No runtime errors.
+
+Stage Summary:
+- Title renamed to "Full Stack Web Developer".
+- Full Stack Web Developer and Continuous Learner now appear on the right side of the timeline bar; the other two on the left.
+- Ready for next section.
