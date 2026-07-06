@@ -686,3 +686,23 @@ Work Log:
 
 Stage Summary:
 - Hero tagline updated. Ready for next section.
+
+---
+Task ID: 45
+Agent: main (Z.ai Code)
+Task: Hero - shift content more to left on PC, and on tablet move location/name/role higher and make tagline 2 lines.
+
+Work Log:
+- In src/components/sections/hero.tsx, updated the content container: removed mx-auto in favor of md:mr-auto so on tablet/desktop the content sits at the left edge (md:pl-10, lg:pl-16) instead of being centered. max-w-4xl lg:max-w-2xl keeps it from spanning too wide. Result: PC name left at 64px (was 216px).
+- For tablet vertical position: changed md:pt-20 to md:pt-10 so location/name/role sit closer to the top on tablet. Desktop (lg) keeps lg:py-20 and lg:justify-center for vertical centering. Tablet uses md:justify-between.
+- For the multi-line tagline: added a \n in profile.tagline (src/lib/portfolio-data.ts) between "...every line of code." and "Turning complex problems...", and added whitespace-pre-line to the tagline paragraph className so the line break renders.
+- Ran `bun run lint` -> passed clean. Verified:
+  - PC 1280px: name left at 64px (more left).
+  - Tablet 768px: name top at 98px (near top), name left at 40px, tagline height 130px (multi-line).
+  - Mobile 390px: name still centered (left 38px in 390px viewport).
+  - No runtime errors.
+
+Stage Summary:
+- PC hero content shifted further left (name at 64px).
+- Tablet: location/name/role higher (pt-10), tagline renders as 2 lines.
+- Mobile unchanged (centered). Ready for next section.

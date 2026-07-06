@@ -26,7 +26,7 @@ export const profile = {
   // Tech line shown in the GitHub typing SVG
   techLine: "React | Express.js | Node.js | Next.js",
   tagline:
-    "Curious by nature, I build modern web apps end to end and keep raising the bar with every line of code. Turning complex problems into clean, scalable software that real people use.",
+    "Curious by nature, I build modern web apps end to end and keep raising the bar with every line of code.\nTurning complex problems into clean, scalable software that real people use.",
   bio: "I am a full stack web developer who builds modern, responsive web apps with React, Next.js, Node.js, and Express.js, comfortable across the whole stack from clean interfaces to solid backends.\nI am ambitious and self-confident, driven by an endless curiosity to understand how things work. Whatever catches my interest, I learn it, try it, and push at it until I truly excel at it. That same energy fuels everything I build, from a first line of code to a finished, shipped product.\nRight now I am diving deep into AI integration, exploring MCP, RAG, and agent skills, and working hands-on with LLMs like Claude Code, Kilo Code, and GLM to build smarter, more capable workflows.",
   location: "Tunis, Tunisia",
   email: "najib.rahmi.dev@gmail.com",
