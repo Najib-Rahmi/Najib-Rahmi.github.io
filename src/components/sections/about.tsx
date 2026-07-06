@@ -18,64 +18,43 @@ export function About() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <SectionHeading eyebrow="About Me" title="Turning ideas into real, working products" />
 
-        <div className="mt-14 flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5 }}
-            className="relative shrink-0"
-          >
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 blur-md opacity-60" />
-            <img
-              src={profile.avatar}
-              alt={`${profile.name} avatar`}
-              width={120}
-              height={120}
-              className="relative size-24 sm:size-28 rounded-full object-cover ring-4 ring-background"
-            />
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-14 space-y-6"
+        >
+          {/* Avatar + name + role + location on the left */}
+          <div className="flex items-center gap-5">
+            <div className="relative shrink-0">
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 blur-md opacity-60" />
+              <img
+                src={profile.avatar}
+                alt={`${profile.name} avatar`}
+                width={96}
+                height={96}
+                className="relative size-20 sm:size-24 rounded-full object-cover ring-4 ring-background"
+              />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold">{profile.name}</h3>
+              <p className="text-sm font-medium text-cyan-600 dark:text-cyan-400">
+                {profile.role}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {profile.location}
+              </p>
+            </div>
+          </div>
 
-          <motion.h3
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-5 text-xl font-bold"
-          >
-            {profile.name}
-          </motion.h3>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-sm font-medium text-cyan-600 dark:text-cyan-400"
-          >
-            {profile.role}
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xs text-muted-foreground"
-          >
-            {profile.location}
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground"
-          >
+          {/* Bio */}
+          <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
             {profile.bio}
-          </motion.p>
+          </p>
 
           {/* Stats */}
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -94,7 +73,7 @@ export function About() {
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

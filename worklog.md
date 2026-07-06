@@ -346,3 +346,17 @@ Stage Summary:
 - Description text under the title removed.
 - About section is now a clean centered layout: avatar, name, role, location, bio, stats.
 - Ready for next section.
+
+---
+Task ID: 21
+Agent: main (Z.ai Code)
+Task: About - restore avatar, name, role, location to the left side (undo the centering).
+
+Work Log:
+- Rewrote src/components/sections/about.tsx to restore the left-aligned layout: avatar + name + role + location in a horizontal flex row on the left, followed by the bio paragraph and stats grid below, all left-aligned within max-w-5xl.
+- Removed the centered (items-center text-center) layout I had introduced when removing the trait boxes.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: avatar row (flex items-center gap-5) exists. No runtime errors.
+
+Stage Summary:
+- Avatar, name, role, location back on the left side as originally designed.
+- Ready for next section.
