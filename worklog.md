@@ -1091,3 +1091,39 @@ Work Log:
 
 Stage Summary:
 - Mobile scroll offset now 65px. Ready for user to test on phone.
+
+---
+Task ID: 60
+Agent: main (Z.ai Code)
+Task: Uncomment security headers, read all code, and run a comprehensive end-to-end test.
+
+Work Log:
+- Uncommented the security headers block in next.config.ts (X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy).
+- Ran `bun run lint` -> passed clean.
+- Comprehensive browser test (desktop dark mode):
+  - Page title: "Najib Rahmi | Full Stack Web Developer" ✓
+  - No runtime/console errors ✓
+  - JSON-LD structured data present ✓
+  - Skip-to-content link present ✓
+  - All 6 sections present (home, about, skills, projects, experience, contact) ✓
+  - Hero: single h1 "Najib Rahmi", View My Work + Download CV buttons ✓
+  - About stats: 17, 5+, 30+, 100% ✓
+  - Skills: 5 categories (Languages, Frameworks & Libraries, Database, AI/LLM, Tools & DevOps) ✓
+  - Projects: all 6 (Focus Flow, To-Do App, Weather App, Music Player, Scientific Calculator, Random Quote Generator) ✓
+  - Experience: all 4 (Full Stack Web Developer Now, Medical Recovery, TAC-TIC, WebUp) ✓
+  - Contact: location, 4 socials (GitHub, LinkedIn, WhatsApp, Email), form with Name/Email/Message + Send Message ✓
+- Contact form: submitted successfully via JS dispatch (POST /api/contact 200), button shows "Sent", success message displayed ✓
+- Theme toggle: dark -> light -> dark works ✓
+- Mobile test (390x844):
+  - Hamburger menu opens, all 6 nav items present ✓
+  - Clicking each item closes menu, navigates to correct hash, smooth-scrolls to 65px from top (verified Experience -> #experience at 65px) ✓
+- SEO routes verified via curl:
+  - /robots.txt returns proper robots with Sitemap directive + Host ✓
+  - /sitemap.xml returns valid XML urlset ✓
+  - Security headers served: nosniff, SAMEORIGIN, Referrer-Policy, Permissions-Policy ✓
+  - /cv.pdf returns 200 ✓
+  - X-Powered-By header not present (poweredByHeader: false) ✓
+- Dev log clean, no errors or warnings.
+
+Stage Summary:
+- Security headers re-enabled. Full site verified working end-to-end on desktop and mobile, both themes. SEO (metadata, JSON-LD, sitemap, robots, security headers) all active and correct. Lint clean, no runtime errors. Site is production-ready (pending real CV PDF and real domain).
