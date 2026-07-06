@@ -438,3 +438,19 @@ Work Log:
 
 Stage Summary:
 - Skills rows now use py-6 vertical padding and gap-5 gap. Ready for next section.
+
+---
+Task ID: 28
+Agent: main (Z.ai Code)
+Task: Skills - increase margin between each category label and its first skill, and ensure Frameworks & Libraries stays one row.
+
+Work Log:
+- In src/components/sections/skills.tsx, changed the row className from "py-6 grid gap-5 md:grid-cols-[200px_1fr]" to "py-6 grid gap-x-10 gap-y-4 md:grid-cols-[max-content_1fr]".
+- gap-x-10 (40px) increases the horizontal gap between the category label (e.g. "Languages") and its first skill (e.g. "HTML5"). Confirmed via Agent Browser: Languages label right = 310px, HTML5 left = 350px, gap = 40px.
+- Changed label column from fixed 200px to max-content so the label takes only the space it needs, leaving maximum width for the skills column. This keeps Frameworks & Libraries (5 items) on a single row. Confirmed: 5 items, 1 row (all same top).
+- Ran `bun run lint` -> passed clean. No runtime errors.
+
+Stage Summary:
+- Gap between category labels and their first skill increased to 40px (gap-x-10).
+- Frameworks & Libraries confirmed as one row.
+- Ready for next section.
