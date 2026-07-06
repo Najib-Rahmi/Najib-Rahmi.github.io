@@ -159,64 +159,64 @@ export type Project = {
 // Real public repositories from github.com/Najib-Rahmi
 export const projects: Project[] = [
   {
+    title: "Focus Flow",
+    description:
+      "A beautiful, client-side productivity app built with React 19 and Tailwind CSS v4. Features task management, a Pomodoro timer, daily reflections, and productivity analytics. No backend required, everything runs in the browser.",
+    tags: ["React 19", "Tailwind CSS v4", "JavaScript"],
+    liveUrl: "#",
+    repoUrl: "https://github.com/Najib-Rahmi/FocusFlow",
+    accent: "from-cyan-500/20 to-blue-500/20",
+    emoji: "🎯",
+  },
+  {
     title: "To-Do App",
     description:
       "A modern, responsive Todo app built with React, Vite, and Tailwind CSS. Features drag-and-drop task reordering, a dark gradient theme, and a modular component architecture for seamless task management.",
     tags: ["React", "Vite", "Tailwind CSS", "JavaScript"],
-    liveUrl: "https://najib-rahmi.github.io",
+    liveUrl: "#",
     repoUrl: "https://github.com/Najib-Rahmi/To-Do",
-    accent: "from-cyan-500/20 to-blue-500/20",
+    accent: "from-blue-500/20 to-cyan-500/20",
     emoji: "✅",
   },
   {
-    title: "QuizGame",
+    title: "Weather App",
     description:
-      "An interactive quiz game built in Java that tests knowledge across multiple categories. Clean game logic, score tracking, and a straightforward, fun user experience.",
-    tags: ["Java", "OOP", "Game Logic"],
+      "A modern, responsive weather application built with React 19, Vite, and Tailwind CSS v4. Features real-time weather data, 5-day forecasts, geolocation support, and dynamic backgrounds that adapt to weather conditions. Glass morphism UI with a seamless user experience.",
+    tags: ["React 19", "Vite", "Tailwind CSS v4", "API"],
     liveUrl: "#",
-    repoUrl: "https://github.com/Najib-Rahmi/QuizGame",
-    accent: "from-blue-500/20 to-cyan-500/20",
-    emoji: "❓",
-  },
-  {
-    title: "Chronometer",
-    description:
-      "A precise stopwatch and timer application written in Java. Handles start, pause, and lap timing with a responsive, easy-to-read interface for everyday use.",
-    tags: ["Java", "Timers", "UI"],
-    liveUrl: "#",
-    repoUrl: "https://github.com/Najib-Rahmi/Chronometer",
+    repoUrl: "https://github.com/Najib-Rahmi/Weather",
     accent: "from-cyan-400/20 to-blue-600/20",
-    emoji: "⏱️",
+    emoji: "🌤️",
   },
   {
-    title: "Calculator",
+    title: "Music Player",
     description:
-      "A classic calculator app built in Java supporting standard arithmetic operations. Focused on clean code structure, input validation, and a simple, intuitive layout.",
-    tags: ["Java", "OOP", "Math"],
+      "A modern React music player with real MP3 playback, custom album artwork, and advanced controls. Built with React 19, Vite, and Tailwind CSS v4.",
+    tags: ["React 19", "Vite", "Tailwind CSS v4", "JavaScript"],
     liveUrl: "#",
-    repoUrl: "https://github.com/Najib-Rahmi/Calculator",
+    repoUrl: "https://github.com/Najib-Rahmi/Music-Player",
     accent: "from-blue-400/20 to-cyan-600/20",
+    emoji: "🎵",
+  },
+  {
+    title: "Scientific Calculator",
+    description:
+      "A basic scientific calculator with a neomorphism design, built with JavaScript, CSS, and HTML. Clean, tactile interface for everyday and advanced calculations.",
+    tags: ["JavaScript", "CSS", "HTML", "Neomorphism"],
+    liveUrl: "#",
+    repoUrl: "https://github.com/Najib-Rahmi/Scientific-Calculator",
+    accent: "from-cyan-500/20 to-blue-400/20",
     emoji: "🧮",
   },
   {
-    title: "Personal Website",
+    title: "Random Quote Generator",
     description:
-      "My personal portfolio site hosted on GitHub Pages. Showcases my projects, skills, and background, built with a focus on clean design and fast loading.",
-    tags: ["HTML", "CSS", "GitHub Pages"],
-    liveUrl: "https://najib-rahmi.github.io",
-    repoUrl: "https://github.com/Najib-Rahmi/Najib-Rahmi.github.io",
-    accent: "from-cyan-500/20 to-blue-400/20",
-    emoji: "🌐",
-  },
-  {
-    title: "freeCodeCamp Certifications",
-    description:
-      "A collection of my freeCodeCamp coursework and certifications, documenting my progression through responsive web design, JavaScript algorithms, and front-end libraries.",
-    tags: ["Web Design", "JavaScript", "Certifications"],
-    liveUrl: "https://www.freecodecamp.org/nejib-rehmi",
-    repoUrl: "https://github.com/Najib-Rahmi/Freecodecamp-Certifications",
+      "A React-based quote application built with Vite, featuring a clean UI for displaying and managing inspirational quotes.",
+    tags: ["React", "Vite", "JavaScript"],
+    liveUrl: "#",
+    repoUrl: "https://github.com/Najib-Rahmi/Random-Quote-Generator",
     accent: "from-blue-500/20 to-cyan-400/20",
-    emoji: "🎓",
+    emoji: "💬",
   },
 ];
 

@@ -748,3 +748,24 @@ Work Log:
 
 Stage Summary:
 - Tablet padding now 75px. Ready for next section.
+
+---
+Task ID: 49
+Agent: main (Z.ai Code)
+Task: Experience/Projects - update the projects to: Focus Flow, To-Do App, Weather App, Music Player, Scientific Calculator, Random Quote Generator. Sourced from github.com/Najib-Rahmi.
+
+Work Log:
+- Scraped github.com/Najib-Rahmi?tab=repositories and checked individual repo URLs via curl to find the real repo names: FocusFlow, To-Do, Weather, Music-Player, Scientific-Calculator, Random-Quote-Generator.
+- Fetched each repo page via page_reader to extract the real descriptions and languages from the GitHub repo titles/descriptions.
+- Updated src/lib/portfolio-data.ts projects array with all 6 projects using their real GitHub repo URLs and real descriptions:
+  1. Focus Flow - React 19, Tailwind CSS v4, task management + Pomodoro + analytics (FocusFlow repo)
+  2. To-Do App - React, Vite, Tailwind CSS, drag-and-drop (To-Do repo)
+  3. Weather App - React 19, Vite, Tailwind CSS v4, real-time weather + 5-day forecast + geolocation (Weather repo)
+  4. Music Player - React 19, Vite, Tailwind CSS v4, MP3 playback (Music-Player repo)
+  5. Scientific Calculator - JavaScript, CSS, HTML, neomorphism design (Scientific-Calculator repo)
+  6. Random Quote Generator - React, Vite, inspirational quotes (Random-Quote-Generator repo)
+- All liveUrls set to "#" since no GitHub Pages deployments were found for these repos.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: all 6 project titles render, all repo links point to the correct GitHub repos. No runtime errors.
+
+Stage Summary:
+- Projects section now shows the 6 requested projects with real descriptions and real GitHub repo links. Ready for next section.
