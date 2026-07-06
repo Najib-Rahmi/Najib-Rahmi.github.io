@@ -1025,3 +1025,17 @@ Work Log:
 
 Stage Summary:
 - Mobile menu items now work: clicking closes the menu and smooth-scrolls to the target section. Ready for user to test on their phone via sharing.
+
+---
+Task ID: 55
+Agent: main (Z.ai Code)
+Task: Comment out the security headers in next.config.ts to fix ERR_BLOCKED_BY_RESPONSE on mobile.
+
+Work Log:
+- Commented out the entire async headers() block in next.config.ts (X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy). Added explanatory comments noting X-Frame-Options: SAMEORIGIN blocks the iframe embedding used by the preview/share system.
+- Kept reactStrictMode, poweredByHeader false, typescript ignoreBuildErrors false.
+- Verified with curl: no security headers are served. Lint clean.
+- User will tell me to uncomment when testing is complete.
+
+Stage Summary:
+- Security headers commented out. Mobile preview should now load without ERR_BLOCKED_BY_RESPONSE. Ready to uncomment on user request.
