@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -53,14 +53,18 @@ export function Navbar() {
       <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
         <a
           href="#home"
-          className="group flex items-center gap-2 font-bold text-base sm:text-lg"
+          className="group flex items-center gap-2.5 font-bold text-base sm:text-lg"
         >
-          <span className="grid place-items-center size-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/30 transition-transform group-hover:scale-110">
-            <Terminal className="size-4" />
+          <span className="relative shrink-0 transition-transform group-hover:scale-110">
+            <span className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 blur-[3px] opacity-70" />
+            <img
+              src={profile.avatar}
+              alt={`${profile.name} logo`}
+              className="relative size-8 sm:size-9 rounded-full object-cover ring-2 ring-background"
+            />
           </span>
           <span className="tracking-tight">
-            {profile.firstName}
-            <span className="text-cyan-500">.dev</span>
+            {profile.name}
           </span>
         </a>
 
@@ -74,7 +78,7 @@ export function Navbar() {
                 "relative px-3 py-2 text-sm font-medium rounded-md transition-colors",
                 active === link.href
                   ? "text-cyan-600 dark:text-cyan-400"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-white"
               )}
             >
               {link.label}
@@ -123,7 +127,7 @@ export function Navbar() {
                     "px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                     active === link.href
                       ? "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400"
-                      : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                      : "text-muted-foreground hover:bg-accent hover:text-white"
                   )}
                 >
                   {link.label}

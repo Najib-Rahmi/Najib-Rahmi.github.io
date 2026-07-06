@@ -19,8 +19,8 @@ import {
 
 // Real data scraped from https://github.com/Najib-Rahmi
 export const profile = {
-  name: "Rahmi Najib",
-  firstName: "Rahmi",
+  name: "Najib Rahmi",
+  firstName: "Najib",
   role: "Full Stack Web Developer",
   // Tech line shown in the GitHub typing SVG
   techLine: "React | Express.js | Node.js | Next.js",

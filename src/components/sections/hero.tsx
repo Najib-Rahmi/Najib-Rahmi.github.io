@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowDownToLine, MapPin } from "lucide-react";
+import { ChevronDown, ArrowDownToLine, MapPin, Eye } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { profile } from "@/lib/portfolio-data";
@@ -97,7 +97,7 @@ export function Hero() {
           >
             <a href="#projects">
               View My Work
-              <ArrowDownToLine className="size-4" />
+              <Eye className="size-4" />
             </a>
           </Button>
           <Button
@@ -106,7 +106,10 @@ export function Hero() {
             variant="outline"
             className="w-full sm:w-auto rounded-full bg-slate-900/5 dark:bg-white/5 backdrop-blur-md border-slate-900/20 dark:border-white/30 text-slate-900 dark:text-white hover:bg-slate-900/10 dark:hover:bg-white/15 hover:text-slate-900 dark:hover:text-white"
           >
-            <a href="#contact">Get In Touch</a>
+            <a href="/cv.pdf" download>
+              Download CV
+              <ArrowDownToLine className="size-4" />
+            </a>
           </Button>
         </motion.div>
       </div>

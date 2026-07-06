@@ -496,3 +496,22 @@ Work Log:
 
 Stage Summary:
 - White overlay removed from hero light mode. Photo shows through with cyan/blue tint only. Ready for next section.
+
+---
+Task ID: 33
+Agent: main (Z.ai Code)
+Task: Hero/Navbar - replace Terminal+Rahmi.dev logo with avatar+name, navbar hover white, replace "Get In Touch" with "Download CV" (blank PDF), View My Work gets Eye icon, Download CV gets ArrowDownToLine icon.
+
+Work Log:
+- Created a blank PDF at public/cv.pdf (placeholder until the user sends their real CV).
+- In src/lib/portfolio-data.ts, updated profile.name from "Rahmi Najib" to "Najib Rahmi" and firstName to "Najib" (matches GitHub username Najib-Rahmi).
+- In src/components/navbar.tsx: removed Terminal import; replaced the gradient square + Terminal icon + "Rahmi.dev" with the user's avatar image (with a cyan/blue gradient glow ring) + the name "Najib Rahmi". Changed desktop and mobile nav link hover color from hover:text-foreground / hover:text-foreground to hover:text-white.
+- In src/components/sections/hero.tsx: added Eye icon import. "View My Work" button now uses the Eye icon instead of ArrowDownToLine. Replaced the "Get In Touch" button with a "Download CV" button that links to /cv.pdf with the download attribute, using the ArrowDownToLine icon.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: navbar shows avatar + "Najib Rahmi", hero name "Najib Rahmi", hero buttons "View My Work" (Eye) + "Download CV" (ArrowDownToLine), /cv.pdf returns 200. No runtime errors.
+
+Stage Summary:
+- Navbar logo is now the avatar + "Najib Rahmi".
+- Navbar link hover is white.
+- Hero "View My Work" button uses an Eye icon.
+- Hero "Get In Touch" replaced with "Download CV" (downloads /cv.pdf, currently blank placeholder).
+- Name updated to "Najib Rahmi" everywhere. Ready for next section.
