@@ -21,12 +21,12 @@ import {
 export const profile = {
   name: "Rahmi Najib",
   firstName: "Rahmi",
-  role: "Full-Stack Developer",
+  role: "Full Stack Web Developer",
   // Tech line shown in the GitHub typing SVG
   techLine: "React | Express.js | Node.js | Next.js",
   tagline:
     "Always learning, always building. I turn ideas into real, working products, from a blank file to a shipped app.",
-  bio: "Full-stack developer passionate about turning ideas into real, working products. I specialize in modern JavaScript frameworks and love the entire journey from a blank file to a shipped application. Currently deep into integrating AI / LLM into my workflows, always exploring what's next in tech, and actively looking for my next opportunity to build things that matter.",
+  bio: "I am a full stack web developer, ambitious and self-confident, driven by an endless curiosity to understand how things work. Whatever catches my interest, I learn it, try it, and push at it until I truly excel at it. That same energy fuels everything I build, from a first line of code to a finished, shipped product.",
   location: "Tunis, Tunisia",
   email: "hello@rahmi.dev",
   avatar: "/avatar.png",

@@ -360,3 +360,18 @@ Work Log:
 Stage Summary:
 - Avatar, name, role, location back on the left side as originally designed.
 - Ready for next section.
+
+---
+Task ID: 22
+Agent: main (Z.ai Code)
+Task: About - update the bio description with the user's hints (full stack web developer, ambitious, self-confident, curious, learn/try/excel).
+
+Work Log:
+- Rewrote profile.bio in src/lib/portfolio-data.ts to: "I am a full stack web developer, ambitious and self-confident, driven by an endless curiosity to understand how things work. Whatever catches my interest, I learn it, try it, and push at it until I truly excel at it. That same energy fuels everything I build, from a first line of code to a finished, shipped product."
+- Also updated profile.role from "Full-Stack Developer" to "Full Stack Web Developer" for consistency with the experience section.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser: new bio text present. No runtime errors.
+
+Stage Summary:
+- About bio rewritten in first person capturing ambition, self-confidence, curiosity, and the learn/try/excel loop.
+- Role label updated to "Full Stack Web Developer".
+- Ready for next section.
