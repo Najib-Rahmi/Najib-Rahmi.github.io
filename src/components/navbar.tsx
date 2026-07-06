@@ -134,7 +134,21 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    // Close the menu first, then smooth-scroll to the target
+                    // after the exit animation finishes. This avoids the native
+                    // hash jump being interrupted by the menu collapse on mobile.
+                    e.preventDefault();
+                    setOpen(false);
+                    const target = document.querySelector(link.href);
+                    window.setTimeout(() => {
+                      target?.scrollIntoView({ behavior: "smooth" });
+                      // Keep the hash in the URL for accessibility/history.
+                      if (history.replaceState) {
+                        history.replaceState(null, "", link.href);
+                      }
+                    }, 280);
+                  }}
                   className={cn(
                     "px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                     active === link.href

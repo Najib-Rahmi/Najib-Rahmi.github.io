@@ -1011,3 +1011,17 @@ Work Log:
 
 Stage Summary:
 - On PC, there is now an empty line gap between the role and the tagline. Mobile unaffected. Ready for next section.
+
+---
+Task ID: 54
+Agent: main (Z.ai Code)
+Task: Fix mobile hamburger menu - clicking items did nothing on phone.
+
+Work Log:
+- Root cause: the mobile menu items used onClick={() => setOpen(false)} which triggered framer-motion's exit animation. On mobile, the exit animation (height 0 over 250ms) interrupted the native hash navigation and smooth scroll, so the page didn't scroll to the target section.
+- Fix in src/components/navbar.tsx: changed the mobile menu link onClick to preventDefault(), close the menu immediately, then after 280ms (just after the 250ms exit animation) call target.scrollIntoView({behavior: smooth}) and update the URL hash via history.replaceState. This ensures the menu fully closes before the smooth scroll runs, avoiding the conflict.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser on 390x844 mobile: clicked Contact menu item -> menu closed, URL updated to #contact, page scrolled to 8344px, contact section top at 80px (visible below navbar). No runtime errors.
+
+Stage Summary:
+- Mobile menu items now work: clicking closes the menu and smooth-scrolls to the target section. Ready for user to test on their phone via sharing.
