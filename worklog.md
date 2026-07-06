@@ -537,3 +537,22 @@ Stage Summary:
 - Name is blue in light mode, white in dark mode, with a cyan glow in both themes.
 - Download CV button fixed for light mode (white bg, cyan border, blue text). View My Work button strengthened for both themes.
 - Ready for next section.
+
+---
+Task ID: 35
+Agent: main (Z.ai Code)
+Task: Hero/Navbar - apply name color+glow to navbar logo name, make "View My Work" button match "Download CV" style.
+
+Work Log:
+- In src/components/navbar.tsx, added text-blue-600 dark:text-white [text-shadow:0_0_18px_rgba(34,211,238,0.55)] to the navbar logo name span. Glow radius is 18px (smaller than hero's 40px to fit the smaller text size).
+- In src/components/sections/hero.tsx, replaced the "View My Work" button gradient style with the same style as "Download CV": bg-white/70 dark:bg-white/5 backdrop-blur-md border-cyan-500/40 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50.
+- Ran `bun run lint` -> passed clean. Verified with Agent Browser:
+  - Dark mode navbar logo name: rgb(255,255,255) white with cyan glow rgba(34,211,238,0.55) 0 0 18px.
+  - Light mode navbar logo name: blue (lab 44,29,-86) with same cyan glow.
+  - Both buttons now share identical className.
+  - No runtime errors.
+
+Stage Summary:
+- Navbar logo name now matches hero name (blue in light, white in dark, cyan glow).
+- "View My Work" and "Download CV" buttons now have the same style (white bg, cyan border, blue text in light; subtle in dark).
+- Ready for next section.

@@ -93,7 +93,7 @@ export function Hero() {
           <Button
             asChild
             size="lg"
-            className="w-full sm:w-auto rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/40 hover:shadow-xl hover:shadow-cyan-500/50 hover:brightness-110 border-0"
+            className="w-full sm:w-auto rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-cyan-500/40 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50"
           >
             <a href="#projects">
               View My Work

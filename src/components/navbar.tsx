@@ -63,7 +63,7 @@ export function Navbar() {
               className="relative size-8 sm:size-9 rounded-full object-cover ring-2 ring-background"
             />
           </span>
-          <span className="tracking-tight">
+          <span className="tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_18px_rgba(34,211,238,0.55)]">
             {profile.name}
           </span>
         </a>
