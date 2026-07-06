@@ -769,3 +769,15 @@ Work Log:
 
 Stage Summary:
 - Projects section now shows the 6 requested projects with real descriptions and real GitHub repo links. Ready for next section.
+
+---
+Task ID: 50
+Agent: main (Z.ai Code)
+Task: Hero - make the tagline color cyan in light mode for better visibility (phone mode).
+
+Work Log:
+- In src/components/sections/hero.tsx, changed the tagline paragraph className from text-slate-600 to text-cyan-600 for light mode, and added font-medium for better readability. Dark mode keeps text-white/80.
+- Verified with Agent Browser on 390x844 mobile in light mode: tagline color is cyan (lab 55,-26,-30). Lint clean. No runtime errors.
+
+Stage Summary:
+- Tagline now cyan in light mode, more visible against the photo. Ready for next section.

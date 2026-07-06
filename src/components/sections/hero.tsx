@@ -82,7 +82,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto md:ml-0 max-w-2xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-white/80 leading-relaxed whitespace-pre-line"
+            className="mx-auto md:ml-0 max-w-2xl text-base sm:text-lg md:text-xl text-cyan-600 dark:text-white/80 leading-relaxed whitespace-pre-line font-medium"
           >
             {profile.tagline}
           </motion.p>
