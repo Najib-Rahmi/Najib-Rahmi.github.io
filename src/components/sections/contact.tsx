@@ -73,17 +73,10 @@ export function Contact() {
     }
   }
 
-  // Social links plus the location, shown together without a card box.
-  const socialItems = [
-    ...socialLinks,
-    {
-      label: profile.location,
-      href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-        profile.location
-      )}`,
-      icon: MapPin,
-    },
-  ];
+  // Location shown as plain text (no box) before the social icons.
+  const locationHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    profile.location
+  )}`;
 
   return (
     <section id="contact" className="relative py-20 sm:py-28 bg-background">
@@ -103,11 +96,20 @@ export function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2 flex flex-col justify-center gap-4"
           >
+            <a
+              href={locationHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 w-fit"
+            >
+              <MapPin className="size-4" />
+              {profile.location}
+            </a>
             <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
               Find me online
             </h3>
             <div className="flex flex-wrap gap-3">
-              {socialItems.map((social) => (
+              {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
@@ -222,7 +224,7 @@ export function Contact() {
               <Button
                 type="submit"
                 disabled={submitting || done}
-                className="w-full sm:w-auto rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 hover:brightness-110 border-0"
+                className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 hover:brightness-110 border-0"
               >
                 {submitting ? (
                   <>

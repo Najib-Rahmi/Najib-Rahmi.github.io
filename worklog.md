@@ -107,3 +107,21 @@ Work Log:
 Stage Summary:
 - Contact textarea now has a moderate height increase (176px), form box 402px tall.
 - Ready for next section.
+
+---
+Task ID: 7
+Agent: main (Z.ai Code)
+Task: Contact section - make Send Message button same width as textarea, and show location as visible text before "Find me online" (no boxes).
+
+Work Log:
+- In src/components/sections/contact.tsx, changed the Send Message button from `w-full sm:w-auto` to `w-full` so it spans the full width of the form (matching the textarea width).
+- Removed the location entry from the socialItems array (it was just an icon in the grid).
+- Added the location as a visible plain text link (MapPin icon + "Tunis, Tunisia") placed BEFORE the "Find me online" heading, with no box/card wrapper. Links to Google Maps.
+- The social icons grid now shows only GitHub, LinkedIn, WhatsApp, Email (location removed from it).
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: button width (507px) matches textarea width (507px). Left column order: location text -> "Find me online" -> social icons. Location visible as text, no boxes. Form still submits successfully. No runtime errors.
+
+Stage Summary:
+- Send Message button now full width (same as textarea).
+- Location shown as plain text with icon before "Find me online", no boxes anywhere in the left column.
+- Ready for next section.
