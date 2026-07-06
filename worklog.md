@@ -58,3 +58,22 @@ Stage Summary:
 - Real avatar, bio, tech stack, projects (with live repo URLs), and social links all integrated.
 - Email is a placeholder (hello@rahmi.dev) since no public email was on the GitHub profile; user can update it in src/lib/portfolio-data.ts.
 - Lint clean, browser-verified, no em dashes.
+
+---
+Task ID: 3
+Agent: main (Z.ai Code)
+Task: Modify the Contact section: remove the "Get in touch" box and add location to social media, remove the social media box but keep the social icons.
+
+Work Log:
+- Removed the "Get in touch" card box (heading, description paragraph, and Email/Location/GitHub contact info list) from src/components/sections/contact.tsx.
+- Removed the card box (border + bg + padding + "Find me online" heading) wrapping the social icons, but kept the icons.
+- Added the location (Tunis, Tunisia) as a social icon item using MapPin, linking to Google Maps search for the location. Built a combined socialItems array = [...socialLinks, locationItem].
+- Kept a small "Find me online" label above the icons (no card box) for context, and vertically centered the left column to balance with the form.
+- Cleaned up unused imports (removed Mail, Github; kept MapPin).
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: "Get in touch" box gone, social icons (GitHub, LinkedIn, freeCodeCamp, Email, Tunis Tunisia location) shown without a card wrapper, location link points to Google Maps, contact form still submits successfully (success toast appears). No runtime errors.
+
+Stage Summary:
+- Contact section left column now shows only the "Find me online" label + social icons including a location (MapPin) icon, no card boxes.
+- Form on the right unchanged and working.
+- Ready for the next section modification.

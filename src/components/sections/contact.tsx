@@ -6,9 +6,7 @@ import {
   Send,
   Loader2,
   CheckCircle2,
-  Mail,
   MapPin,
-  Github,
 } from "lucide-react";
 
 import { SectionHeading } from "@/components/section-heading";
@@ -75,24 +73,15 @@ export function Contact() {
     }
   }
 
-  const contactInfo = [
+  // Social links plus the location, shown together without a card box.
+  const socialItems = [
+    ...socialLinks,
     {
-      icon: Mail,
-      label: "Email",
-      value: profile.email,
-      href: `mailto:${profile.email}`,
-    },
-    {
+      label: profile.location,
+      href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        profile.location
+      )}`,
       icon: MapPin,
-      label: "Location",
-      value: profile.location,
-      href: undefined,
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "github.com/Najib-Rahmi",
-      href: profile.githubUrl,
     },
   ];
 
@@ -112,65 +101,25 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-2 flex flex-col gap-4"
+            className="lg:col-span-2 flex flex-col justify-center gap-4"
           >
-            <div className="rounded-2xl border border-cyan-500/15 bg-card p-6">
-              <h3 className="text-lg font-semibold">Get in touch</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                Whether you have a question, a project proposal, or just want to
-                connect, I will do my best to get back to you within a day.
-              </p>
-
-              <div className="mt-5 space-y-3">
-                {contactInfo.map((info) => {
-                  const content = (
-                    <div className="flex items-center gap-3 group">
-                      <span className="grid place-items-center size-10 rounded-lg bg-gradient-to-br from-cyan-500/15 to-blue-600/15 text-cyan-600 dark:text-cyan-400 transition-transform group-hover:scale-110">
-                        <info.icon className="size-5" />
-                      </span>
-                      <div>
-                        <div className="text-xs uppercase tracking-wide text-muted-foreground">
-                          {info.label}
-                        </div>
-                        <div className="text-sm font-medium">{info.value}</div>
-                      </div>
-                    </div>
-                  );
-                  return info.href ? (
-                    <a
-                      key={info.label}
-                      href={info.href}
-                      className="block rounded-lg p-1 transition-colors hover:bg-cyan-500/5"
-                    >
-                      {content}
-                    </a>
-                  ) : (
-                    <div key={info.label} className="p-1">
-                      {content}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-cyan-500/15 bg-card p-6">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                Find me online
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="grid place-items-center size-11 rounded-xl border border-cyan-500/15 bg-background text-muted-foreground transition-all hover:-translate-y-1 hover:border-cyan-500/45 hover:text-cyan-600 dark:hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10"
-                  >
-                    <social.icon className="size-5" />
-                  </a>
-                ))}
-              </div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+              Find me online
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {socialItems.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  title={social.label}
+                  className="grid place-items-center size-12 rounded-xl border border-cyan-500/15 bg-background text-muted-foreground transition-all hover:-translate-y-1 hover:border-cyan-500/45 hover:text-cyan-600 dark:hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10"
+                >
+                  <social.icon className="size-5" />
+                </a>
+              ))}
             </div>
           </motion.div>
 
