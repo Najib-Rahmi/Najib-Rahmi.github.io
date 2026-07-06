@@ -590,3 +590,15 @@ Stage Summary:
 - Mobile layout improved across skills (wrap instead of scroll), experience (right padding for long text), and contact (centered socials on mobile).
 - Desktop layout unchanged. Colors and effects untouched.
 - Ready for next section.
+
+---
+Task ID: 38
+Agent: main (Z.ai Code)
+Task: Mobile - make the skills section description text ("A versatile toolkit...") responsive (wrap on mobile).
+
+Work Log:
+- In src/components/section-heading.tsx, changed the nowrap variant className from "whitespace-nowrap" to "whitespace-normal md:whitespace-nowrap". The description now wraps on mobile (< 768px) and stays on a single line on desktop (>= 768px).
+- Ran `bun run lint` -> passed clean. Verified on 390x844 mobile viewport: whiteSpace is "normal" with height 46px (2 lines). No runtime errors.
+
+Stage Summary:
+- Skills description now wraps on mobile and stays one line on desktop. Ready for next section.

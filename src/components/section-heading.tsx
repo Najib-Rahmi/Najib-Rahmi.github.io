@@ -56,7 +56,7 @@ export function SectionHeading({
           transition={{ duration: 0.5, delay: 0.1 }}
           className={
             nowrap
-              ? "text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-nowrap"
+              ? "text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-normal md:whitespace-nowrap"
               : "max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed"
           }
         >
