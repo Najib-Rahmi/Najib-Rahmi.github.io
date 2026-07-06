@@ -273,3 +273,23 @@ Stage Summary:
 - Kilo Code is now yellow (#FACC15) with the square background removed so the glow traces the K marks, not a rectangle.
 - GLM (Z.ai Z) now glows in its brand blue (#3B5BFE) reliably in both light and dark mode (inline style with real hex color, not currentColor).
 - No rectangle glow on any icon. Ready for next section.
+
+---
+Task ID: 17
+Agent: main (Z.ai Code)
+Task: Skills - make glow adaptive (white in dark, black in light) for Next.js, Express.js, GitHub, GLM, and MySQL only.
+
+Work Log:
+- In src/components/tech-icon.tsx, added an ADAPTIVE_GLOW set containing the slugs: nextdotjs, express, github, glm, mysql.
+- For icons in this set, the glow filter color uses var(--foreground) (which is near-white in dark mode and near-black in light mode) instead of the brand color. The icon fill stays the brand color.
+- All other icons keep their brand-color glow.
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser:
+  - Dark mode: Next.js, Express.js, MySQL, GLM glow lab(98.26 0 0) = white. Others glow in brand colors.
+  - Light mode: Next.js, Express.js, MySQL, GLM glow lab(2.75 0 0) = black. Others glow in brand colors.
+  - No runtime errors.
+
+Stage Summary:
+- The 5 specified icons (Next.js, Express.js, GitHub, GLM, MySQL) now have a theme-adaptive glow: white in dark mode, black in light mode.
+- All other icons keep their brand-color glow.
+- Ready for next section.

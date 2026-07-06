@@ -61,6 +61,16 @@ function getIcon(slug: string): { viewBox: string; path: string } | null {
   return entry;
 }
 
+// Icons whose glow should be theme-adaptive (white in dark mode, black in light mode)
+// instead of their brand color, because their brand color is white or hard to read.
+const ADAPTIVE_GLOW = new Set([
+  "nextdotjs",
+  "express",
+  "github",
+  "glm",
+  "mysql",
+]);
+
 type TechIconProps = {
   slug: string;
   color: string;
@@ -78,6 +88,8 @@ export function TechIcon({
 }: TechIconProps) {
   const icon = getIcon(slug);
   if (!icon) return null;
+  // Adaptive glow uses the theme foreground (white in dark, black in light) via var(--foreground).
+  const glowColor = ADAPTIVE_GLOW.has(slug) ? "var(--foreground)" : color;
   return (
     <svg
       role="img"
@@ -89,7 +101,7 @@ export function TechIcon({
         color,
         ...(glow
           ? {
-              filter: `drop-shadow(0 0 4px ${color}) drop-shadow(0 0 10px ${color})`,
+              filter: `drop-shadow(0 0 4px ${glowColor}) drop-shadow(0 0 10px ${glowColor})`,
             }
           : {}),
       }}
