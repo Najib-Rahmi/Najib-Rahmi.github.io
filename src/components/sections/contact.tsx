@@ -208,8 +208,8 @@ export function Contact() {
                   }
                   className={
                     errors.message
-                      ? "border-destructive focus-visible:ring-destructive/30 resize-none min-h-80"
-                      : "resize-none min-h-80"
+                      ? "border-destructive focus-visible:ring-destructive/30 resize-none min-h-44"
+                      : "resize-none min-h-44"
                   }
                 />
                 {errors.message && (

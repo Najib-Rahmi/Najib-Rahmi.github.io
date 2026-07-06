@@ -93,3 +93,17 @@ Stage Summary:
 - freeCodeCamp replaced with WhatsApp using the real number +216 24 583 312 (wa.me link).
 - Contact form box is now taller (520px min height) with more padding and a larger message area for a better look.
 - Ready for the next section modification.
+
+---
+Task ID: 6
+Agent: main (Z.ai Code)
+Task: Contact section - reduce the textarea height (it was increased too much).
+
+Work Log:
+- In src/components/sections/contact.tsx, reduced the message textarea min-height from min-h-80 (320px) to min-h-44 (176px).
+- Verified: form box is now 402px tall, textarea is 176px. Lint clean, no runtime errors.
+- Note: The Textarea component has field-sizing-content and min-h-16 by default, so rows attribute alone has no effect; using min-h-* on the className controls the height.
+
+Stage Summary:
+- Contact textarea now has a moderate height increase (176px), form box 402px tall.
+- Ready for next section.
