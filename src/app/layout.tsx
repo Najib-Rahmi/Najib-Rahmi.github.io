@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 // Update this to your real deployed domain when you go live.
-const siteUrl = "https://najib-rahmi.github.io";
+const siteUrl = "https://najibrahmi.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
