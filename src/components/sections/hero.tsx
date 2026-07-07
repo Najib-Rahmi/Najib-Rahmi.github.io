@@ -17,12 +17,12 @@ export function Hero() {
           Mobile uses a portrait-optimized image; desktop uses the landscape one. */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 md:hidden"
-        style={{ backgroundImage: "url(/hero-bg-mobile.png)" }}
+        style={{ backgroundImage: "url(/hero-bg-mobile.webp)" }}
         aria-hidden
       />
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 hidden md:block"
-        style={{ backgroundImage: "url(/hero-bg.png)" }}
+        style={{ backgroundImage: "url(/hero-bg.webp)" }}
         aria-hidden
       />
       {/* Dark overlay for dark mode */}

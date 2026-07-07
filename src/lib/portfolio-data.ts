@@ -25,7 +25,7 @@ export const profile = {
   bio: "I am a full stack web developer who builds modern, responsive web apps with React, Next.js, Node.js, and Express.js, comfortable across the whole stack from clean interfaces to solid backends.\nI am ambitious and self-confident, driven by an endless curiosity to understand how things work. Whatever catches my interest, I learn it, try it, and push at it until I truly excel at it. That same energy fuels everything I build, from a first line of code to a finished, shipped product.\nRight now I am diving deep into AI integration, exploring MCP, RAG, and agent skills, and working hands-on with LLMs like Claude Code, Kilo Code, and GLM to build smarter, more capable workflows.",
   location: "Tunis, Tunisia",
   email: "najib.rahmi.dev@gmail.com",
-  avatar: "/avatar.png",
+  avatar: "/avatar.webp",
   githubUrl: "https://github.com/Najib-Rahmi",
   resumeUrl: "#",
 };
