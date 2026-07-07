@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -63,9 +64,11 @@ export function Navbar() {
         >
           <span className="relative shrink-0 transition-transform group-hover:scale-110">
             <span className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 blur-[3px] opacity-70" />
-            <img
+            <Image
               src={profile.avatar}
               alt={`${profile.name} logo`}
+              width={36}
+              height={36}
               className="relative size-8 sm:size-9 rounded-full object-cover ring-2 ring-background"
             />
           </span>

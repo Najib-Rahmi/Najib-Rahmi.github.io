@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown, ArrowDownToLine, MapPin, Eye } from "lucide-react";
 
@@ -13,18 +14,28 @@ export function Hero() {
       id="home"
       className="relative min-h-svh w-full flex items-center justify-center overflow-hidden"
     >
-      {/* Background photo, scales to cover without distortion.
+      {/* Background photo via next/image for optimization.
           Mobile uses a portrait-optimized image; desktop uses the landscape one. */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 md:hidden"
-        style={{ backgroundImage: "url(/hero-bg-mobile.webp)" }}
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 hidden md:block"
-        style={{ backgroundImage: "url(/hero-bg.webp)" }}
-        aria-hidden
-      />
+      <div className="absolute inset-0 md:hidden" aria-hidden>
+        <Image
+          src="/hero-bg-mobile.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center scale-105"
+        />
+      </div>
+      <div className="absolute inset-0 hidden md:block" aria-hidden>
+        <Image
+          src="/hero-bg.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center scale-105"
+        />
+      </div>
       {/* Dark overlay for dark mode */}
       <div
         className="absolute inset-0 hidden dark:block bg-gradient-to-b from-black/70 via-black/55 to-black/80"

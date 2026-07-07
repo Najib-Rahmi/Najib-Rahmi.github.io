@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/section-heading";
@@ -29,11 +30,12 @@ export function About() {
           <div className="flex items-center gap-5">
             <div className="relative shrink-0">
               <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 blur-md opacity-60" />
-              <img
+              <Image
                 src={profile.avatar}
                 alt={`${profile.name} avatar`}
                 width={96}
                 height={96}
+                loading="lazy"
                 className="relative size-20 sm:size-24 rounded-full object-cover ring-4 ring-background"
               />
             </div>
