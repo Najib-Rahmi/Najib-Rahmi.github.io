@@ -1127,3 +1127,18 @@ Work Log:
 
 Stage Summary:
 - Security headers re-enabled. Full site verified working end-to-end on desktop and mobile, both themes. SEO (metadata, JSON-LD, sitemap, robots, security headers) all active and correct. Lint clean, no runtime errors. Site is production-ready (pending real CV PDF and real domain).
+
+---
+Task ID: 61
+Agent: main (Z.ai Code)
+Task: Remove 43 unused shadcn UI components and 32 unused npm packages after user confirmation.
+
+Work Log:
+- Deleted 43 unused UI component files from src/components/ui/: accordion, alert, alert-dialog, aspect-ratio, avatar, badge, breadcrumb, calendar, card, carousel, chart, checkbox, collapsible, command, context-menu, dialog, drawer, dropdown-menu, form, hover-card, input-otp, label, menubar, navigation-menu, pagination, popover, progress, radio-group, resizable, scroll-area, select, separator, sheet, sidebar, skeleton, slider, sonner, switch, table, tabs, toggle, toggle-group, tooltip.
+- Kept the 5 used components: button, input, textarea, toast, toaster.
+- Uninstalled 32 unused npm packages via `bun remove`: 25 Radix UI packages (@radix-ui/react-accordion through react-tooltip) + 7 others (cmdk, embla-carousel-react, react-day-picker, react-resizable-panels, input-otp, recharts, vaul).
+- Ran `bun run lint` -> passed clean.
+- Verified with Agent Browser: page title correct, no runtime errors, all 6 sections present, contact form (Name/Email/Message + Send Message) intact. Dev log clean.
+
+Stage Summary:
+- Codebase cleaned: 43 component files + 32 npm packages removed. Site fully functional. Lint clean, no runtime errors. Components can be re-added via `npx shadcn@latest add <name>` if needed later.
