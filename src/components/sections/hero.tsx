@@ -12,13 +12,14 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-svh w-full flex items-center justify-center overflow-hidden"
-    >
+      className="relative min-h-svh w-full flex items-center justify-center overflow-hidden">
       {/* Background photo via next/image for optimization.
           Mobile uses a portrait-optimized image; desktop uses the landscape one. */}
-      <div className="absolute inset-0 md:hidden" aria-hidden>
+      <div
+        className="absolute inset-0 md:hidden"
+        aria-hidden>
         <Image
-          src="/mybackgroundPhoto.webp"
+          src="/myphonebackground.webp"
           alt=""
           fill
           priority
@@ -26,9 +27,11 @@ export function Hero() {
           className="object-cover object-center scale-105"
         />
       </div>
-      <div className="absolute inset-0 hidden md:block" aria-hidden>
+      <div
+        className="absolute inset-0 hidden md:block"
+        aria-hidden>
         <Image
-          src="/hero-bg.webp"
+          src="/mybackgroundPhoto.webp"
           alt=""
           fill
           priority
@@ -60,8 +63,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/10 dark:bg-white/10 backdrop-blur-md border border-white/20 dark:border-white/20 border-slate-900/10 bg-slate-900/5 text-cyan-600 dark:text-cyan-200"
-          >
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/10 dark:bg-white/10 backdrop-blur-md border border-white/20 dark:border-white/20 border-slate-900/10 bg-slate-900/5 text-cyan-600 dark:text-cyan-200">
             <MapPin className="size-3.5" />
             {profile.location}
           </motion.span>
@@ -70,8 +72,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_40px_rgba(34,211,238,0.55)] whitespace-nowrap"
-          >
+            className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_40px_rgba(34,211,238,0.55)] whitespace-nowrap">
             {profile.name}
           </motion.h1>
 
@@ -79,8 +80,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold"
-          >
+            className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold">
             <span className="bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-300 dark:to-blue-400 bg-clip-text text-transparent">
               {profile.role}
             </span>
@@ -93,8 +93,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto md:ml-0 max-w-2xl text-base sm:text-lg md:text-xl text-cyan-600 dark:text-white/80 leading-relaxed whitespace-pre-line font-medium md:mt-6"
-          >
+            className="mx-auto md:ml-0 max-w-2xl text-base sm:text-lg md:text-xl text-cyan-600 dark:text-white/80 leading-relaxed whitespace-pre-line font-medium md:mt-6">
             {profile.tagline}
           </motion.p>
 
@@ -102,13 +101,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 sm:mt-9 flex flex-row items-center md:justify-start justify-center gap-3 w-full sm:w-auto md:w-auto"
-          >
+            className="mt-6 sm:mt-9 flex flex-row items-center md:justify-start justify-center gap-3 w-full sm:w-auto md:w-auto">
             <Button
               asChild
               size="lg"
-              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50"
-            >
+              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50">
               <a href="#projects">
                 View My Work
                 <Eye className="size-4" />
@@ -118,9 +115,10 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50"
-            >
-              <a href="/cv.pdf" download>
+              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50">
+              <a
+                href="/cv.pdf"
+                download>
                 Download CV
                 <ArrowDownToLine className="size-4" />
               </a>
@@ -136,8 +134,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-slate-500 dark:text-white/70 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"
-      >
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-slate-500 dark:text-white/70 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors">
         <span className="text-[0.7rem] uppercase tracking-[0.25em]">
           Scroll
         </span>
