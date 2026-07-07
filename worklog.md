@@ -1142,3 +1142,19 @@ Work Log:
 
 Stage Summary:
 - Codebase cleaned: 43 component files + 32 npm packages removed. Site fully functional. Lint clean, no runtime errors. Components can be re-added via `npx shadcn@latest add <name>` if needed later.
+
+---
+Task ID: 62
+Agent: main (Z.ai Code)
+Task: Reword all 62 commit messages from UUIDs to clear, descriptive messages.
+
+Work Log:
+- Analyzed all 62 commits by mapping changed files to worklog tasks.
+- Created a commit message mapping script (/tmp/reword-messages.sh) with 62 descriptive messages covering: initial setup, section builds (hero, about, skills, projects, experience, contact), design iterations (colors, glow, layout), mobile responsiveness, SEO implementation, code cleanup, and config changes.
+- Used `git filter-branch --msg-filter` to rewrite all commit messages. Required two passes: first pass matched 50 commits by original 7-char hashes, second pass matched the remaining 12 commits whose hashes changed in the first pass.
+- All 62 commits now have clear, descriptive messages (e.g., "Skills: redesign without boxes, add official brand icons via TechIcon", "Hero/Navbar: avatar logo with name, white hover, Download CV button, Eye icon", "SEO: complete metadata, JSON-LD, sitemap.ts, robots.ts, security headers").
+- Original commit dates preserved (July 6-7, 2026).
+- Working tree clean, 62 commits, lint clean.
+
+Stage Summary:
+- All 62 commits have clear descriptive messages. Ready to push to GitHub.
