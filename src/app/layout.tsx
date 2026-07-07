@@ -66,7 +66,7 @@ export const metadata: Metadata = {
       "Curious by nature, I build modern web apps end to end and keep raising the bar with every line of code.",
     images: [
       {
-        url: "/hero-bg.png",
+        url: "/hero-bg.webp",
         width: 1672,
         height: 941,
         alt: "Najib Rahmi, full stack web developer",
@@ -78,14 +78,12 @@ export const metadata: Metadata = {
     title: "Najib Rahmi | Full Stack Web Developer",
     description:
       "Curious by nature, I build modern web apps end to end. Turning complex problems into clean, scalable software that real people use.",
-    images: ["/hero-bg.png"],
+    images: ["/hero-bg.webp"],
     creator: "@najibrahmi",
   },
   icons: {
-    icon: [
-      { url: "/avatar.png", type: "image/png" },
-    ],
-    apple: [{ url: "/avatar.png", type: "image/png" }],
+    icon: [{ url: "/avatar.webp", type: "image/webp" }],
+    apple: [{ url: "/avatar.webp", type: "image/webp" }],
   },
   category: "technology",
 };
@@ -99,7 +97,7 @@ const jsonLd = {
       "@id": `${siteUrl}/#person`,
       name: "Najib Rahmi",
       url: siteUrl,
-      image: `${siteUrl}/avatar.png`,
+      image: `${siteUrl}/avatar.webp`,
       jobTitle: "Full Stack Web Developer",
       description:
         "Full stack web developer building modern, responsive web apps with React, Next.js, Node.js, and Express.js, and integrating AI / LLM workflows.",
@@ -154,7 +152,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -162,14 +162,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
-          disableTransitionOnChange
-        >
+          disableTransitionOnChange>
           {children}
           <Toaster />
         </ThemeProvider>

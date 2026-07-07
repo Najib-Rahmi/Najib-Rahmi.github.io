@@ -18,7 +18,7 @@ export function Hero() {
           Mobile uses a portrait-optimized image; desktop uses the landscape one. */}
       <div className="absolute inset-0 md:hidden" aria-hidden>
         <Image
-          src="/hero-bg-mobile.webp"
+          src="/mybackgroundPhoto.webp"
           alt=""
           fill
           priority
