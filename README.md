@@ -27,9 +27,24 @@ This portfolio showcases the work, skills, and experience of **Najib Rahmi**, a 
 
 ### Responsive Design
 
-| Desktop | Tablet | Mobile |
-|---------|--------|--------|
-| ![Desktop](public/screenshots/pc.png) | ![Tablet](public/screenshots/tablet.png) | ![Mobile](public/screenshots/phone.png) |
+<table>
+  <tr>
+    <td align="center"><b>Desktop (Dark)</b></td>
+    <td align="center"><b>Desktop (Light)</b></td>
+  </tr>
+  <tr>
+    <td><img src="public/screenshots/pc-dark.png" alt="Desktop Dark" width="400"/></td>
+    <td><img src="public/screenshots/pc-light.png" alt="Desktop Light" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Mobile (Dark)</b></td>
+    <td align="center"><b>Mobile (Light)</b></td>
+  </tr>
+  <tr>
+    <td><img src="public/screenshots/phone-dark.jpg" alt="Mobile Dark" width="200"/></td>
+    <td><img src="public/screenshots/phone-light.jpg" alt="Mobile Light" width="200"/></td>
+  </tr>
+</table>
 
 ---
 
@@ -37,9 +52,24 @@ This portfolio showcases the work, skills, and experience of **Najib Rahmi**, a 
 
 ### Hero Section
 
-| Dark Mode | Light Mode |
-|-----------|------------|
-| ![Hero Dark](public/screenshots/hero-dark.png) | ![Hero Light](public/screenshots/hero-light.png) |
+<table>
+  <tr>
+    <td align="center"><b>Desktop - Dark Mode</b></td>
+    <td align="center"><b>Desktop - Light Mode</b></td>
+  </tr>
+  <tr>
+    <td><img src="public/screenshots/pc-dark.png" alt="Hero Dark" width="400"/></td>
+    <td><img src="public/screenshots/pc-light.png" alt="Hero Light" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Mobile - Dark Mode</b></td>
+    <td align="center"><b>Mobile - Light Mode</b></td>
+  </tr>
+  <tr>
+    <td><img src="public/screenshots/phone-dark.jpg" alt="Mobile Hero Dark" width="200"/></td>
+    <td><img src="public/screenshots/phone-light.jpg" alt="Mobile Hero Light" width="200"/></td>
+  </tr>
+</table>
 
 Full-screen hero with photo background, name with cyan glow, role, tagline, and two CTA buttons (View My Work + Download CV). Scroll indicator at the bottom.
 
