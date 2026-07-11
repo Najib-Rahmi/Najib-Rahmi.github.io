@@ -101,7 +101,7 @@ Open `http://localhost:3000` and see it for yourself.
 
 ## Customize it
 
-All content lives in one file: [`src/lib/portfolio-data.ts`](src/lib/portfolio-data.ts). Edit the profile, skills, projects, and experience there. Replace `public/cv.pdf` with your real CV. Swap the hero backgrounds in `public/mybackgroundPhoto.webp` (desktop) and `public/myphonebackground.webp` (mobile).
+All content lives in one file: [`src/lib/portfolio-data.ts`](src/lib/portfolio-data.ts). Edit the profile, skills, projects, and experience there. Replace `public/Najib_Rahmi_Resume.pdf` with your real CV. Swap the hero backgrounds in `public/mybackgroundPhoto.webp` (desktop) and `public/myphonebackground.webp` (mobile).
 
 ---
 

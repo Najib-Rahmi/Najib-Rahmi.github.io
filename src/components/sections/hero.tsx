@@ -117,7 +117,7 @@ export function Hero() {
               variant="outline"
               className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50">
               <a
-                href="/cv.pdf"
+                href="/Najib_Rahmi_Resume.pdf"
                 download>
                 Download CV
                 <ArrowDownToLine className="size-4" />
