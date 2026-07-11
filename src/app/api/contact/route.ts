@@ -41,8 +41,6 @@ export async function POST(request: Request) {
     );
   }
 
-  // In a real app you would persist this, send an email, or push to a queue.
-  // Here we simulate a successful submission and echo a confirmation.
   const ticket = `MSG-${Date.now().toString(36).toUpperCase()}`;
 
   return NextResponse.json(

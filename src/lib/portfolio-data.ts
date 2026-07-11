@@ -13,13 +13,10 @@ import {
   HeartPulse,
 } from "lucide-react";
 
-// Real data scraped from https://github.com/Najib-Rahmi
 export const profile = {
   name: "Najib Rahmi",
   firstName: "Najib",
   role: "Full Stack Web Developer",
-  // Tech line shown in the GitHub typing SVG
-  techLine: "React | Express.js | Node.js | Next.js",
   tagline:
     "Curious by nature, I build modern web apps end to end\nand keep raising the bar with every line of code.\nTurning complex problems into clean, scalable software\nthat real people use.",
   bio: "I am a full stack web developer who builds modern, responsive web apps with React, Next.js, Node.js, and Express.js, comfortable across the whole stack from clean interfaces to solid backends.\nI am ambitious and self-confident, driven by an endless curiosity to understand how things work. Whatever catches my interest, I learn it, try it, and push at it until I truly excel at it. That same energy fuels everything I build, from a first line of code to a finished, shipped product.\nRight now I am diving deep into AI integration, exploring MCP, RAG, and agent skills, and working hands-on with LLMs like Claude Code, Kilo Code, and GLM to build smarter, more capable workflows.",
@@ -85,7 +82,6 @@ export type SkillCategory = {
   skills: Skill[];
 };
 
-// Tech stack taken directly from the GitHub profile README badges.
 // Icons come from Simple Icons (official brand SVGs) via cdn.simpleicons.org.
 export const skillCategories: SkillCategory[] = [
   {
@@ -151,7 +147,6 @@ export type Project = {
   emoji: string;
 };
 
-// Real public repositories from github.com/Najib-Rahmi
 export const projects: Project[] = [
   {
     title: "Focus Flow",
@@ -224,7 +219,6 @@ export type Experience = {
   highlights: string[];
 };
 
-// A focused journey based on the GitHub profile narrative
 export const experiences: Experience[] = [
   {
     role: "Full Stack Web Developer",

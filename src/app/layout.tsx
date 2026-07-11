@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Update this to your real deployed domain when you go live.
 const siteUrl = "https://najibrahmi.vercel.app";
 
 export const metadata: Metadata = {
