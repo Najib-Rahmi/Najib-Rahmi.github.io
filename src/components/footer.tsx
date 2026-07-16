@@ -1,8 +1,18 @@
 "use client";
 
+import * as React from "react";
 import { Heart, ArrowUp } from "lucide-react";
-
+import { scrollToId } from "@/lib/utils";
 import { profile, socialLinks, navLinks } from "@/lib/portfolio-data";
+
+function scrollToSection(href: string) {
+  const id = href.replace("#", "");
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.pushState(null, "", href);
+  }
+}
 
 export function Footer() {
   return (
@@ -12,8 +22,11 @@ export function Footer() {
           <div>
             <a
               href="#home"
-              className="text-lg font-bold tracking-tight"
-            >
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToId("#home");
+              }}
+              className="text-lg font-bold tracking-tight">
               {profile.firstName}
               <span className="text-cyan-500">.dev</span>
             </a>
@@ -28,8 +41,11 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-              >
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToId(link.href);
+                }}
+                className="text-sm text-muted-foreground hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                 {link.label}
               </a>
             ))}
@@ -43,8 +59,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="grid place-items-center size-9 rounded-lg border border-cyan-500/15 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-cyan-500/45 hover:text-cyan-600 dark:hover:text-cyan-400"
-              >
+                className="grid place-items-center size-9 rounded-lg border border-cyan-500/15 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-cyan-500/45 hover:text-cyan-600 dark:hover:text-cyan-400">
                 <social.icon className="size-4" />
               </a>
             ))}
@@ -59,8 +74,11 @@ export function Footer() {
           </p>
           <a
             href="#home"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-          >
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToId("#home");
+            }}
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
             Back to top
             <ArrowUp className="size-3.5" />
           </a>
