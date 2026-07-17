@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+
 type ContactPayload = {
   name?: string;
   email?: string;
@@ -15,7 +17,7 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json(
       { ok: false, error: "Invalid request body." },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -25,7 +27,7 @@ export async function POST(request: Request) {
 
   const errors: Record<string, string> = {};
   if (!name || name.length < 2) {
-    errors.name = "Please enter your name (at least 2 characters).";
+    errors.name = "Please enter your name (at least 3 characters).";
   }
   if (!email || !EMAIL_RE.test(email)) {
     errors.email = "Please enter a valid email address.";
@@ -37,7 +39,7 @@ export async function POST(request: Request) {
   if (Object.keys(errors).length > 0) {
     return NextResponse.json(
       { ok: false, errors, error: "Please fix the highlighted fields." },
-      { status: 422 }
+      { status: 422 },
     );
   }
 
@@ -49,7 +51,7 @@ export async function POST(request: Request) {
       message: `Thanks, ${name}! Your message was received. I will get back to you soon.`,
       ticket,
     },
-    { status: 200 }
+    { status: 200 },
   );
 }
 
@@ -58,6 +60,7 @@ export async function GET() {
     ok: true,
     endpoint: "/api/contact",
     method: "POST",
-    description: "Send a contact form submission with name, email, and message.",
+    description:
+      "Send a contact form submission with name, email, and message.",
   });
 }
