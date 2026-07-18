@@ -2,12 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import {
-  Send,
-  Loader2,
-  CheckCircle2,
-  MapPin,
-} from "lucide-react";
+import { Send, Loader2, CheckCircle2, MapPin } from "lucide-react";
 
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
@@ -75,11 +70,13 @@ export function Contact() {
 
   // Location shown as plain text (no box) before the social icons.
   const locationHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    profile.location
+    profile.location,
   )}`;
 
   return (
-    <section id="contact" className="relative py-20 sm:py-28 bg-background">
+    <section
+      id="contact"
+      className="relative py-10 sm:py-10 bg-background">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Contact"
@@ -94,14 +91,12 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-2 flex flex-col justify-center gap-4 items-center lg:items-start text-center lg:text-left"
-          >
+            className="lg:col-span-2 flex flex-col justify-center gap-4 items-center lg:items-start text-center lg:text-left">
             <a
               href={locationHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 w-fit"
-            >
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 w-fit">
               <MapPin className="size-4" />
               {profile.location}
             </a>
@@ -117,8 +112,7 @@ export function Contact() {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   title={social.label}
-                  className="grid place-items-center size-12 rounded-xl border border-cyan-500/15 bg-background text-muted-foreground transition-all hover:-translate-y-1 hover:border-cyan-500/45 hover:text-cyan-600 dark:hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10"
-                >
+                  className="grid place-items-center size-12 rounded-xl border border-cyan-500/15 bg-background text-muted-foreground transition-all hover:-translate-y-1 hover:border-cyan-500/45 hover:text-cyan-600 dark:hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10">
                   <social.icon className="size-5" />
                 </a>
               ))}
@@ -131,25 +125,22 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-3"
-          >
+            className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
               noValidate
-              className="rounded-2xl border border-cyan-500/15 bg-card p-6 sm:p-8 space-y-5"
-            >
+              className="rounded-2xl border border-cyan-500/15 bg-card p-6 sm:p-8 space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
-                    className="text-sm font-medium"
-                  >
+                    className="text-sm font-medium">
                     Name
                   </label>
                   <Input
                     id="name"
                     name="name"
-                    placeholder="Jane Doe"
+                    placeholder="Najib Rahmi"
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "name-error" : undefined}
                     className={
@@ -159,7 +150,9 @@ export function Contact() {
                     }
                   />
                   {errors.name && (
-                    <p id="name-error" className="text-xs text-destructive">
+                    <p
+                      id="name-error"
+                      className="text-xs text-destructive">
                       {errors.name}
                     </p>
                   )}
@@ -167,15 +160,14 @@ export function Contact() {
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
-                    className="text-sm font-medium"
-                  >
+                    className="text-sm font-medium">
                     Email
                   </label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="jane@example.com"
+                    placeholder="Najib@example.com"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
                     className={
@@ -185,7 +177,9 @@ export function Contact() {
                     }
                   />
                   {errors.email && (
-                    <p id="email-error" className="text-xs text-destructive">
+                    <p
+                      id="email-error"
+                      className="text-xs text-destructive">
                       {errors.email}
                     </p>
                   )}
@@ -195,8 +189,7 @@ export function Contact() {
               <div className="space-y-2">
                 <label
                   htmlFor="message"
-                  className="text-sm font-medium"
-                >
+                  className="text-sm font-medium">
                   Message
                 </label>
                 <Textarea
@@ -215,7 +208,9 @@ export function Contact() {
                   }
                 />
                 {errors.message && (
-                  <p id="message-error" className="text-xs text-destructive">
+                  <p
+                    id="message-error"
+                    className="text-xs text-destructive">
                     {errors.message}
                   </p>
                 )}
@@ -224,8 +219,7 @@ export function Contact() {
               <Button
                 type="submit"
                 disabled={submitting || done}
-                className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 hover:brightness-110 border-0"
-              >
+                className="w-full rounded-full bg-linear-to-r from-cyan-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 hover:brightness-110 border-0">
                 {submitting ? (
                   <>
                     <Loader2 className="size-4 animate-spin" />

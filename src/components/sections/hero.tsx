@@ -41,7 +41,7 @@ export function Hero() {
       </div>
       {/* Dark overlay for dark mode */}
       <div
-        className="absolute inset-0 hidden dark:block bg-gradient-to-b from-black/70 via-black/55 to-black/80"
+        className="absolute inset-0 hidden dark:block bg-linear-to-b from-black/70 via-black/55 to-black/80"
         aria-hidden
       />
       <div
@@ -50,12 +50,10 @@ export function Hero() {
       />
       {/* Cyan/blue tint accents (both themes) */}
       <div
-        className="absolute inset-0 mix-blend-overlay bg-gradient-to-tr from-cyan-600/30 via-transparent to-blue-700/30"
+        className="absolute inset-0 mix-blend-overlay bg-linear-to-tr from-cyan-600/30 via-transparent to-blue-700/30"
         aria-hidden
       />
 
-      {/* Content: on mobile the name/role sit near the top and the tagline/buttons near the bottom.
-          On tablet/desktop the content shifts to the left to keep the subject's face and desk clear. */}
       <div className="relative z-10 w-full px-4 sm:px-6 md:pl-[75px] lg:pl-[140px] md:pr-6 md:mr-auto max-w-4xl lg:max-w-2xl flex flex-col items-center md:items-start text-center md:text-left text-white dark:text-slate-900 md:justify-between lg:justify-center md:min-h-svh pt-24 pb-28 md:pt-[75px] md:pb-20 lg:py-20 justify-between min-h-svh">
         {/* Top: location badge + name + role + tech line */}
         <div className="flex flex-col items-center md:items-start">
@@ -81,7 +79,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold">
-            <span className="bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-300 dark:to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-500 to-blue-600 dark:from-cyan-300 dark:to-blue-400 bg-clip-text text-transparent">
               {profile.role}
             </span>
           </motion.p>
