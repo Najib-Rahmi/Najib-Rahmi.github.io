@@ -41,7 +41,7 @@ export function Navbar() {
         </a>
 
         {/* Mobile: Hamburger + Logo on left, WhatsApp + Theme on right */}
-        <div className="flex items-center gap-1.5 w-full md:justify-between">
+        <div className="flex items-center justify-between gap-1.5 w-full">
           {/* Left side: Hamburger + Logo */}
           <div className="flex items-center gap-1.5">
             {/* Hamburger - mobile only, left side */}
