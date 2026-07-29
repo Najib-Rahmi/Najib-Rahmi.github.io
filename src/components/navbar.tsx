@@ -39,21 +39,74 @@ export function Navbar() {
           className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-60 focus:px-4 focus:py-2 focus:rounded-md focus:bg-cyan-500 focus:text-white focus:text-sm focus:font-medium">
           Skip to content
         </a>
-        <a
-          href="#home"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToId("#home");
-          }}
-          className="group flex items-center gap-2.5 font-bold text-base sm:text-lg">
-          <span className="tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_18px_rgba(34,211,238,0.55)]">
-            {profile.firstName}
-            <span className="text-cyan-500">.dev</span>
-          </span>
-        </a>
+
+        {/* Mobile: Hamburger left, Logo center, WhatsApp + Theme right */}
+        <div className="flex items-center gap-2 w-full md:justify-between">
+          {/* Hamburger - mobile only, left side */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden rounded-full text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-cyan-300"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}>
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </Button>
+
+          {/* Logo - centered on mobile, left on desktop */}
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToId("#home");
+            }}
+            className="group flex items-center gap-2.5 font-bold text-base sm:text-lg md:order-first md:ml-0 ml-auto md:ml-0">
+            <span className="tracking-tight text-blue-600 dark:text-white [text-shadow:0_0_18px_rgba(34,211,238,0.55)]">
+              {profile.firstName}
+              <span className="text-cyan-500">.dev</span>
+            </span>
+          </a>
+
+          {/* Right side: WhatsApp + Theme Toggle */}
+          <div className="flex items-center gap-2 md:order-last">
+            {/* WhatsApp - shown on both mobile and desktop */}
+            <Button
+              asChild
+              size="sm"
+              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50 hidden sm:flex items-center gap-1.5 px-4 py-2 text-sm md:block">
+              <a
+                href="https://wa.me/21624583312"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5">
+                <FaWhatsapp
+                  className="size-4 text-green-500"
+                  aria-hidden="true"
+                />
+                <span>+216 24 583 312</span>
+              </a>
+            </Button>
+            {/* Mobile WhatsApp - icon only */}
+            <Button
+              asChild
+              size="icon"
+              className="sm:hidden rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400"
+              aria-label="WhatsApp">
+              <a
+                href="https://wa.me/21624583312"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center">
+                <FaWhatsapp className="size-4" aria-hidden="true" />
+              </a>
+            </Button>
+            <ThemeToggle />
+          </div>
+        </div>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1 md:absolute md:left-1/2 md:-translate-x-1/2">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -69,36 +122,6 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Button
-            asChild
-            size="sm"
-            className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50 hidden md:flex items-center gap-1.5 px-4 py-2 text-sm">
-            <a
-              href="https://wa.me/21624583312"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5">
-              <FaWhatsapp
-                className="size-4 text-green-500"
-                aria-hidden="true"
-              />
-              <span>+216 24 583 312</span>
-            </a>
-          </Button>
-          <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden rounded-full text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-cyan-300"
-            aria-label="Toggle menu"
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            onClick={() => setOpen((v) => !v)}>
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </Button>
         </div>
       </nav>
 
