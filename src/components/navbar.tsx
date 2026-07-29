@@ -135,6 +135,7 @@ export function Navbar() {
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToId(link.href);
+                    setOpen(false);
                   }}
                   className="px-4 py-3 rounded-lg text-sm font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-cyan-600 dark:hover:text-white">
                   {link.label}
