@@ -40,8 +40,8 @@ export function Navbar() {
           Skip to content
         </a>
 
-        {/* Mobile: Hamburger left, Logo center, WhatsApp + Theme right */}
-        <div className="flex items-center gap-2 w-full md:justify-between">
+        {/* Mobile: Hamburger left, Logo close to it, WhatsApp + Theme right */}
+        <div className="flex items-center gap-1.5 w-full md:justify-between">
           {/* Hamburger - mobile only, left side */}
           <Button
             variant="ghost"
@@ -54,7 +54,7 @@ export function Navbar() {
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </Button>
 
-          {/* Logo - centered on mobile, left on desktop */}
+          {/* Logo - close to hamburger on mobile, left on desktop */}
           <a
             href="#home"
             onClick={(e) => {
@@ -70,11 +70,11 @@ export function Navbar() {
 
           {/* Right side: WhatsApp + Theme Toggle */}
           <div className="flex items-center gap-2 md:order-last">
-            {/* WhatsApp - shown on both mobile and desktop */}
+            {/* WhatsApp - shown on both mobile and desktop with text */}
             <Button
               asChild
               size="sm"
-              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50 hidden sm:flex items-center gap-1.5 px-4 py-2 text-sm md:block">
+              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50 items-center gap-1.5 px-4 py-2 text-sm md:block">
               <a
                 href="https://wa.me/21624583312"
                 target="_blank"
@@ -85,20 +85,6 @@ export function Navbar() {
                   aria-hidden="true"
                 />
                 <span>+216 24 583 312</span>
-              </a>
-            </Button>
-            {/* Mobile WhatsApp - icon only */}
-            <Button
-              asChild
-              size="icon"
-              className="sm:hidden rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400"
-              aria-label="WhatsApp">
-              <a
-                href="https://wa.me/21624583312"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center">
-                <FaWhatsapp className="size-4" aria-hidden="true" />
               </a>
             </Button>
             <ThemeToggle />
