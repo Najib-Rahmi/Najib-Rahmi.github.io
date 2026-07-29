@@ -19,25 +19,25 @@ This is not a template. This is not a boilerplate. It's a portfolio built to mak
 ### Desktop - Dark Mode
 
 <p align="center">
-  <img src="public/screenshots/pc-dark.png" alt="Desktop Dark Mode" width="700"/>
+  <img src="public/screenshots/PcDark.png" alt="Desktop Dark Mode" width="700"/>
 </p>
 
 ### Desktop - Light Mode
 
 <p align="center">
-  <img src="public/screenshots/pc-light.png" alt="Desktop Light Mode" width="700"/>
+  <img src="public/screenshots/PcLight.png" alt="Desktop Light Mode" width="700"/>
 </p>
 
 ### Mobile - Dark Mode
 
 <p align="center">
-  <img src="public/screenshots/phone-dark.jpg" alt="Mobile Dark Mode" width="280"/>
+  <img src="public/screenshots/PhoneDark.jpeg" alt="Mobile Dark Mode" width="280"/>
 </p>
 
 ### Mobile - Light Mode
 
 <p align="center">
-  <img src="public/screenshots/phone-light.jpg" alt="Mobile Light Mode" width="280"/>
+  <img src="public/screenshots/PhoneLight.jpeg" alt="Mobile Light Mode" width="280"/>
 </p>
 
 ---
