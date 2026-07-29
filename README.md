@@ -91,8 +91,8 @@ Built with a modern, lean stack. No bloat, no unused dependencies.
 ```bash
 git clone https://github.com/Najib-Rahmi/Najib-Rahmi.github.io.git
 cd Najib-Rahmi.github.io
-bun install
-bun run dev
+pnpm install
+pnpm run dev
 ```
 
 Open `http://localhost:3000` and see it for yourself.
