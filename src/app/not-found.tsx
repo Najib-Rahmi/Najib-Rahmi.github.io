@@ -28,7 +28,7 @@ export default function NotFound() {
     <main className="min-h-svh flex items-center justify-center bg-background px-4 py-16">
       <div className="w-full max-w-xl">
         <p className="mb-3 pl-1 font-mono text-xs text-muted-foreground">
-          # error 404 — route does not exist
+          # error 404 - route does not exist
         </p>
 
         <div className="overflow-hidden rounded-lg border border-border/60 bg-zinc-950 shadow-2xl shadow-cyan-500/5">
@@ -38,7 +38,7 @@ export default function NotFound() {
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-green-500/80" />
             <span className="ml-2 font-mono text-[11px] text-zinc-500">
-              zsh — 80×24
+              zsh - 80×24
             </span>
           </div>
 
