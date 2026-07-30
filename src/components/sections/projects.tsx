@@ -29,7 +29,7 @@ export function Projects() {
               className="group relative flex flex-col rounded-2xl border border-cyan-500/15 bg-card overflow-hidden transition-all hover:-translate-y-2 hover:border-cyan-500/45 hover:shadow-2xl hover:shadow-cyan-500/10">
               {/* Cover */}
               <div
-                className={`relative h-44 bg-linear-to-br ${project.accent} overflow-hidden`}>
+                className={`relative h-44 bg-linear-to-br ${project.accent} overflow-hidden rounded-t-2xl`}>
                 <div className="absolute inset-0 bg-grid opacity-50" />
                 <img
                   src={project.image}

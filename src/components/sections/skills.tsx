@@ -5,9 +5,12 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/section-heading";
 import { TechIcon } from "@/components/tech-icon";
 import { skillCategories } from "@/lib/portfolio-data";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function Skills() {
   const skills = skillCategories.flatMap((category) => category.skills);
+  const isMobile = useIsMobile();
+  const mobileScale = isMobile ? 0.55 : 1;
 
   return (
     <section
@@ -22,19 +25,19 @@ export function Skills() {
           nowrap
         />
 
-        <div className="mt-14 relative mx-auto h-130 w-full max-w-6xl overflow-hidden">
+        <div
+          className={`mt-14 relative mx-auto w-full max-w-6xl overflow-hidden ${isMobile ? "h-105" : "h-130"}`}>
           {skills.slice(0, 17).map((skill, index) => {
-            // Icons whose paths fill the viewBox edge-to-edge (e.g. the solid
-            // JS/TS squares). They need extra padding to match the visual weight
-            // of icons like React/Tailwind that carry natural negative space.
             const FULL_BLEED = new Set(["javascript", "typescript", "express"]);
-            const scale = FULL_BLEED.has(skill.icon) ? 0.75 : 1;
+            const iconScale = FULL_BLEED.has(skill.icon) ? 0.75 : 1;
             const placement = [
               {
                 name: "HTML5",
                 top: "0%",
                 left: "40%",
-                size: 90,
+                mobileTop: "2%",
+                mobileLeft: "42%",
+                size: 90 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -42,7 +45,9 @@ export function Skills() {
                 name: "CSS3",
                 top: "0%",
                 left: "21%",
-                size: 90,
+                mobileTop: "2%",
+                mobileLeft: "15%",
+                size: 90 * mobileScale,
                 border: "border-white/80 dark:border-slate-900/80",
                 bg: "bg-black dark:bg-white",
               },
@@ -50,7 +55,9 @@ export function Skills() {
                 name: "JavaScript",
                 top: "9%",
                 left: "67%",
-                size: 120,
+                mobileTop: "10%",
+                mobileLeft: "81%",
+                size: 120 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -58,7 +65,9 @@ export function Skills() {
                 name: "TypeScript",
                 top: "9%",
                 left: "10%",
-                size: 120,
+                mobileTop: "10%",
+                mobileLeft: "0%",
+                size: 120 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -66,7 +75,9 @@ export function Skills() {
                 name: "Tailwind CSS",
                 top: "0%",
                 left: "59%",
-                size: 90,
+                mobileTop: "2%",
+                mobileLeft: "69%",
+                size: 90 * mobileScale,
                 border: "border-white/90 dark:border-slate-900/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -74,7 +85,9 @@ export function Skills() {
                 name: "React.js",
                 top: "9%",
                 left: "29%",
-                size: 120,
+                mobileTop: "10%",
+                mobileLeft: "27%",
+                size: 120 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -82,7 +95,9 @@ export function Skills() {
                 name: "Next.js",
                 top: "35%",
                 left: "29%",
-                size: 120,
+                mobileTop: "30%",
+                mobileLeft: "27%",
+                size: 120 * mobileScale,
                 border: "border-white/90 dark:border-slate-900/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -90,7 +105,9 @@ export function Skills() {
                 name: "Node.js",
                 top: "9%",
                 left: "48%",
-                size: 120,
+                mobileTop: "10%",
+                mobileLeft: "54%",
+                size: 120 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -98,7 +115,9 @@ export function Skills() {
                 name: "Express.js",
                 top: "35%",
                 left: "48%",
-                size: 120,
+                mobileTop: "30%",
+                mobileLeft: "54%",
+                size: 120 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -106,7 +125,9 @@ export function Skills() {
                 name: "MySQL",
                 top: "25%",
                 left: "21%",
-                size: 90,
+                mobileTop: "22%",
+                mobileLeft: "15%",
+                size: 90 * mobileScale,
                 border: "border-white/90 dark:border-slate-900/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -114,7 +135,9 @@ export function Skills() {
                 name: "PostgreSQL",
                 top: "25%",
                 left: "59%",
-                size: 90,
+                mobileTop: "22%",
+                mobileLeft: "69%",
+                size: 90 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -122,7 +145,9 @@ export function Skills() {
                 name: "MongoDB",
                 top: "25%",
                 left: "40%",
-                size: 90,
+                mobileTop: "22%",
+                mobileLeft: "42%",
+                size: 90 * mobileScale,
                 border: "border-white/90 dark:border-slate-900/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -130,7 +155,9 @@ export function Skills() {
                 name: "GLM",
                 top: "50%",
                 left: "21%",
-                size: 90,
+                mobileTop: "42%",
+                mobileLeft: "15%",
+                size: 90 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -138,7 +165,9 @@ export function Skills() {
                 name: "Kilo Code",
                 top: "50%",
                 left: "40%",
-                size: 90,
+                mobileTop: "42%",
+                mobileLeft: "42%",
+                size: 90 * mobileScale,
                 border: "border-white/90 dark:border-slate-900/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -146,7 +175,9 @@ export function Skills() {
                 name: "MCP",
                 top: "35%",
                 left: "10%",
-                size: 120,
+                mobileTop: "30%",
+                mobileLeft: "0%",
+                size: 120 * mobileScale,
                 border: "border-cyan-400/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -154,7 +185,9 @@ export function Skills() {
                 name: "RAG",
                 top: "35%",
                 left: "67%",
-                size: 120,
+                mobileTop: "30%",
+                mobileLeft: "81%",
+                size: 120 * mobileScale,
                 border: "border-white/90 dark:border-slate-900/90",
                 bg: "bg-black dark:bg-white",
               },
@@ -162,11 +195,22 @@ export function Skills() {
                 name: "Claude",
                 top: "50%",
                 left: "59%",
-                size: 90,
+                mobileTop: "42%",
+                mobileLeft: "69%",
+                size: 90 * mobileScale,
                 border: "border-white/90 dark:border-slate-900/90",
                 bg: "bg-black dark:bg-white",
               },
             ][index];
+
+            const top =
+              isMobile && placement.mobileTop
+                ? placement.mobileTop
+                : placement.top;
+            const left =
+              isMobile && placement.mobileLeft
+                ? placement.mobileLeft
+                : placement.left;
 
             return (
               <motion.div
@@ -179,20 +223,15 @@ export function Skills() {
                 style={{
                   width: placement.size,
                   height: placement.size,
-                  top: placement.top,
-                  left: placement.left,
+                  top: top,
+                  left: left,
                   clipPath:
                     "polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)",
                 }}>
                 <TechIcon
                   slug={skill.icon}
                   color={skill.color}
-                  // Icon fills the hexagon minus its inset, scaled down 10%.
-                  // Full-bleed icons (JS, TS, Express) get extra padding so they
-                  // match the visual weight of icons with natural negative space.
-                  size={Math.round((placement.size - 24) * 0.9 * scale)}
-                  // Hexagon background is inverted per theme (black / white), so
-                  // adaptive icons must invert too to stay readable.
+                  size={Math.round((placement.size - 24) * 0.9 * iconScale)}
                   onInvertedBg
                 />
 
