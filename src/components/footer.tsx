@@ -17,7 +17,7 @@ function scrollToSection(href: string) {
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-cyan-500/10 bg-background">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <a
