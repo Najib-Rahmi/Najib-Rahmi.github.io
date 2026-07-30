@@ -44,7 +44,6 @@ export function Navbar() {
         <div className="flex items-center justify-between gap-1.5 w-full">
           {/* Left side: Hamburger + Logo */}
           <div className="flex items-center gap-1.5">
-            {/* Hamburger - mobile only, left side */}
             <Button
               variant="ghost"
               size="icon"
@@ -55,8 +54,6 @@ export function Navbar() {
               onClick={() => setOpen((v) => !v)}>
               {open ? <X className="size-5" /> : <Menu className="size-5" />}
             </Button>
-
-            {/* Logo - right of hamburger on mobile, left on desktop */}
             <a
               href="#home"
               onClick={(e) => {
@@ -70,14 +67,12 @@ export function Navbar() {
               </span>
             </a>
           </div>
-
           {/* Right side: WhatsApp + Theme Toggle */}
           <div className="flex items-center gap-2 md:order-last">
-            {/* WhatsApp - shown on both mobile and desktop with text */}
             <Button
               asChild
               size="sm"
-              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50 items-center gap-1.5 px-4 py-2 text-sm md:block">
+              className="flex-1 sm:flex-none rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-md border-2 border-white/80 dark:border-white/30 text-blue-700 dark:text-white hover:bg-cyan-50 dark:hover:bg-white/15 hover:text-blue-800 dark:hover:text-white hover:border-cyan-500 dark:hover:border-white/50 px-4 py-2 text-sm md:flex">
               <a
                 href="https://wa.me/21624583312"
                 target="_blank"
